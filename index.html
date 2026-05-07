@@ -3,17 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Animated Favicon - Works in Chrome!</title>
+    <title>Travel Agency — Animated Favicon</title>
     <link id="dynamic-favicon" rel="icon" type="image/png" href="">
     <style>
         :root {
-            --bg: #0f0f1a;
-            --card-bg: #1a1a2e;
-            --text: #e0e0e0;
-            --accent: #ff6b6b;
-            --accent2: #4ecdc4;
-            --accent3: #ffe66d;
-            --border: #2a2a3e;
+            --bg: #0a1628;
+            --card-bg: #111d32;
+            --text: #d4dce8;
+            --accent: #00b4d8;
+            --accent2: #ff9f1c;
+            --accent3: #e63946;
+            --gold: #f0c060;
+            --ocean: #0077b6;
+            --sky: #48cae4;
+            --border: #1e3350;
+            --muted: #6b7d95;
         }
 
         * {
@@ -23,7 +27,7 @@
         }
 
         body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
             background: var(--bg);
             color: var(--text);
             min-height: 100vh;
@@ -32,58 +36,58 @@
             align-items: center;
             padding: 20px;
             background-image:
-                radial-gradient(ellipse at 20% 50%, rgba(255, 107, 107, 0.08) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 50%, rgba(78, 205, 196, 0.08) 0%, transparent 50%),
-                radial-gradient(ellipse at 50% 0%, rgba(255, 230, 109, 0.05) 0%, transparent 50%);
+                radial-gradient(ellipse at 25% 30%, rgba(0, 180, 216, 0.06) 0%, transparent 55%),
+                radial-gradient(ellipse at 75% 70%, rgba(255, 159, 28, 0.05) 0%, transparent 55%),
+                radial-gradient(ellipse at 50% 50%, rgba(72, 202, 228, 0.04) 0%, transparent 60%);
         }
 
         .main-container {
-            max-width: 700px;
+            max-width: 720px;
             width: 100%;
         }
 
+        /* Header */
         .header {
             text-align: center;
-            margin-bottom: 35px;
+            margin-bottom: 30px;
         }
-
-        .header .icon-preview {
+        .header .icon-wrap {
             display: inline-block;
-            width: 64px;
-            height: 64px;
-            border-radius: 16px;
-            margin-bottom: 16px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-            animation: float 3s ease-in-out infinite;
+            position: relative;
+            margin-bottom: 14px;
         }
-
-        @keyframes float {
+        .header canvas {
+            width: 72px;
+            height: 72px;
+            border-radius: 18px;
+            box-shadow: 0 10px 40px rgba(0, 160, 220, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.08);
+            animation: floatSoft 4s ease-in-out infinite;
+            image-rendering: auto;
+        }
+        @keyframes floatSoft {
             0%,
             100% {
-                transform: translateY(0px);
+                transform: translateY(0);
             }
             50% {
-                transform: translateY(-10px);
+                transform: translateY(-7px);
             }
         }
-
         .header h1 {
-            font-size: 2.2rem;
+            font-size: 2rem;
             font-weight: 700;
-            background: linear-gradient(135deg, var(--accent), var(--accent2), var(--accent3));
+            letter-spacing: -0.4px;
+            background: linear-gradient(135deg, #48cae4 0%, #f0c060 50%, #ff9f1c 100%);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 8px;
-            letter-spacing: -0.5px;
+            margin-bottom: 6px;
         }
-
-        .header .subtitle {
-            color: #8888aa;
-            font-size: 1rem;
-            font-weight: 400;
+        .header .tagline {
+            font-size: 0.9rem;
+            color: var(--muted);
+            letter-spacing: 0.3px;
         }
-
         .badge-row {
             display: flex;
             gap: 10px;
@@ -91,219 +95,209 @@
             flex-wrap: wrap;
             margin-top: 12px;
         }
-
         .badge {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            padding: 6px 14px;
+            gap: 5px;
+            padding: 5px 13px;
             border-radius: 20px;
-            font-size: 0.8rem;
+            font-size: 0.72rem;
             font-weight: 600;
             letter-spacing: 0.3px;
+            border: 1px solid;
         }
         .badge.chrome {
-            background: #1a3a2a;
+            background: #0f2a1a;
             color: #4caf84;
-            border: 1px solid #2a5a3a;
+            border-color: #1e4a2e;
         }
-        .badge.firefox {
-            background: #1a2a3a;
+        .badge.all {
+            background: #0f1a2a;
             color: #6cb4ee;
-            border: 1px solid #2a3a5a;
+            border-color: #1e2e4a;
         }
-        .badge.edge {
-            background: #1a2a3a;
-            color: #6cb4ee;
-            border: 1px solid #2a3a5a;
-        }
-        .badge.safari {
-            background: #2a2a3a;
-            color: #b0b0d0;
-            border: 1px solid #3a3a4e;
-        }
-        .badge .dot {
-            width: 7px;
-            height: 7px;
+        .badge .bdot {
+            width: 6px;
+            height: 6px;
             border-radius: 50%;
             display: inline-block;
         }
-        .badge .dot.green {
+        .bdot.grn {
             background: #4caf84;
             box-shadow: 0 0 6px #4caf84;
         }
-        .badge .dot.blue {
+        .bdot.blu {
             background: #6cb4ee;
             box-shadow: 0 0 6px #6cb4ee;
         }
 
+        /* Cards */
         .card {
             background: var(--card-bg);
             border: 1px solid var(--border);
             border-radius: 16px;
-            padding: 28px 24px;
-            margin-bottom: 20px;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
+            padding: 24px 22px;
+            margin-bottom: 18px;
+            transition: border-color 0.3s;
         }
         .card:hover {
-            border-color: #3a3a58;
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+            border-color: #294568;
         }
-
         .card h2 {
-            font-size: 1.15rem;
+            font-size: 1.05rem;
             font-weight: 600;
-            margin-bottom: 16px;
-            color: #ccccdd;
-            letter-spacing: 0.2px;
+            margin-bottom: 14px;
+            color: #c8d4e2;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 7px;
+            letter-spacing: 0.1px;
         }
         .card h2 .emoji {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
         }
 
-        .animation-grid {
+        /* Animation grid */
+        .anim-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-            gap: 12px;
+            grid-template-columns: repeat(auto-fit, minmax(105px, 1fr));
+            gap: 10px;
         }
-
         .anim-btn {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 8px;
-            padding: 16px 10px;
+            gap: 7px;
+            padding: 14px 8px;
             border-radius: 12px;
             border: 2px solid transparent;
             cursor: pointer;
-            background: #1e1e34;
-            color: #ccc;
+            background: #152238;
+            color: #bcc8d8;
             font-family: inherit;
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             font-weight: 500;
-            transition: all 0.25s ease;
+            transition: all 0.25s;
             position: relative;
-            overflow: hidden;
         }
         .anim-btn:hover {
-            border-color: #444;
-            background: #252540;
+            border-color: #334a66;
+            background: #1a2d48;
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
         }
         .anim-btn.active {
-            border-color: var(--accent2) !important;
-            background: #1a2a2a !important;
-            box-shadow: 0 0 20px rgba(78, 205, 196, 0.2);
+            border-color: var(--accent) !important;
+            background: #0d2538 !important;
+            box-shadow: 0 0 22px rgba(0, 180, 216, 0.2);
         }
-        .anim-btn .preview-canvas {
-            width: 40px;
-            height: 40px;
+        .anim-btn .thumb-canvas {
+            width: 38px;
+            height: 38px;
             border-radius: 8px;
-            image-rendering: pixelated;
-            background: #111122;
+            background: #0b1625;
+            image-rendering: auto;
         }
-        .anim-btn .name {
+        .anim-btn .lbl {
             font-weight: 600;
-            font-size: 0.8rem;
-            letter-spacing: 0.3px;
+            font-size: 0.73rem;
+            letter-spacing: 0.2px;
         }
 
-        .speed-control {
+        /* Speed */
+        .speed-row {
             display: flex;
             align-items: center;
             gap: 12px;
             flex-wrap: wrap;
         }
-        .speed-control label {
+        .speed-row label {
             font-weight: 600;
-            font-size: 0.85rem;
-            color: #aaa;
+            font-size: 0.8rem;
+            color: #8899b4;
             white-space: nowrap;
         }
-        .speed-control input[type="range"] {
+        .speed-row input[type="range"] {
             flex: 1;
-            min-width: 120px;
-            accent-color: var(--accent2);
-            height: 6px;
+            min-width: 100px;
+            accent-color: var(--accent);
+            height: 5px;
         }
-        .speed-value {
+        .speed-val {
             display: inline-block;
-            width: 50px;
+            width: 48px;
             text-align: center;
             font-weight: 700;
-            color: var(--accent2);
-            font-size: 0.9rem;
+            color: var(--accent);
+            font-size: 0.85rem;
         }
-
-        .info-text {
-            font-size: 0.82rem;
-            color: #7777aa;
-            line-height: 1.6;
-            margin-top: 8px;
-        }
-        .info-text strong {
-            color: #aaaacc;
-        }
-        .info-text code {
-            background: #1a1a30;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-size: 0.78rem;
-            color: var(--accent3);
-        }
-
-        .live-indicator {
+        .live-bar {
             display: flex;
             align-items: center;
-            gap: 10px;
-            padding: 10px 16px;
-            background: #111128;
+            gap: 9px;
+            padding: 8px 14px;
+            background: #0d1826;
             border-radius: 10px;
-            font-size: 0.82rem;
-            color: #aaa;
+            font-size: 0.78rem;
+            color: #8899b4;
+            margin-top: 10px;
         }
         .live-dot {
-            width: 10px;
-            height: 10px;
+            width: 9px;
+            height: 9px;
             border-radius: 50%;
-            background: #4caf84;
-            animation: pulse-dot 1.2s ease-in-out infinite;
+            background: #48cae4;
+            animation: pulseDot 1.3s ease-in-out infinite;
         }
-        @keyframes pulse-dot {
+        @keyframes pulseDot {
             0%,
             100% {
-                box-shadow: 0 0 4px #4caf84;
+                box-shadow: 0 0 4px #48cae4;
             }
             50% {
-                box-shadow: 0 0 16px #4caf84, 0 0 28px #4caf84;
+                box-shadow: 0 0 15px #48cae4, 0 0 26px #48cae4;
             }
+        }
+
+        /* Info */
+        .info p {
+            font-size: 0.78rem;
+            color: #6b7d95;
+            line-height: 1.7;
+            margin: 0;
+        }
+        .info p strong {
+            color: #a0b4cc;
+        }
+        .info code {
+            background: #0f1a2c;
+            padding: 2px 7px;
+            border-radius: 4px;
+            font-size: 0.73rem;
+            color: var(--accent2);
         }
 
         footer {
             text-align: center;
-            font-size: 0.75rem;
-            color: #555577;
-            margin-top: 16px;
+            font-size: 0.7rem;
+            color: #4a5d75;
+            margin-top: 12px;
+            letter-spacing: 0.2px;
         }
 
         @media (max-width: 500px) {
             .header h1 {
-                font-size: 1.5rem;
+                font-size: 1.4rem;
             }
             .card {
-                padding: 18px 14px;
+                padding: 16px 12px;
             }
-            .animation-grid {
+            .anim-grid {
                 grid-template-columns: repeat(3, 1fr);
-                gap: 8px;
+                gap: 7px;
             }
             .anim-btn {
-                padding: 10px 6px;
+                padding: 10px 4px;
             }
         }
     </style>
@@ -313,381 +307,532 @@
     <div class="main-container">
         <!-- Header -->
         <div class="header">
-            <canvas class="icon-preview" id="header-preview" width="64" height="64"></canvas>
-            <h1>Animated Favicon</h1>
-            <p class="subtitle">Works in <strong>Chrome, Edge, Safari, Firefox</strong> &amp; all modern browsers</p>
+            <div class="icon-wrap">
+                <canvas id="header-preview" width="64" height="64"></canvas>
+            </div>
+            <h1>✈️ Travel Agency Favicon</h1>
+            <p class="tagline">Smooth animated tab icon — works everywhere, even Chrome</p>
             <div class="badge-row">
-                <span class="badge chrome"><span class="dot green"></span> Chrome</span>
-                <span class="badge firefox"><span class="dot blue"></span> Firefox</span>
-                <span class="badge edge"><span class="dot blue"></span> Edge</span>
-                <span class="badge safari"><span class="dot blue"></span> Safari</span>
+                <span class="badge chrome"><span class="bdot grn"></span> Chrome</span>
+                <span class="badge all"><span class="bdot blu"></span> Firefox</span>
+                <span class="badge all"><span class="bdot blu"></span> Edge</span>
+                <span class="badge all"><span class="bdot blu"></span> Safari</span>
+                <span class="badge all"><span class="bdot blu"></span> Opera</span>
             </div>
         </div>
 
-        <!-- Animation Selection -->
+        <!-- Animation Picker -->
         <div class="card">
-            <h2><span class="emoji">🎨</span> Choose Favicon Animation</h2>
-            <div class="animation-grid" id="animation-grid">
-                <!-- Buttons generated by JS -->
-            </div>
+            <h2><span class="emoji">🧭</span> Choose Travel Animation</h2>
+            <div class="anim-grid" id="anim-grid"></div>
         </div>
 
-        <!-- Speed Control -->
+        <!-- Speed -->
         <div class="card">
             <h2><span class="emoji">⏱️</span> Animation Speed</h2>
-            <div class="speed-control">
-                <label for="speed-slider">Slow</label>
-                <input type="range" id="speed-slider" min="60" max="400" value="150" step="10">
-                <label for="speed-slider">Fast</label>
-                <span class="speed-value" id="speed-display">150ms</span>
+            <div class="speed-row">
+                <label>Slow</label>
+                <input type="range" id="speed-slider" min="80" max="400" value="160" step="10">
+                <label>Fast</label>
+                <span class="speed-val" id="speed-display">160ms</span>
             </div>
-            <div class="live-indicator" style="margin-top:12px;">
+            <div class="live-bar">
                 <span class="live-dot"></span>
-                <span id="frame-counter">Animating favicon — look at your browser tab! 👆</span>
+                <span id="status-text">Favicon animating — check your tab! ✈️</span>
             </div>
         </div>
 
-        <!-- How it Works -->
-        <div class="card">
-            <h2><span class="emoji">💡</span> How This Works</h2>
-            <p class="info-text">
-                <strong>Chrome doesn't support animated GIF favicons</strong> (unlike Firefox which does).
-                Our <strong>indirect workaround</strong>: We use JavaScript to dynamically swap the
-                <code>&lt;link rel="icon"&gt;</code> tag's <code>href</code> multiple times per second.
-                Each frame is a <strong>canvas-generated PNG</strong> (via <code>canvas.toDataURL()</code>),
-                creating smooth animation that Chrome happily displays.
-            </p>
-            <p class="info-text" style="margin-top:8px;">
-                ✅ <strong>No external files needed</strong> — all frames are generated in-browser.<br>
-                ✅ <strong>No server requests</strong> — uses inline data URIs.<br>
-                ✅ <strong>Performance-friendly</strong> — frames are pre-rendered, only the DOM attribute changes.
+        <!-- How it works -->
+        <div class="card info">
+            <h2><span class="emoji">💡</span> How It Works</h2>
+            <p>
+                <strong>Chrome blocks animated GIF favicons.</strong> Our solution: JavaScript dynamically swaps the <code>&lt;link rel="icon"&gt;</code> tag's <code>href</code> with <strong>canvas-rendered PNG data URIs</strong> multiple times per second. Each frame is drawn mathematically — no external files, no server requests. The result is a <strong>silky-smooth animated favicon</strong> that works in every modern browser.
             </p>
         </div>
 
         <footer>
-            🔄 Favicon is animating in your tab right now — try switching tabs and coming back!
+            🌍 Designed for travel agencies — globe, plane, compass &amp; more • 100% client-side
         </footer>
     </div>
 
     <script>
         (function() {
-            // ──────────────────────────────────────
-            // FAVICON ANIMATION ENGINE
-            // ──────────────────────────────────────
             const faviconLink = document.getElementById('dynamic-favicon');
-            const FAVICON_SIZE = 32; // Standard favicon size
+            const FAV = 32; // favicon render size
 
-            // We'll store pre-rendered frames as data URLs
-            let animationFrames = [];
-            let currentFrameIndex = 0;
-            let animationIntervalId = null;
-            let currentSpeed = 150; // ms between frames
-            let currentAnimationName = 'bounce';
+            let frames = [];
+            let frameIdx = 0;
+            let intervalId = null;
+            let speed = 160;
+            let currentKey = 'globePlane';
 
             // ──────────────────────────────────────
-            // FRAME GENERATORS — Each returns an array of data URLs
+            // Canvas helper
             // ──────────────────────────────────────
-
-            function renderFrame(drawFn, size = FAVICON_SIZE) {
-                const canvas = document.createElement('canvas');
-                canvas.width = size;
-                canvas.height = size;
-                const ctx = canvas.getContext('2d');
-                // Clear with transparency-supporting clear
+            function renderFrame(drawFn, size = FAV) {
+                const c = document.createElement('canvas');
+                c.width = size;
+                c.height = size;
+                const ctx = c.getContext('2d');
                 ctx.clearRect(0, 0, size, size);
                 drawFn(ctx, size);
-                return canvas.toDataURL('image/png');
+                return c.toDataURL('image/png');
             }
 
-            function generateBounceFrames(count = 16) {
-                const frames = [];
-                for (let i = 0; i < count; i++) {
-                    const progress = i / count;
-                    // Bounce physics: use abs(sin) with easing
-                    const bounce = Math.abs(Math.sin(progress * Math.PI * 2));
-                    // Make it more "bouncy" with a squeeze effect
-                    const squeezeFactor = 0.7 + 0.3 * Math.cos(progress * Math.PI * 2);
-                    frames.push(renderFrame((ctx, size) => {
-                        const cx = size / 2;
-                        const baseY = size * 0.25 + bounce * size * 0.45;
-                        const ballRadius = size * 0.2;
-                        // Shadow on ground
-                        const shadowAlpha = 0.15 + bounce * 0.25;
-                        ctx.fillStyle = `rgba(0,0,0,${shadowAlpha})`;
-                        ctx.beginPath();
-                        ctx.ellipse(cx, size * 0.78, ballRadius * 1.3, ballRadius * 0.35, 0, 0, Math.PI *
-                            2);
-                        ctx.fill();
-                        // Ball with squeeze
-                        ctx.fillStyle = '#ff6b6b';
-                        ctx.beginPath();
-                        ctx.ellipse(cx, baseY, ballRadius * squeezeFactor, ballRadius / Math.max(
-                            squeezeFactor, 0.5), 0, 0, Math.PI * 2);
-                        ctx.fill();
-                        // Highlight
-                        ctx.fillStyle = 'rgba(255,255,255,0.35)';
-                        ctx.beginPath();
-                        ctx.arc(cx - ballRadius * 0.3, baseY - ballRadius * 0.35, ballRadius * 0.35,
-                            0, Math.PI * 2);
-                        ctx.fill();
-                    }, FAVICON_SIZE));
-                }
-                return frames;
-            }
+            // ──────────────────────────────────────
+            // TRAVEL ANIMATION GENERATORS
+            // ──────────────────────────────────────
 
-            function generateSpinnerFrames(count = 24) {
-                const frames = [];
+            // 1. Globe with orbiting plane
+            function genGlobePlane(count = 30) {
+                const out = [];
                 for (let i = 0; i < count; i++) {
-                    const angle = (i / count) * Math.PI * 2;
-                    frames.push(renderFrame((ctx, size) => {
-                        const cx = size / 2;
-                        const cy = size / 2;
-                        const radius = size * 0.35;
-                        const dotRadius = size * 0.1;
-                        // Draw track (faded circles)
-                        for (let j = 0; j < 8; j++) {
-                            const a = (j / 8) * Math.PI * 2;
-                            const dx = cx + Math.cos(a) * radius;
-                            const dy = cy + Math.sin(a) * radius;
-                            ctx.fillStyle = 'rgba(255,255,255,0.15)';
-                            ctx.beginPath();
-                            ctx.arc(dx, dy, dotRadius * 0.5, 0, Math.PI * 2);
-                            ctx.fill();
-                        }
-                        // Main dot
-                        const mx = cx + Math.cos(angle) * radius;
-                        const my = cy + Math.sin(angle) * radius;
-                        const gradient = ctx.createRadialGradient(mx, my, dotRadius * 0.2, mx, my,
-                            dotRadius);
-                        gradient.addColorStop(0, '#ffffff');
-                        gradient.addColorStop(0.5, '#4ecdc4');
-                        gradient.addColorStop(1, 'rgba(78,205,196,0)');
-                        ctx.fillStyle = gradient;
-                        ctx.beginPath();
-                        ctx.arc(mx, my, dotRadius, 0, Math.PI * 2);
-                        ctx.fill();
-                        // Bright core
-                        ctx.fillStyle = '#fff';
-                        ctx.beginPath();
-                        ctx.arc(mx, my, dotRadius * 0.35, 0, Math.PI * 2);
-                        ctx.fill();
-                    }, FAVICON_SIZE));
-                }
-                return frames;
-            }
-
-            function generatePulseFrames(count = 20) {
-                const frames = [];
-                for (let i = 0; i < count; i++) {
-                    const progress = i / count;
-                    const pulse = 0.5 + 0.5 * Math.sin(progress * Math.PI * 2);
-                    const size_pulse = 0.55 + pulse * 0.45;
-                    frames.push(renderFrame((ctx, size) => {
-                        const cx = size / 2;
-                        const cy = size / 2;
-                        const r = size * 0.32 * size_pulse;
-                        // Outer glow
-                        const glowGrad = ctx.createRadialGradient(cx, cy, r * 0.5, cx, cy, r * 1.6);
-                        glowGrad.addColorStop(0, 'rgba(255,230,109,0.9)');
-                        glowGrad.addColorStop(0.5, 'rgba(255,180,60,0.4)');
-                        glowGrad.addColorStop(1, 'rgba(255,100,30,0)');
-                        ctx.fillStyle = glowGrad;
-                        ctx.beginPath();
-                        ctx.arc(cx, cy, r * 1.6, 0, Math.PI * 2);
-                        ctx.fill();
-                        // Core
-                        const coreGrad = ctx.createRadialGradient(cx, cy, 0, cx, cy, r);
-                        coreGrad.addColorStop(0, '#ffffff');
-                        coreGrad.addColorStop(0.3, '#ffe66d');
-                        coreGrad.addColorStop(1, '#ff8c00');
-                        ctx.fillStyle = coreGrad;
+                    const t = i / count;
+                    const angle = t * Math.PI * 2;
+                    out.push(renderFrame((ctx, s) => {
+                        const cx = s / 2,
+                            cy = s / 2,
+                            r = s * 0.3;
+                        // Ocean globe
+                        const globeGrad = ctx.createRadialGradient(cx - r * 0.25, cy - r * 0.3, r *
+                            0.1, cx, cy, r);
+                        globeGrad.addColorStop(0, '#5dbcd2');
+                        globeGrad.addColorStop(0.7, '#0077b6');
+                        globeGrad.addColorStop(1, '#023e8a');
+                        ctx.fillStyle = globeGrad;
                         ctx.beginPath();
                         ctx.arc(cx, cy, r, 0, Math.PI * 2);
                         ctx.fill();
-                    }, FAVICON_SIZE));
-                }
-                return frames;
-            }
-
-            function generateWaveFrames(count = 20) {
-                const frames = [];
-                for (let i = 0; i < count; i++) {
-                    const progress = i / count;
-                    frames.push(renderFrame((ctx, size) => {
-                        const cx = size / 2;
-                        const cy = size / 2;
-                        const barWidth = size * 0.12;
-                        const gap = size * 0.06;
-                        const totalWidth = 4 * barWidth + 3 * gap;
-                        const startX = cx - totalWidth / 2;
-                        const maxHeight = size * 0.5;
-                        const colors = ['#ff6b6b', '#ffe66d', '#4ecdc4', '#a29bfe'];
-                        for (let b = 0; b < 4; b++) {
-                            const barProgress = (progress + b * 0.25) % 1;
-                            const height = maxHeight * (0.25 + 0.75 * Math.abs(Math.sin(
-                                barProgress * Math.PI)));
-                            const x = startX + b * (barWidth + gap);
-                            const y = cy - height / 2;
-                            const grad = ctx.createLinearGradient(x, y, x, y + height);
-                            const col = colors[b];
-                            grad.addColorStop(0, col);
-                            grad.addColorStop(1, col + '88');
-                            ctx.fillStyle = grad;
-                            ctx.beginPath();
-                            ctx.roundRect(x, y, barWidth, height, barWidth * 0.4);
-                            ctx.fill();
-                        }
-                    }, FAVICON_SIZE));
-                }
-                return frames;
-            }
-
-            function generatePacmanFrames(count = 18) {
-                const frames = [];
-                const pellets = 4;
-                for (let i = 0; i < count; i++) {
-                    const progress = i / count;
-                    frames.push(renderFrame((ctx, size) => {
-                        const cx = size / 2;
-                        const cy = size / 2;
-                        const pacRadius = size * 0.22;
-                        // Mouth angle oscillates
-                        const mouthAngle = Math.abs(Math.sin(progress * Math.PI * 2)) * 0.7 +
-                            0.1;
-                        // Pac-Man body
-                        ctx.fillStyle = '#ffe66d';
+                        // Continents hint
+                        ctx.fillStyle = 'rgba(144,200,144,0.5)';
                         ctx.beginPath();
-                        ctx.arc(cx, cy, pacRadius, mouthAngle, Math.PI * 2 - mouthAngle);
-                        ctx.lineTo(cx, cy);
+                        ctx.ellipse(cx - r * 0.25, cy - r * 0.15, r * 0.35, r * 0.28, -0.3, 0, Math
+                            .PI * 2);
+                        ctx.fill();
+                        ctx.beginPath();
+                        ctx.ellipse(cx + r * 0.3, cy + r * 0.2, r * 0.22, r * 0.3, 0.4, 0, Math.PI *
+                            2);
+                        ctx.fill();
+                        // Grid lines
+                        ctx.strokeStyle = 'rgba(255,255,255,0.12)';
+                        ctx.lineWidth = 0.5;
+                        ctx.beginPath();
+                        ctx.ellipse(cx, cy, r, r * 0.35, 0, 0, Math.PI * 2);
+                        ctx.stroke();
+                        ctx.beginPath();
+                        ctx.ellipse(cx, cy, r * 0.5, r, 0, 0, Math.PI * 2);
+                        ctx.stroke();
+                        // Orbiting plane
+                        const px = cx + Math.cos(angle) * (r + s * 0.16);
+                        const py = cy + Math.sin(angle) * (r + s * 0.14);
+                        ctx.save();
+                        ctx.translate(px, py);
+                        ctx.rotate(angle + Math.PI / 2);
+                        ctx.fillStyle = '#ffffff';
+                        ctx.beginPath();
+                        ctx.moveTo(0, -s * 0.12);
+                        ctx.lineTo(s * 0.06, s * 0.06);
+                        ctx.lineTo(0, s * 0.03);
+                        ctx.lineTo(-s * 0.06, s * 0.06);
                         ctx.closePath();
                         ctx.fill();
-                        // Eye
-                        ctx.fillStyle = '#111';
+                        ctx.fillStyle = '#ff9f1c';
                         ctx.beginPath();
-                        ctx.arc(cx + pacRadius * 0.2, cy - pacRadius * 0.4, pacRadius * 0.2,
-                            0, Math.PI * 2);
+                        ctx.arc(0, s * 0.01, s * 0.025, 0, Math.PI * 2);
                         ctx.fill();
-                        // Pellets
-                        for (let p = 0; p < pellets; p++) {
-                            const pelletX = cx + pacRadius + size * 0.12 + p * size * 0.14;
-                            const pelletY = cy;
-                            const visible = (progress * pellets * 1.4) % pellets > p;
-                            if (visible && pelletX < size - 2) {
-                                ctx.fillStyle = '#ffccaa';
-                                ctx.beginPath();
-                                ctx.arc(pelletX, pelletY, size * 0.04, 0, Math.PI * 2);
-                                ctx.fill();
-                            }
+                        ctx.restore();
+                        // Trail dots
+                        for (let j = 1; j <= 3; j++) {
+                            const ta = angle - j * 0.18;
+                            const tx = cx + Math.cos(ta) * (r + s * 0.16);
+                            const ty = cy + Math.sin(ta) * (r + s * 0.14);
+                            ctx.fillStyle = `rgba(255,255,255,${0.35 - j * 0.1})`;
+                            ctx.beginPath();
+                            ctx.arc(tx, ty, s * 0.017, 0, Math.PI * 2);
+                            ctx.fill();
                         }
-                    }, FAVICON_SIZE));
+                    }, FAV));
                 }
-                return frames;
+                return out;
             }
 
-            function generateGlitchFrames(count = 16) {
-                const frames = [];
+            // 2. Compass with spinning needle
+            function genCompass(count = 28) {
+                const out = [];
                 for (let i = 0; i < count; i++) {
-                    const progress = i / count;
-                    const glitchOffset = (Math.sin(progress * Math.PI * 6) * FAVICON_SIZE * 0.25);
-                    frames.push(renderFrame((ctx, size) => {
-                        const cx = size / 2;
-                        const cy = size / 2;
-                        const r = size * 0.3;
-                        // Glitch layers
-                        ctx.fillStyle = 'rgba(255,80,80,0.7)';
+                    const t = i / count;
+                    const angle = t * Math.PI * 2;
+                    const settle = Math.sin(t * Math.PI * 2) * 0.25;
+                    out.push(renderFrame((ctx, s) => {
+                        const cx = s / 2,
+                            cy = s / 2,
+                            r = s * 0.4;
+                        // Base disc
+                        const discGrad = ctx.createRadialGradient(cx, cy, r * 0.2, cx, cy, r);
+                        discGrad.addColorStop(0, '#fefefe');
+                        discGrad.addColorStop(0.6, '#e8dcc8');
+                        discGrad.addColorStop(1, '#c4a97d');
+                        ctx.fillStyle = discGrad;
                         ctx.beginPath();
-                        ctx.arc(cx + glitchOffset, cy, r, 0, Math.PI * 2);
+                        ctx.arc(cx, cy, r, 0, Math.PI * 2);
                         ctx.fill();
-                        ctx.fillStyle = 'rgba(80,200,255,0.7)';
+                        ctx.strokeStyle = '#8b6914';
+                        ctx.lineWidth = 1.2;
+                        ctx.stroke();
+                        // Cardinal marks
+                        const dirs = ['N', 'E', 'S', 'W'];
+                        const angBase = [ -Math.PI / 2, 0, Math.PI / 2, Math.PI ];
+                        ctx.fillStyle = '#3d2b0a';
+                        ctx.font = `bold ${s*0.14}px "Segoe UI", sans-serif`;
+                        ctx.textAlign = 'center';
+                        ctx.textBaseline = 'middle';
+                        dirs.forEach((d, k) => {
+                            const dx = cx + Math.cos(angBase[k]) * r * 0.72;
+                            const dy = cy + Math.sin(angBase[k]) * r * 0.72;
+                            ctx.fillText(d, dx, dy);
+                        });
+                        // Needle
+                        const needleAngle = angle + settle;
+                        ctx.save();
+                        ctx.translate(cx, cy);
+                        ctx.rotate(needleAngle);
+                        // North half (red)
+                        ctx.fillStyle = '#e63946';
                         ctx.beginPath();
-                        ctx.arc(cx - glitchOffset, cy, r, 0, Math.PI * 2);
+                        ctx.moveTo(0, -r * 0.75);
+                        ctx.lineTo(s * 0.06, 0);
+                        ctx.lineTo(0, s * 0.04);
+                        ctx.lineTo(-s * 0.06, 0);
+                        ctx.closePath();
                         ctx.fill();
-                        // White core
+                        // South half (blue)
+                        ctx.fillStyle = '#1d3557';
+                        ctx.beginPath();
+                        ctx.moveTo(0, r * 0.55);
+                        ctx.lineTo(s * 0.05, 0);
+                        ctx.lineTo(0, -s * 0.03);
+                        ctx.lineTo(-s * 0.05, 0);
+                        ctx.closePath();
+                        ctx.fill();
+                        // Center pin
+                        ctx.fillStyle = '#f0c060';
+                        ctx.beginPath();
+                        ctx.arc(0, 0, s * 0.05, 0, Math.PI * 2);
+                        ctx.fill();
                         ctx.fillStyle = '#fff';
                         ctx.beginPath();
-                        ctx.arc(cx, cy, r * 0.5, 0, Math.PI * 2);
+                        ctx.arc(0, 0, s * 0.02, 0, Math.PI * 2);
                         ctx.fill();
-                    }, FAVICON_SIZE));
+                        ctx.restore();
+                    }, FAV));
                 }
-                return frames;
+                return out;
+            }
+
+            // 3. Location pin with pulse beacon
+            function genPinPulse(count = 24) {
+                const out = [];
+                for (let i = 0; i < count; i++) {
+                    const t = i / count;
+                    const pulse1 = (t % 0.5) / 0.5;
+                    const pulse2 = ((t + 0.25) % 0.5) / 0.5;
+                    out.push(renderFrame((ctx, s) => {
+                        const cx = s / 2,
+                            cy = s * 0.38;
+                        // Beacon rings
+                        [pulse1, pulse2].forEach(p => {
+                            const rr = s * 0.16 + p * s * 0.38;
+                            const alpha = 0.5 * (1 - p);
+                            ctx.strokeStyle = `rgba(0,180,216,${alpha})`;
+                            ctx.lineWidth = 1.5;
+                            ctx.beginPath();
+                            ctx.arc(cx, cy, rr, 0, Math.PI * 2);
+                            ctx.stroke();
+                        });
+                        // Pin body
+                        const pinGrad = ctx.createLinearGradient(cx, cy - s * 0.3, cx, cy + s * 0.3);
+                        pinGrad.addColorStop(0, '#ff4d4d');
+                        pinGrad.addColorStop(0.6, '#c0392b');
+                        pinGrad.addColorStop(1, '#7b1818');
+                        ctx.fillStyle = pinGrad;
+                        ctx.beginPath();
+                        ctx.moveTo(cx, cy + s * 0.32);
+                        ctx.bezierCurveTo(cx - s * 0.2, cy + s * 0.05, cx - s * 0.22, cy - s * 0.2, cx,
+                            cy - s * 0.28);
+                        ctx.bezierCurveTo(cx + s * 0.22, cy - s * 0.2, cx + s * 0.2, cy + s * 0.05, cx,
+                            cy + s * 0.32);
+                        ctx.closePath();
+                        ctx.fill();
+                        ctx.strokeStyle = 'rgba(255,255,255,0.3)';
+                        ctx.lineWidth = 1;
+                        ctx.stroke();
+                        // Inner highlight
+                        ctx.fillStyle = 'rgba(255,255,255,0.25)';
+                        ctx.beginPath();
+                        ctx.arc(cx - s * 0.04, cy - s * 0.1, s * 0.07, 0, Math.PI * 2);
+                        ctx.fill();
+                    }, FAV));
+                }
+                return out;
+            }
+
+            // 4. Airplane takeoff
+            function genPlaneTakeoff(count = 26) {
+                const out = [];
+                for (let i = 0; i < count; i++) {
+                    const t = i / count;
+                    const rise = t * 0.7;
+                    const xOff = (t - 0.5) * 0.5;
+                    out.push(renderFrame((ctx, s) => {
+                        const cx = s / 2,
+                            cy = s / 2;
+                        // Sky bg
+                        const skyGrad = ctx.createLinearGradient(0, 0, 0, s);
+                        skyGrad.addColorStop(0, '#48cae4');
+                        skyGrad.addColorStop(0.6, '#90e0ef');
+                        skyGrad.addColorStop(1, '#caf0f8');
+                        ctx.fillStyle = skyGrad;
+                        ctx.fillRect(0, 0, s, s);
+                        // Runway hint
+                        ctx.fillStyle = '#555';
+                        ctx.fillRect(s * 0.2, s * 0.68, s * 0.6, s * 0.08);
+                        ctx.fillStyle = '#888';
+                        ctx.fillRect(s * 0.3, s * 0.67, s * 0.4, s * 0.015);
+                        // Plane
+                        const px = cx + xOff * s * 0.3;
+                        const py = cy + s * 0.06 - rise * s * 0.55;
+                        const planeScale = 0.65 + rise * 0.35;
+                        ctx.save();
+                        ctx.translate(px, py);
+                        ctx.rotate(-0.25 + rise * 0.6);
+                        ctx.scale(planeScale, planeScale);
+                        // Body
+                        ctx.fillStyle = '#ffffff';
+                        ctx.beginPath();
+                        ctx.ellipse(0, 0, s * 0.22, s * 0.06, 0, 0, Math.PI * 2);
+                        ctx.fill();
+                        // Wings
+                        ctx.fillStyle = '#e8e8e8';
+                        ctx.beginPath();
+                        ctx.moveTo(-s * 0.04, -s * 0.01);
+                        ctx.lineTo(s * 0.02, -s * 0.18);
+                        ctx.lineTo(s * 0.12, -s * 0.16);
+                        ctx.lineTo(s * 0.08, -s * 0.01);
+                        ctx.closePath();
+                        ctx.fill();
+                        ctx.beginPath();
+                        ctx.moveTo(-s * 0.04, s * 0.01);
+                        ctx.lineTo(s * 0.02, s * 0.18);
+                        ctx.lineTo(s * 0.12, s * 0.16);
+                        ctx.lineTo(s * 0.08, s * 0.01);
+                        ctx.closePath();
+                        ctx.fill();
+                        // Tail
+                        ctx.fillStyle = '#ff9f1c';
+                        ctx.beginPath();
+                        ctx.moveTo(-s * 0.18, 0);
+                        ctx.lineTo(-s * 0.24, -s * 0.12);
+                        ctx.lineTo(-s * 0.14, -s * 0.04);
+                        ctx.closePath();
+                        ctx.fill();
+                        // Windows
+                        ctx.fillStyle = '#48cae4';
+                        for (let w = -1; w <= 1; w++) {
+                            ctx.beginPath();
+                            ctx.arc(s * 0.04 + w * s * 0.06, -s * 0.01, s * 0.022, 0, Math.PI * 2);
+                            ctx.fill();
+                        }
+                        ctx.restore();
+                        // Speed lines
+                        ctx.strokeStyle = 'rgba(255,255,255,0.4)';
+                        ctx.lineWidth = 0.8;
+                        for (let l = 0; l < 3; l++) {
+                            const lx = px - s * 0.35 - l * s * 0.08;
+                            const ly = py + l * s * 0.05;
+                            ctx.beginPath();
+                            ctx.moveTo(lx, ly);
+                            ctx.lineTo(lx - s * 0.18, ly - s * 0.02);
+                            ctx.stroke();
+                        }
+                    }, FAV));
+                }
+                return out;
+            }
+
+            // 5. Suitcase bounce
+            function genSuitcase(count = 20) {
+                const out = [];
+                for (let i = 0; i < count; i++) {
+                    const t = i / count;
+                    const bounce = Math.abs(Math.sin(t * Math.PI * 2));
+                    const squish = 0.8 + 0.2 * Math.cos(t * Math.PI * 2);
+                    out.push(renderFrame((ctx, s) => {
+                        const cx = s / 2,
+                            cy = s * 0.42;
+                        const by = cy + bounce * s * 0.15;
+                        // Shadow
+                        ctx.fillStyle = `rgba(0,0,0,${0.12 + bounce * 0.2})`;
+                        ctx.beginPath();
+                        ctx.ellipse(cx, s * 0.76, s * 0.25, s * 0.06, 0, 0, Math.PI * 2);
+                        ctx.fill();
+                        // Suitcase body
+                        const caseGrad = ctx.createLinearGradient(cx, by - s * 0.2, cx, by + s * 0.15);
+                        caseGrad.addColorStop(0, '#f7c873');
+                        caseGrad.addColorStop(0.5, '#e8a840');
+                        caseGrad.addColorStop(1, '#b87820');
+                        ctx.fillStyle = caseGrad;
+                        ctx.beginPath();
+                        ctx.roundRect(cx - s * 0.28, by - s * 0.2, s * 0.56, s * 0.35 * squish, s * 0.06);
+                        ctx.fill();
+                        ctx.strokeStyle = '#8b5e14';
+                        ctx.lineWidth = 1.2;
+                        ctx.stroke();
+                        // Handle
+                        ctx.strokeStyle = '#5c3d0e';
+                        ctx.lineWidth = 2;
+                        ctx.beginPath();
+                        ctx.arc(cx, by - s * 0.2, s * 0.1, Math.PI, 0);
+                        ctx.stroke();
+                        // Straps
+                        ctx.fillStyle = '#8b5e14';
+                        ctx.fillRect(cx - s * 0.28, by - s * 0.04, s * 0.56, s * 0.04);
+                        ctx.fillRect(cx - s * 0.28, by + s * 0.06, s * 0.56, s * 0.03);
+                        // Buckle
+                        ctx.fillStyle = '#f0c060';
+                        ctx.beginPath();
+                        ctx.roundRect(cx - s * 0.07, by - s * 0.07, s * 0.14, s * 0.1, s * 0.025);
+                        ctx.fill();
+                        ctx.fillStyle = '#3d2b0a';
+                        ctx.fillRect(cx - s * 0.02, by - s * 0.05, s * 0.04, s * 0.06);
+                        // Tag
+                        ctx.fillStyle = '#fff';
+                        ctx.fillRect(cx + s * 0.14, by - s * 0.12, s * 0.1, s * 0.07);
+                        ctx.fillStyle = '#e63946';
+                        ctx.font = `bold ${s*0.06}px sans-serif`;
+                        ctx.textAlign = 'center';
+                        ctx.fillText('✈', cx + s * 0.19, by - s * 0.045);
+                    }, FAV));
+                }
+                return out;
+            }
+
+            // 6. Palm tree sway
+            function genPalmTree(count = 22) {
+                const out = [];
+                for (let i = 0; i < count; i++) {
+                    const t = i / count;
+                    const sway = Math.sin(t * Math.PI * 2) * 0.15;
+                    out.push(renderFrame((ctx, s) => {
+                        const cx = s / 2,
+                            cy = s / 2;
+                        // Sand bg
+                        const sandGrad = ctx.createLinearGradient(0, s * 0.6, 0, s);
+                        sandGrad.addColorStop(0, '#f4e4c1');
+                        sandGrad.addColorStop(1, '#d4b896');
+                        ctx.fillStyle = sandGrad;
+                        ctx.fillRect(0, s * 0.6, s, s * 0.4);
+                        // Sky
+                        const skyGrad = ctx.createLinearGradient(0, 0, 0, s * 0.6);
+                        skyGrad.addColorStop(0, '#48cae4');
+                        skyGrad.addColorStop(1, '#fdf8e8');
+                        ctx.fillStyle = skyGrad;
+                        ctx.fillRect(0, 0, s, s * 0.6);
+                        // Trunk
+                        ctx.strokeStyle = '#a0724a';
+                        ctx.lineWidth = s * 0.06;
+                        ctx.lineCap = 'round';
+                        ctx.beginPath();
+                        ctx.moveTo(cx, s * 0.78);
+                        ctx.quadraticCurveTo(cx + sway * s * 0.3, s * 0.45, cx + sway * s * 0.15, s *
+                            0.27);
+                        ctx.stroke();
+                        ctx.strokeStyle = '#c4915c';
+                        ctx.lineWidth = s * 0.03;
+                        ctx.stroke();
+                        // Leaves
+                        const topX = cx + sway * s * 0.15;
+                        const topY = s * 0.27;
+                        const leafColors = ['#2d8a4e', '#3ba55c', '#4caf50', '#2e7d32', '#388e3c',
+                            '#43a047'
+                        ];
+                        for (let l = 0; l < 6; l++) {
+                            const la = (l / 6) * Math.PI * 2 + sway * 0.6;
+                            const lx = topX + Math.cos(la) * s * 0.25;
+                            const ly = topY + Math.sin(la) * s * 0.2 - s * 0.08;
+                            ctx.fillStyle = leafColors[l];
+                            ctx.beginPath();
+                            ctx.ellipse(lx, ly, s * 0.16, s * 0.06, la - 0.3, 0, Math.PI * 2);
+                            ctx.fill();
+                        }
+                        // Coconuts
+                        ctx.fillStyle = '#6b3a2a';
+                        ctx.beginPath();
+                        ctx.arc(topX, topY + s * 0.04, s * 0.05, 0, Math.PI * 2);
+                        ctx.fill();
+                        ctx.fillStyle = '#8b4513';
+                        ctx.beginPath();
+                        ctx.arc(topX - s * 0.03, topY + s * 0.07, s * 0.04, 0, Math.PI * 2);
+                        ctx.fill();
+                        // Sun
+                        ctx.fillStyle = '#ffe66d';
+                        ctx.beginPath();
+                        ctx.arc(s * 0.78, s * 0.18, s * 0.12, 0, Math.PI * 2);
+                        ctx.fill();
+                        ctx.fillStyle = 'rgba(255,255,255,0.3)';
+                        ctx.beginPath();
+                        ctx.arc(s * 0.76, s * 0.15, s * 0.04, 0, Math.PI * 2);
+                        ctx.fill();
+                    }, FAV));
+                }
+                return out;
             }
 
             // ──────────────────────────────────────
-            // ANIMATION REGISTRY
+            // REGISTRY
             // ──────────────────────────────────────
             const animations = {
-                bounce: {
-                    name: 'Bounce',
-                    generator: generateBounceFrames,
-                    frameCount: 16,
-                    emoji: '🏀',
-                },
-                spinner: {
-                    name: 'Spinner',
-                    generator: generateSpinnerFrames,
-                    frameCount: 24,
-                    emoji: '🔄',
-                },
-                pulse: {
-                    name: 'Pulse',
-                    generator: generatePulseFrames,
-                    frameCount: 20,
-                    emoji: '💫',
-                },
-                wave: {
-                    name: 'Wave',
-                    generator: generateWaveFrames,
-                    frameCount: 20,
-                    emoji: '🌊',
-                },
-                pacman: {
-                    name: 'Pac-Man',
-                    generator: generatePacmanFrames,
-                    frameCount: 18,
-                    emoji: '🟡',
-                },
-                glitch: {
-                    name: 'Glitch',
-                    generator: generateGlitchFrames,
-                    frameCount: 16,
-                    emoji: '⚡',
-                },
+                globePlane: { name: 'Globe & Plane', gen: genGlobePlane, fc: 30, emoji: '🌍✈️' },
+                compass: { name: 'Compass', gen: genCompass, fc: 28, emoji: '🧭' },
+                pinPulse: { name: 'Pin Pulse', gen: genPinPulse, fc: 24, emoji: '📍' },
+                planeTakeoff: { name: 'Takeoff', gen: genPlaneTakeoff, fc: 26, emoji: '🛫' },
+                suitcase: { name: 'Suitcase', gen: genSuitcase, fc: 20, emoji: '🧳' },
+                palmTree: { name: 'Palm Tree', gen: genPalmTree, fc: 22, emoji: '🌴' },
             };
 
             // ──────────────────────────────────────
-            // BUILD UI
+            // UI SETUP
             // ──────────────────────────────────────
-            const grid = document.getElementById('animation-grid');
+            const grid = document.getElementById('anim-grid');
             const speedSlider = document.getElementById('speed-slider');
             const speedDisplay = document.getElementById('speed-display');
-            const frameCounter = document.getElementById('frame-counter');
-            const headerPreview = document.getElementById('header-preview');
-            const headerCtx = headerPreview.getContext('2d');
+            const statusText = document.getElementById('status-text');
+            const headerCanvas = document.getElementById('header-preview');
+            const headerCtx = headerCanvas.getContext('2d');
 
-            // Create buttons
-            Object.entries(animations).forEach(([key, anim]) => {
+            // Build buttons
+            Object.entries(animations).forEach(([key, a]) => {
                 const btn = document.createElement('button');
                 btn.className = 'anim-btn';
-                btn.dataset.animKey = key;
+                btn.dataset.key = key;
                 btn.innerHTML = `
-                    <canvas class="preview-canvas" width="32" height="32"></canvas>
-                    <span class="name">${anim.emoji} ${anim.name}</span>
+                    <canvas class="thumb-canvas" width="32" height="32"></canvas>
+                    <span class="lbl">${a.emoji} ${a.name}</span>
                 `;
-                btn.addEventListener('click', () => switchAnimation(key));
+                btn.addEventListener('click', () => switchTo(key));
                 grid.appendChild(btn);
             });
 
-            // Draw preview thumbnails
-            function drawAllThumbnails() {
-                document.querySelectorAll('.anim-btn .preview-canvas').forEach(canvas => {
-                    const key = canvas.parentElement.dataset.animKey;
+            // Draw thumbnails
+            function drawThumbs() {
+                document.querySelectorAll('.anim-btn .thumb-canvas').forEach(cv => {
+                    const key = cv.parentElement.dataset.key;
                     if (key && animations[key]) {
-                        const frames = animations[key].generator(1);
-                        if (frames.length > 0) {
+                        const f = animations[key].gen(1);
+                        if (f.length) {
                             const img = new Image();
-                            img.src = frames[0];
+                            img.src = f[0];
                             img.onload = () => {
-                                const tctx = canvas.getContext('2d');
+                                const tctx = cv.getContext('2d');
                                 tctx.clearRect(0, 0, 32, 32);
                                 tctx.drawImage(img, 0, 0, 32, 32);
                             };
@@ -696,30 +841,10 @@
                 });
             }
 
-            // ──────────────────────────────────────
-            // ANIMATION CONTROL
-            // ──────────────────────────────────────
-            function switchAnimation(key) {
-                if (!animations[key]) return;
-                currentAnimationName = key;
-                // Update active button
-                document.querySelectorAll('.anim-btn').forEach(b => b.classList.remove('active'));
-                const activeBtn = document.querySelector(`.anim-btn[data-anim-key="${key}"]`);
-                if (activeBtn) activeBtn.classList.add('active');
-                // Generate frames
-                const anim = animations[key];
-                animationFrames = anim.generator(anim.frameCount);
-                currentFrameIndex = 0;
-                // Update header preview
-                updateHeaderPreview();
-                // Restart interval
-                restartInterval();
-            }
-
-            function updateHeaderPreview() {
-                if (animationFrames.length === 0) return;
+            function updateHeader() {
+                if (!frames.length) return;
                 const img = new Image();
-                img.src = animationFrames[currentFrameIndex];
+                img.src = frames[frameIdx];
                 img.onload = () => {
                     headerCtx.clearRect(0, 0, 64, 64);
                     headerCtx.drawImage(img, 0, 0, 64, 64);
@@ -727,61 +852,54 @@
             }
 
             function updateFavicon() {
-                if (animationFrames.length === 0) return;
-                faviconLink.href = animationFrames[currentFrameIndex];
-                updateHeaderPreview();
-                currentFrameIndex = (currentFrameIndex + 1) % animationFrames.length;
-                // Update counter occasionally
-                if (currentFrameIndex % 5 === 0) {
-                    frameCounter.textContent =
-                        `Animating "${animations[currentAnimationName]?.name || '...'}" — frame ${currentFrameIndex + 1}/${animationFrames.length} | Look at your tab! 👆`;
+                if (!frames.length) return;
+                faviconLink.href = frames[frameIdx];
+                updateHeader();
+                frameIdx = (frameIdx + 1) % frames.length;
+                if (frameIdx % 4 === 0) {
+                    statusText.textContent =
+                        `Animating "${animations[currentKey]?.name || '...'}" — frame ${frameIdx+1}/${frames.length} | Check your tab! ✈️`;
                 }
             }
 
-            function restartInterval() {
-                if (animationIntervalId) clearInterval(animationIntervalId);
-                if (animationFrames.length === 0) return;
-                // Immediately show first frame
-                currentFrameIndex = 0;
+            function restartLoop() {
+                if (intervalId) clearInterval(intervalId);
+                if (!frames.length) return;
+                frameIdx = 0;
                 updateFavicon();
-                animationIntervalId = setInterval(updateFavicon, currentSpeed);
-                frameCounter.textContent =
-                    `Animating "${animations[currentAnimationName]?.name || '...'}" — look at your browser tab! 👆`;
+                intervalId = setInterval(updateFavicon, speed);
+                statusText.textContent =
+                    `Animating "${animations[currentKey]?.name || '...'}" — look at your browser tab! ✈️`;
+            }
+
+            function switchTo(key) {
+                if (!animations[key]) return;
+                currentKey = key;
+                document.querySelectorAll('.anim-btn').forEach(b => b.classList.remove('active'));
+                const ab = document.querySelector(`.anim-btn[data-key="${key}"]`);
+                if (ab) ab.classList.add('active');
+                const a = animations[key];
+                frames = a.gen(a.fc);
+                restartLoop();
             }
 
             speedSlider.addEventListener('input', () => {
-                currentSpeed = parseInt(speedSlider.value);
-                speedDisplay.textContent = currentSpeed + 'ms';
-                restartInterval();
+                speed = parseInt(speedSlider.value);
+                speedDisplay.textContent = speed + 'ms';
+                restartLoop();
             });
 
-            // ──────────────────────────────────────
-            // VISIBILITY API — Pause when tab hidden (optional, saves resources)
-            // ──────────────────────────────────────
+            // Pause when tab hidden
             document.addEventListener('visibilitychange', () => {
                 if (document.hidden) {
-                    if (animationIntervalId) clearInterval(animationIntervalId);
-                    animationIntervalId = null;
+                    if (intervalId) clearInterval(intervalId);
+                    intervalId = null;
                 } else {
-                    restartInterval();
+                    restartLoop();
                 }
             });
 
-            // ──────────────────────────────────────
-            // INIT
-            // ──────────────────────────────────────
-            function init() {
-                speedSlider.value = currentSpeed;
-                speedDisplay.textContent = currentSpeed + 'ms';
-                drawAllThumbnails();
-                // Default: bounce animation
-                switchAnimation('bounce');
-                // Mark active
-                const defaultBtn = document.querySelector('.anim-btn[data-anim-key="bounce"]');
-                if (defaultBtn) defaultBtn.classList.add('active');
-            }
-
-            // Polyfill roundRect if needed (for older browsers)
+            // Polyfill roundRect
             if (!CanvasRenderingContext2D.prototype.roundRect) {
                 CanvasRenderingContext2D.prototype.roundRect = function(x, y, w, h, r) {
                     if (typeof r === 'number') r = { tl: r, tr: r, br: r, bl: r };
@@ -799,11 +917,19 @@
                 };
             }
 
+            // Init
+            function init() {
+                speedSlider.value = speed;
+                speedDisplay.textContent = speed + 'ms';
+                drawThumbs();
+                switchTo('globePlane');
+                const defBtn = document.querySelector('.anim-btn[data-key="globePlane"]');
+                if (defBtn) defBtn.classList.add('active');
+            }
             init();
-            console.log('✅ Animated Favicon Engine Ready!');
-            console.log('💡 Look at your browser tab — the favicon is animating!');
-            console.log('🛠️  Technique: Dynamic <link> href swapping via canvas-generated PNG data URIs');
-            console.log('🌐 Works in: Chrome, Edge, Safari, Firefox, Opera, and more');
+            console.log('✈️ Travel Agency Animated Favicon Ready!');
+            console.log('🌍 Look at your browser tab — the favicon is alive!');
+            console.log('🛠 Technique: Dynamic <link> href swap with canvas PNG data URIs');
         })();
     </script>
 </body>
