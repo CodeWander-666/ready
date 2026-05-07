@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luxury Globe & Airplane Favicon</title>
+    <title>Luxury Globe & Airplane Favicon — High-End Edition</title>
     <link id="dynamic-favicon" rel="icon" type="image/png" href="">
     <style>
         :root {
-            --bg: #0a1120;
-            --card-bg: #131e38;
-            --text: #e0e6f0;
-            --accent: #00a6d8;
+            --bg: #030b17;
+            --card-bg: #0b1424;
+            --text: #e1e8f0;
+            --accent: #00a8e8;
             --gold: #d4af37;
-            --border: #1f3050;
+            --gold2: #c9a84c;
+            --border: #1f3a5e;
         }
         * { margin:0; padding:0; box-sizing:border-box; }
         body {
@@ -24,10 +25,12 @@
             justify-content: center;
             align-items: center;
             padding: 20px;
-            background-image: radial-gradient(ellipse at 50% 30%, rgba(0,166,216,0.08) 0%, transparent 60%);
+            background-image:
+                radial-gradient(ellipse at 40% 30%, rgba(0,168,232,0.08) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 60%, rgba(212,175,55,0.05) 0%, transparent 60%);
         }
         .container {
-            max-width: 640px;
+            max-width: 680px;
             width: 100%;
             display: flex;
             flex-direction: column;
@@ -37,27 +40,29 @@
             text-align: center;
         }
         .hero canvas {
-            width: 80px;
-            height: 80px;
-            border-radius: 20px;
-            box-shadow: 0 12px 36px rgba(0,160,220,0.4), 0 0 0 1px rgba(255,255,255,0.1);
-            animation: float 5s ease-in-out infinite;
+            width: 84px;
+            height: 84px;
+            border-radius: 22px;
+            box-shadow: 0 14px 44px rgba(0,168,232,0.45), 0 0 0 1px rgba(255,255,255,0.15);
+            animation: float 5.5s ease-in-out infinite;
             image-rendering: auto;
         }
-        @keyframes float { 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-8px); } }
+        @keyframes float { 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-9px); } }
         .hero h1 {
-            font-size: 2rem;
+            font-size: 2.1rem;
             font-weight: 700;
-            margin-top: 14px;
-            background: linear-gradient(135deg, #62cff4, #d4af37);
+            margin-top: 16px;
+            background: linear-gradient(135deg, #82d2f5, #d4af37, #c9a84c);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
+            letter-spacing: -0.3px;
         }
-        .hero p {
+        .hero .sub {
             font-size: 0.9rem;
-            color: #8892b0;
-            margin-top: 4px;
+            color: #7a8ba8;
+            margin-top: 6px;
+            letter-spacing: 0.2px;
         }
         .card {
             background: var(--card-bg);
@@ -66,12 +71,13 @@
             padding: 22px 20px;
         }
         .card h2 {
-            font-size: 1.05rem;
+            font-size: 1rem;
             font-weight: 600;
             margin-bottom: 14px;
             display: flex;
             align-items: center;
             gap: 8px;
+            color: #b0c4de;
         }
         .speed-control {
             display: flex;
@@ -98,37 +104,42 @@
             gap: 10px;
             margin-top: 14px;
             padding: 10px 14px;
-            background: #0d1629;
+            background: #060f1e;
             border-radius: 10px;
             font-size: 0.8rem;
-            color: #8892b0;
+            color: #7a8ba8;
         }
         .status .dot {
             width: 10px;
             height: 10px;
             border-radius: 50%;
-            background: #48cae4;
-            animation: pulse 1.2s infinite;
+            background: radial-gradient(circle, #fff, #d4af37);
+            box-shadow: 0 0 12px #d4af37;
+            animation: pulseG 1.3s infinite;
         }
-        @keyframes pulse { 0%,100%{ box-shadow:0 0 4px #48cae4; } 50%{ box-shadow:0 0 16px #48cae4, 0 0 28px #48cae4; } }
-        .note {
-            font-size: 0.75rem;
-            color: #667799;
+        @keyframes pulseG { 0%,100%{ box-shadow:0 0 8px #d4af37; } 50%{ box-shadow:0 0 20px #d4af37, 0 0 32px #d4af37; } }
+        .details {
+            font-size: 0.78rem;
+            color: #697a93;
+            line-height: 1.7;
             margin-top: 10px;
-            line-height: 1.6;
         }
-        .note strong { color: #bcc8e0; }
+        .details strong { color: #bcc8e0; }
         code {
-            background: #0a1222;
-            padding: 2px 6px;
+            background: #040d1a;
+            padding: 2px 7px;
             border-radius: 4px;
             color: var(--gold);
-            font-size: 0.75rem;
+            font-size: 0.73rem;
         }
         footer {
             text-align: center;
             font-size: 0.7rem;
             color: #4a5d75;
+        }
+        @media (max-width: 500px) {
+            .hero h1 { font-size: 1.5rem; }
+            .card { padding: 16px 14px; }
         }
     </style>
 </head>
@@ -136,253 +147,357 @@
     <div class="container">
         <div class="hero">
             <canvas id="header-preview" width="64" height="64"></canvas>
-            <h1>✈️ Luxury Globe & Airplane</h1>
-            <p>Continuously animated favicon — visible even when tab is hidden</p>
+            <h1>✈️ Prestige Globe & Jet</h1>
+            <p class="sub">Luxury animated favicon — rotating globe, golden jet, never stops</p>
         </div>
 
         <div class="card">
-            <h2>⏱️ Animation Speed</h2>
+            <h2>⏱️ Speed Control</h2>
             <div class="speed-control">
                 <span>Slow</span>
-                <input type="range" id="speed-slider" min="60" max="300" value="120" step="10">
+                <input type="range" id="speed-slider" min="50" max="250" value="100" step="10">
                 <span>Fast</span>
-                <span class="speed-value" id="speed-display">120ms</span>
+                <span class="speed-value" id="speed-display">100ms</span>
             </div>
             <div class="status">
                 <span class="dot"></span>
-                <span id="status-text">Airplane orbiting the globe — check your favicon! 🌍</span>
+                <span id="status-text">Globe spinning, jet orbiting — favicon alive! ✨</span>
             </div>
         </div>
 
         <div class="card">
-            <h2>💎 Why It Stays Visible &amp; Loops</h2>
-            <div class="note">
-                <strong>No pauses when you switch tabs.</strong> This animation runs independently using <code>setInterval</code> and continues even in the background. 
-                Every frame is a thick, high-contrast canvas drawing optimized for 32×32 pixels: 
-                a deep blue globe with golden gradients, bold white continents, lat/long lines, and a brightly colored airplane with a visible contrail. 
-                All frames are <code>canvas.toDataURL()</code> PNGs swapped in the favicon link.
+            <h2>💎 Luxury Engineering</h2>
+            <div class="details">
+                <strong>Spinning globe</strong> with golden continents and lat/long lines. 
+                <strong>Private jet</strong> with gold trim, contrail, and precise orbital motion. 
+                Background <strong>starfield</strong> for depth. All frames rendered at 32×32px, swapped via <code>canvas.toDataURL()</code>. 
+                <strong>No visibility pause</strong> — favicon runs continuously.
             </div>
         </div>
-        <footer>🌐 Luxury travel favicon — detailed globe + circling airplane • pure client-side</footer>
+        <footer>🌐 High-end travel favicon — premium design for luxury agencies</footer>
     </div>
 
     <script>
         (function() {
             const faviconLink = document.getElementById('dynamic-favicon');
-            const FAV = 32; // favicon render size
+            const FAV = 32; // favicon size
 
             let frames = [];
             let frameIdx = 0;
             let intervalId = null;
-            let speed = 120; // ms
+            let speed = 100; // ms per frame
 
             // ──────────────────────────────────────
-            // LUXURY GLOBE + AIRPLANE FRAME GENERATOR
+            // LUXURY GLOBE + JET FRAME GENERATOR
             // ──────────────────────────────────────
-            function generateGlobeAirplaneFrames(count = 36) {
-                const result = [];
+            function generateLuxuryGlobeJetFrames(count = 48) {
+                const out = [];
                 for (let i = 0; i < count; i++) {
                     const t = i / count;
-                    const angle = t * Math.PI * 2; // airplane orbital angle
+                    // Globe rotation: one full turn over the cycle
+                    const globeAngle = t * Math.PI * 2;
+                    // Jet orbit: two full orbits over the cycle (faster)
+                    const jetAngle = t * Math.PI * 2 * 2;
 
-                    result.push(renderFrame((ctx, s) => {
+                    out.push(renderFrame((ctx, s) => {
                         const cx = s / 2;
                         const cy = s / 2;
-                        const globeRadius = s * 0.42;
+                        const globeR = s * 0.38;
+                        const orbitRX = globeR + 2.8;
+                        const orbitRY = (globeR + 2.8) * 0.35;
 
-                        // 1. Deep space / outer glow
-                        const glowGrad = ctx.createRadialGradient(cx, cy, globeRadius * 0.7, cx, cy, globeRadius * 1.4);
-                        glowGrad.addColorStop(0, 'rgba(0,160,220,0.25)');
-                        glowGrad.addColorStop(1, 'rgba(0,0,0,0)');
-                        ctx.fillStyle = glowGrad;
+                        // ─── STARFIELD ─────────────────
+                        // tiny scattered stars (gold/white) with deterministic placement
+                        ctx.fillStyle = '#ffffff';
+                        for (let star = 0; star < 12; star++) {
+                            const sx = (Math.sin(star * 1.7 + 3) * 0.9 + 1) * s / 2;
+                            const sy = (Math.cos(star * 2.3 + 1) * 0.9 + 1) * s / 2;
+                            if (Math.hypot(sx - cx, sy - cy) > globeR + 2) {
+                                ctx.globalAlpha = 0.6 + 0.4 * Math.sin(star * 5 + i * 0.2);
+                                ctx.beginPath();
+                                ctx.arc(sx, sy, 0.4, 0, Math.PI * 2);
+                                ctx.fill();
+                            }
+                        }
+                        ctx.globalAlpha = 1;
+                        // larger golden stars
+                        ctx.fillStyle = '#d4af37';
+                        const goldStars = [{ x: cx - globeR * 1.5, y: cy - globeR * 1.2 }, { x: cx + globeR * 1.6, y: cy + globeR * 1.3 }, { x: cx + globeR * 1.2, y: cy - globeR * 1.5 }];
+                        goldStars.forEach(gs => {
+                            if (Math.hypot(gs.x - cx, gs.y - cy) > globeR + 2) {
+                                ctx.beginPath();
+                                ctx.arc(gs.x, gs.y, 0.8, 0, Math.PI * 2);
+                                ctx.fill();
+                            }
+                        });
+
+                        // ─── GOLDEN GLOW RING ─────────────────
+                        ctx.strokeStyle = 'rgba(212,175,55,0.25)';
+                        ctx.lineWidth = 1.8;
                         ctx.beginPath();
-                        ctx.arc(cx, cy, globeRadius * 1.4, 0, Math.PI * 2);
-                        ctx.fill();
+                        ctx.arc(cx, cy, globeR + 2.2, 0, Math.PI * 2);
+                        ctx.stroke();
+                        // outer subtle ring
+                        ctx.strokeStyle = 'rgba(212,175,55,0.1)';
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.arc(cx, cy, globeR + 4.5, 0, Math.PI * 2);
+                        ctx.stroke();
 
-                        // 2. Globe ocean base (rich blue)
-                        const oceanGrad = ctx.createRadialGradient(cx - 0.5, cy - 0.5, globeRadius * 0.1, cx, cy, globeRadius);
-                        oceanGrad.addColorStop(0, '#2E8BC0');
-                        oceanGrad.addColorStop(0.5, '#145DA0');
-                        oceanGrad.addColorStop(1, '#0B2D5A');
+                        // ─── GLOBE OCEAN ─────────────────
+                        const oceanGrad = ctx.createRadialGradient(cx - 0.5, cy - 0.5, globeR * 0.1, cx, cy, globeR);
+                        oceanGrad.addColorStop(0, '#1a5276');
+                        oceanGrad.addColorStop(0.6, '#0b2d4f');
+                        oceanGrad.addColorStop(1, '#041a2b');
                         ctx.fillStyle = oceanGrad;
                         ctx.beginPath();
-                        ctx.arc(cx, cy, globeRadius, 0, Math.PI * 2);
+                        ctx.arc(cx, cy, globeR, 0, Math.PI * 2);
                         ctx.fill();
 
-                        // 3. Continents (bold, high contrast golden-green for visibility)
-                        ctx.fillStyle = '#C9A84C'; // gold tint
-                        // North America
+                        // ─── CONTINENTS (rotated) ─────────────────
+                        ctx.save();
+                        ctx.translate(cx, cy);
+                        ctx.rotate(globeAngle);
+                        ctx.translate(-cx, -cy);
+
+                        // Antarctica (small cap at bottom)
+                        ctx.fillStyle = '#c9a84c';
                         ctx.beginPath();
-                        ctx.ellipse(cx - globeRadius * 0.35, cy - globeRadius * 0.22, globeRadius * 0.32, globeRadius * 0.26, -0.3, 0, Math.PI * 2);
+                        ctx.ellipse(cx, cy + globeR * 0.7, globeR * 0.25, globeR * 0.08, 0, 0, Math.PI * 2);
                         ctx.fill();
-                        ctx.fillStyle = '#D4AF37'; // lighter gold
+
+                        // North America
+                        ctx.fillStyle = '#d4af37';
                         ctx.beginPath();
-                        ctx.ellipse(cx - globeRadius * 0.38, cy - globeRadius * 0.28, globeRadius * 0.18, globeRadius * 0.14, 0.2, 0, Math.PI * 2);
+                        ctx.ellipse(cx - globeR * 0.35, cy - globeR * 0.25, globeR * 0.33, globeR * 0.24, -0.3, 0, Math.PI * 2);
+                        ctx.fill();
+                        ctx.fillStyle = '#e8c85e';
+                        ctx.beginPath();
+                        ctx.ellipse(cx - globeR * 0.28, cy - globeR * 0.35, globeR * 0.15, globeR * 0.1, 0.2, 0, Math.PI * 2);
                         ctx.fill();
 
                         // South America
-                        ctx.fillStyle = '#B8963C';
+                        ctx.fillStyle = '#b8943c';
                         ctx.beginPath();
-                        ctx.ellipse(cx - globeRadius * 0.25, cy + globeRadius * 0.28, globeRadius * 0.22, globeRadius * 0.36, 0.2, 0, Math.PI * 2);
+                        ctx.ellipse(cx - globeR * 0.22, cy + globeR * 0.28, globeR * 0.2, globeR * 0.35, 0.15, 0, Math.PI * 2);
                         ctx.fill();
-                        ctx.fillStyle = '#D4AF37';
+                        ctx.fillStyle = '#d4af37';
                         ctx.beginPath();
-                        ctx.ellipse(cx - globeRadius * 0.22, cy + globeRadius * 0.24, globeRadius * 0.1, globeRadius * 0.2, 0.3, 0, Math.PI * 2);
-                        ctx.fill();
-
-                        // Europe/Africa
-                        ctx.fillStyle = '#B8963C';
-                        ctx.beginPath();
-                        ctx.ellipse(cx + globeRadius * 0.18, cy - globeRadius * 0.2, globeRadius * 0.25, globeRadius * 0.3, 0.1, 0, Math.PI * 2);
-                        ctx.fill();
-                        ctx.fillStyle = '#D4AF37';
-                        ctx.beginPath();
-                        ctx.ellipse(cx + globeRadius * 0.22, cy - globeRadius * 0.26, globeRadius * 0.12, globeRadius * 0.15, 0.4, 0, Math.PI * 2);
-                        ctx.fill();
-                        ctx.fillStyle = '#B8963C';
-                        ctx.beginPath();
-                        ctx.ellipse(cx + globeRadius * 0.32, cy + globeRadius * 0.08, globeRadius * 0.18, globeRadius * 0.28, -0.2, 0, Math.PI * 2);
+                        ctx.ellipse(cx - globeR * 0.18, cy + globeR * 0.32, globeR * 0.1, globeR * 0.2, 0.3, 0, Math.PI * 2);
                         ctx.fill();
 
-                        // Asia/Australia
-                        ctx.fillStyle = '#D4AF37';
+                        // Europe
+                        ctx.fillStyle = '#d4af37';
                         ctx.beginPath();
-                        ctx.ellipse(cx + globeRadius * 0.4, cy - globeRadius * 0.28, globeRadius * 0.25, globeRadius * 0.2, 0.4, 0, Math.PI * 2);
+                        ctx.ellipse(cx + globeR * 0.18, cy - globeR * 0.28, globeR * 0.22, globeR * 0.18, 0.1, 0, Math.PI * 2);
                         ctx.fill();
-                        ctx.fillStyle = '#C9A84C';
+                        ctx.fillStyle = '#e8c85e';
                         ctx.beginPath();
-                        ctx.ellipse(cx + globeRadius * 0.5, cy - globeRadius * 0.05, globeRadius * 0.15, globeRadius * 0.22, -0.1, 0, Math.PI * 2);
+                        ctx.ellipse(cx + globeR * 0.2, cy - globeR * 0.35, globeR * 0.12, globeR * 0.09, 0.4, 0, Math.PI * 2);
                         ctx.fill();
 
-                        // 4. Latitude / Longitude lines (crisp white)
-                        ctx.strokeStyle = 'rgba(255,255,255,0.25)';
-                        ctx.lineWidth = 1.2;
+                        // Africa
+                        ctx.fillStyle = '#b8943c';
                         ctx.beginPath();
-                        ctx.ellipse(cx, cy, globeRadius, globeRadius * 0.35, 0, 0, Math.PI * 2);
+                        ctx.ellipse(cx + globeR * 0.28, cy + globeR * 0.08, globeR * 0.2, globeR * 0.3, -0.2, 0, Math.PI * 2);
+                        ctx.fill();
+                        ctx.fillStyle = '#d4af37';
+                        ctx.beginPath();
+                        ctx.ellipse(cx + globeR * 0.32, cy + globeR * 0.2, globeR * 0.12, globeR * 0.18, -0.1, 0, Math.PI * 2);
+                        ctx.fill();
+
+                        // Asia
+                        ctx.fillStyle = '#d4af37';
+                        ctx.beginPath();
+                        ctx.ellipse(cx + globeR * 0.42, cy - globeR * 0.3, globeR * 0.26, globeR * 0.2, 0.4, 0, Math.PI * 2);
+                        ctx.fill();
+                        ctx.fillStyle = '#e8c85e';
+                        ctx.beginPath();
+                        ctx.ellipse(cx + globeR * 0.48, cy - globeR * 0.22, globeR * 0.1, globeR * 0.08, 0.5, 0, Math.PI * 2);
+                        ctx.fill();
+
+                        // Australia
+                        ctx.fillStyle = '#c9a84c';
+                        ctx.beginPath();
+                        ctx.ellipse(cx + globeR * 0.5, cy + globeR * 0.1, globeR * 0.14, globeR * 0.2, -0.1, 0, Math.PI * 2);
+                        ctx.fill();
+
+                        ctx.restore(); // end continent rotation
+
+                        // ─── LAT/LONG LINES (static) ─────────────────
+                        ctx.strokeStyle = 'rgba(255,255,255,0.18)';
+                        ctx.lineWidth = 0.9;
+                        ctx.beginPath();
+                        ctx.ellipse(cx, cy, globeR, globeR * 0.35, 0, 0, Math.PI * 2);
                         ctx.stroke();
                         ctx.beginPath();
-                        ctx.ellipse(cx, cy, globeRadius * 0.55, globeRadius, 0, 0, Math.PI * 2);
+                        ctx.ellipse(cx, cy, globeR * 0.55, globeR, 0, 0, Math.PI * 2);
                         ctx.stroke();
                         ctx.beginPath();
-                        ctx.ellipse(cx, cy - globeRadius * 0.2, globeRadius * 0.95, globeRadius * 0.25, 0, 0, Math.PI * 2);
+                        ctx.ellipse(cx, cy - globeR * 0.2, globeR * 0.95, globeR * 0.25, 0, 0, Math.PI * 2);
                         ctx.stroke();
                         ctx.beginPath();
-                        ctx.ellipse(cx, cy + globeRadius * 0.2, globeRadius * 0.95, globeRadius * 0.25, 0, 0, Math.PI * 2);
+                        ctx.ellipse(cx, cy + globeR * 0.2, globeR * 0.95, globeR * 0.25, 0, 0, Math.PI * 2);
                         ctx.stroke();
 
-                        // 5. Airplane orbiting (position on an ellipse slightly larger than globe)
-                        const orbitRX = globeRadius + 3;
-                        const orbitRY = (globeRadius + 3) * 0.35;
-                        const planeX = cx + Math.cos(angle) * orbitRX;
-                        const planeY = cy + Math.sin(angle) * orbitRY;
+                        // ─── GLOBE HIGHLIGHT ─────────────────
+                        ctx.fillStyle = 'rgba(255,255,255,0.2)';
+                        ctx.beginPath();
+                        ctx.ellipse(cx - globeR * 0.25, cy - globeR * 0.3, globeR * 0.3, globeR * 0.15, -0.2, 0, Math.PI * 2);
+                        ctx.fill();
 
-                        // Tangent angle for rotation
+                        // ─── JET POSITION ─────────────────
+                        const jetX = cx + Math.cos(jetAngle) * orbitRX;
+                        const jetY = cy + Math.sin(jetAngle) * orbitRY;
                         const tangentAngle = Math.atan2(
-                            Math.cos(angle) * orbitRY,
-                            -Math.sin(angle) * orbitRX
+                            Math.cos(jetAngle) * orbitRY,
+                            -Math.sin(jetAngle) * orbitRX
                         ) + Math.PI / 2;
 
                         ctx.save();
-                        ctx.translate(planeX, planeY);
+                        ctx.translate(jetX, jetY);
                         ctx.rotate(tangentAngle);
 
-                        // Contrail (fading behind)
-                        ctx.fillStyle = 'rgba(255,255,255,0.6)';
-                        for (let d = 0; d < 4; d++) {
-                            const dx = -8 - d * 4;
+                        // Contrail (golden sparkle trail)
+                        for (let d = 0; d < 5; d++) {
+                            const dx = -7 - d * 3.5;
                             const dy = 0;
-                            const alpha = 0.7 - d * 0.16;
-                            ctx.fillStyle = `rgba(255,255,255,${alpha})`;
+                            const alpha = 0.8 - d * 0.15;
+                            ctx.fillStyle = `rgba(255,215,0,${alpha})`;
                             ctx.beginPath();
-                            ctx.arc(dx, dy, 1.8 - d * 0.2, 0, Math.PI * 2);
+                            ctx.arc(dx, dy, 1.3 - d * 0.15, 0, Math.PI * 2);
                             ctx.fill();
                         }
 
-                        // Airplane body (luxury white with gold trim)
+                        // ─── PRIVATE JET BODY ─────────────────
+                        // Fuselage (white, sleek)
                         ctx.fillStyle = '#FFFFFF';
                         ctx.beginPath();
-                        ctx.ellipse(0, 0, 10, 3.5, 0, 0, Math.PI * 2); // fuselage
+                        ctx.ellipse(0, 0, 9, 3.2, 0, 0, Math.PI * 2);
                         ctx.fill();
-                        ctx.strokeStyle = '#D4AF37'; // gold outline
+                        ctx.strokeStyle = '#d4af37';
+                        ctx.lineWidth = 0.9;
+                        ctx.stroke();
+
+                        // Gold stripe along fuselage
+                        ctx.strokeStyle = '#d4af37';
+                        ctx.lineWidth = 0.7;
+                        ctx.beginPath();
+                        ctx.moveTo(-7.5, -0.6);
+                        ctx.lineTo(7.5, -0.6);
+                        ctx.stroke();
+
+                        // Wings (swept, with gold tip)
+                        ctx.fillStyle = '#EFF0F5';
+                        ctx.beginPath();
+                        ctx.moveTo(1.5, -1.8);
+                        ctx.lineTo(6.5, -7.5);
+                        ctx.lineTo(9.5, -7);
+                        ctx.lineTo(6, -1.8);
+                        ctx.closePath();
+                        ctx.fill();
+                        ctx.strokeStyle = '#d4af37';
                         ctx.lineWidth = 0.8;
                         ctx.stroke();
-
-                        // Wings (swept back)
-                        ctx.fillStyle = '#E8E9F0';
+                        // winglet
+                        ctx.fillStyle = '#d4af37';
                         ctx.beginPath();
-                        ctx.moveTo(1, -1.5);
-                        ctx.lineTo(6, -7);
-                        ctx.lineTo(10, -7);
-                        ctx.lineTo(7, -1.5);
+                        ctx.moveTo(8.5, -7.2);
+                        ctx.lineTo(8.2, -8.2);
+                        ctx.lineTo(9.8, -7.8);
                         ctx.closePath();
                         ctx.fill();
-                        ctx.strokeStyle = '#D4AF37';
-                        ctx.stroke();
 
+                        ctx.fillStyle = '#EFF0F5';
                         ctx.beginPath();
-                        ctx.moveTo(1, 1.5);
-                        ctx.lineTo(6, 7);
-                        ctx.lineTo(10, 7);
-                        ctx.lineTo(7, 1.5);
+                        ctx.moveTo(1.5, 1.8);
+                        ctx.lineTo(6.5, 7.5);
+                        ctx.lineTo(9.5, 7);
+                        ctx.lineTo(6, 1.8);
                         ctx.closePath();
                         ctx.fill();
+                        ctx.strokeStyle = '#d4af37';
                         ctx.stroke();
+                        ctx.fillStyle = '#d4af37';
+                        ctx.beginPath();
+                        ctx.moveTo(8.5, 7.2);
+                        ctx.lineTo(8.2, 8.2);
+                        ctx.lineTo(9.8, 7.8);
+                        ctx.closePath();
+                        ctx.fill();
 
-                        // Tail fin
+                        // Tail (vertical stabilizer)
                         ctx.fillStyle = '#FFFFFF';
                         ctx.beginPath();
-                        ctx.moveTo(-8, 0);
-                        ctx.lineTo(-13, -5);
-                        ctx.lineTo(-10, 0);
+                        ctx.moveTo(-7.5, 0);
+                        ctx.lineTo(-12, -4.5);
+                        ctx.lineTo(-11, 0);
                         ctx.closePath();
                         ctx.fill();
-                        ctx.strokeStyle = '#D4AF37';
+                        ctx.strokeStyle = '#d4af37';
+                        ctx.lineWidth = 0.7;
+                        ctx.stroke();
+                        // Tail logo (golden diamond)
+                        ctx.fillStyle = '#d4af37';
+                        ctx.beginPath();
+                        ctx.moveTo(-10, -2.5);
+                        ctx.lineTo(-9, -3.5);
+                        ctx.lineTo(-8, -2.5);
+                        ctx.lineTo(-9, -1.5);
+                        ctx.closePath();
+                        ctx.fill();
+
+                        // Engines (dark grey with gold rims)
+                        ctx.fillStyle = '#4A4A5C';
+                        ctx.beginPath();
+                        ctx.ellipse(5, -5.8, 2.2, 1.2, 0.1, 0, Math.PI * 2);
+                        ctx.fill();
+                        ctx.strokeStyle = '#d4af37';
+                        ctx.lineWidth = 0.7;
+                        ctx.stroke();
+                        ctx.beginPath();
+                        ctx.ellipse(5, 5.8, 2.2, 1.2, -0.1, 0, Math.PI * 2);
+                        ctx.fill();
                         ctx.stroke();
 
-                        // Engine nacelles (dark grey)
-                        ctx.fillStyle = '#5A5A6E';
+                        // Cockpit windows (tinted blue, curved)
+                        ctx.fillStyle = '#1e90d4';
                         ctx.beginPath();
-                        ctx.ellipse(4, -6, 2, 1.2, 0, 0, Math.PI * 2);
+                        ctx.ellipse(6.5, -1, 1.8, 0.7, 0.1, 0, Math.PI * 2);
                         ctx.fill();
                         ctx.beginPath();
-                        ctx.ellipse(4, 6, 2, 1.2, 0, 0, Math.PI * 2);
+                        ctx.ellipse(6.5, 1, 1.8, 0.7, -0.1, 0, Math.PI * 2);
                         ctx.fill();
 
-                        // Windows (row of tiny bright dots)
-                        ctx.fillStyle = '#48CAE4';
-                        for (let w = -0.8; w <= 0.8; w += 0.4) {
+                        // Cabin windows (row of tiny illuminated dots)
+                        ctx.fillStyle = '#f0e68c';
+                        for (let w = -0.5; w <= 0.5; w += 0.4) {
                             ctx.beginPath();
-                            ctx.arc(-2 + w * 3, -0.6, 0.7, 0, Math.PI * 2);
+                            ctx.arc(-1 + w * 4, -1.2, 0.6, 0, Math.PI * 2);
                             ctx.fill();
                             ctx.beginPath();
-                            ctx.arc(-2 + w * 3, 0.6, 0.7, 0, Math.PI * 2);
+                            ctx.arc(-1 + w * 4, 1.2, 0.6, 0, Math.PI * 2);
                             ctx.fill();
                         }
 
-                        // Cockpit windows
-                        ctx.fillStyle = '#48CAE4';
-                        ctx.beginPath();
-                        ctx.ellipse(7, -1, 1.8, 0.8, 0.1, 0, Math.PI * 2);
-                        ctx.fill();
-                        ctx.beginPath();
-                        ctx.ellipse(7, 1, 1.8, 0.8, -0.1, 0, Math.PI * 2);
-                        ctx.fill();
+                        ctx.restore(); // end jet
 
-                        ctx.restore();
-
-                        // 6. Globe highlight (glass reflection)
-                        ctx.fillStyle = 'rgba(255,255,255,0.2)';
+                        // Optional: tiny golden particles around globe
+                        ctx.fillStyle = 'rgba(212,175,55,0.9)';
+                        const particleAngle = (i * 0.15) % (Math.PI * 2);
+                        const px = cx + Math.cos(particleAngle) * (globeR + 4);
+                        const py = cy + Math.sin(particleAngle) * (globeR + 3);
                         ctx.beginPath();
-                        ctx.ellipse(cx - globeRadius * 0.25, cy - globeRadius * 0.3, globeRadius * 0.3, globeRadius * 0.15, -0.2, 0, Math.PI * 2);
+                        ctx.arc(px, py, 0.5, 0, Math.PI * 2);
                         ctx.fill();
 
                     }, FAV));
                 }
-                return result;
+                return out;
             }
 
             // ──────────────────────────────────────
-            // FRAME RENDERER HELPER
+            // CANVAS TO DATA URL HELPER
             // ──────────────────────────────────────
             function renderFrame(drawFn, size = FAV) {
                 const canvas = document.createElement('canvas');
@@ -395,7 +510,7 @@
             }
 
             // ──────────────────────────────────────
-            // UI ELEMENTS
+            // UI & ANIMATION CONTROL
             // ──────────────────────────────────────
             const speedSlider = document.getElementById('speed-slider');
             const speedDisplay = document.getElementById('speed-display');
@@ -403,10 +518,7 @@
             const headerCanvas = document.getElementById('header-preview');
             const headerCtx = headerCanvas.getContext('2d');
 
-            // ──────────────────────────────────────
-            // ANIMATION CONTROL
-            // ──────────────────────────────────────
-            function updateHeaderPreview() {
+            function updateHeader() {
                 if (frames.length === 0) return;
                 const img = new Image();
                 img.src = frames[frameIdx];
@@ -419,11 +531,10 @@
             function updateFavicon() {
                 if (frames.length === 0) return;
                 faviconLink.href = frames[frameIdx];
-                updateHeaderPreview();
+                updateHeader();
                 frameIdx = (frameIdx + 1) % frames.length;
-                // Update status text occasionally
                 if (frameIdx % 6 === 0) {
-                    statusText.textContent = `Airplane orbiting — frame ${frameIdx+1}/${frames.length} 🌍✈️`;
+                    statusText.textContent = `Globe spinning, jet orbiting — frame ${frameIdx+1}/${frames.length} ✨`;
                 }
             }
 
@@ -433,33 +544,19 @@
                 frameIdx = 0;
                 updateFavicon();
                 intervalId = setInterval(updateFavicon, speed);
-                statusText.textContent = `Airplane orbiting the globe — favicon alive! 🌍✈️`;
+                statusText.textContent = `Prestige globe & jet — favicon alive! ✨`;
             }
 
-            // Speed slider
             speedSlider.addEventListener('input', () => {
                 speed = parseInt(speedSlider.value);
                 speedDisplay.textContent = speed + 'ms';
                 restartLoop();
             });
 
-            // ──────────────────────────────────────
-            // INITIALIZATION (no visibility pause)
-            // ──────────────────────────────────────
-            function init() {
-                speedSlider.value = speed;
-                speedDisplay.textContent = speed + 'ms';
-                // Generate frames
-                frames = generateGlobeAirplaneFrames(36);
-                // Start animation
-                restartLoop();
-                console.log('🌍 Luxury Globe & Airplane favicon active — runs even in background.');
-            }
-
-            // polyfill roundRect if needed
+            // Polyfill roundRect (just in case)
             if (!CanvasRenderingContext2D.prototype.roundRect) {
                 CanvasRenderingContext2D.prototype.roundRect = function(x, y, w, h, r) {
-                    if (typeof r === 'number') r = { tl: r, tr: r, br: r, bl: r };
+                    if (typeof r === 'number') r = {tl: r, tr: r, br: r, bl: r};
                     this.beginPath();
                     this.moveTo(x + r.tl, y);
                     this.lineTo(x + w - r.tr, y);
@@ -473,6 +570,22 @@
                     this.closePath();
                 };
             }
+
+            // ──────────────────────────────────────
+            // INIT (NO VISIBILITY PAUSE — CONTINUOUS)
+            // ──────────────────────────────────────
+            function init() {
+                speedSlider.value = speed;
+                speedDisplay.textContent = speed + 'ms';
+                frames = generateLuxuryGlobeJetFrames(48);
+                restartLoop();
+                console.log('✨ Luxury Globe & Jet favicon active — continuous animation');
+            }
+
+            // Remove default visibility pause behavior
+            document.addEventListener('visibilitychange', () => {
+                // Do nothing — favicon keeps running
+            });
 
             init();
         })();
