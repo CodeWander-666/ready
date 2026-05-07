@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>P&T Luxury Travel — Animated Journey Logo & Favicon</title>
+    <title>P&T — Luxury Animated Text Favicon</title>
     <link id="dynamic-favicon" rel="icon" type="image/png" href="">
     <style>
         :root {
@@ -11,8 +11,7 @@
             --card-bg: #0b1320;
             --text: #e1e8f5;
             --gold: #d4af37;
-            --gold2: #c9a84c;
-            --accent: #00a8e8;
+            --gold-light: #fceabb;
             --border: #1e3a5e;
         }
         * { margin:0; padding:0; box-sizing:border-box; }
@@ -26,11 +25,11 @@
             align-items: center;
             padding: 2rem;
             background-image:
-                radial-gradient(ellipse at 40% 30%, rgba(0,168,232,0.08) 0%, transparent 60%),
-                radial-gradient(ellipse at 65% 60%, rgba(212,175,55,0.06) 0%, transparent 60%);
+                radial-gradient(ellipse at 50% 30%, rgba(212,175,55,0.05) 0%, transparent 60%),
+                radial-gradient(ellipse at 30% 70%, rgba(212,175,55,0.03) 0%, transparent 60%);
         }
         .container {
-            max-width: 750px;
+            max-width: 720px;
             width: 100%;
             display: flex;
             flex-direction: column;
@@ -38,36 +37,34 @@
             align-items: center;
         }
 
-        /* SVG Logo Card */
+        /* SVG Showcase */
         .svg-showcase {
             background: var(--card-bg);
             border: 1px solid var(--border);
             border-radius: 24px;
-            padding: 30px 20px;
+            padding: 40px 20px;
             width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.05) inset;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.03) inset;
         }
         .svg-showcase svg {
-            width: 320px;
-            height: 200px;
+            width: 340px;
+            height: 180px;
             max-width: 100%;
-            filter: drop-shadow(0 8px 24px rgba(0,0,0,0.6));
+            filter: drop-shadow(0 10px 24px rgba(0,0,0,0.5));
         }
         .svg-showcase h2 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-top: 16px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-top: 12px;
             letter-spacing: 1px;
-            background: linear-gradient(135deg, #d4af37, #f5e6a3);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--gold);
+            text-transform: uppercase;
         }
         .svg-showcase p {
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             color: #8a9bb5;
             margin-top: 4px;
         }
@@ -95,7 +92,7 @@
             width: 48px;
             height: 48px;
             border-radius: 12px;
-            box-shadow: 0 6px 20px rgba(0,168,232,0.4);
+            box-shadow: 0 6px 20px rgba(212,175,55,0.3);
             image-rendering: auto;
         }
         .favicon-preview span {
@@ -112,11 +109,11 @@
         }
         .speed-control input[type="range"] {
             width: 180px;
-            accent-color: var(--accent);
+            accent-color: var(--gold);
         }
         .speed-value {
             font-weight: 700;
-            color: var(--accent);
+            color: var(--gold);
             width: 50px;
             text-align: center;
         }
@@ -134,44 +131,53 @@
             width: 9px;
             height: 9px;
             border-radius: 50%;
-            background: radial-gradient(circle, #fff, #d4af37);
-            box-shadow: 0 0 12px #d4af37;
+            background: radial-gradient(circle, #fff, var(--gold));
+            box-shadow: 0 0 12px var(--gold);
             animation: pulseGold 1.3s infinite;
         }
         @keyframes pulseGold {
-            0%,100%{ box-shadow:0 0 6px #d4af37; } 50%{ box-shadow:0 0 18px #d4af37,0 0 28px #d4af37; }
+            0%,100%{ box-shadow:0 0 6px var(--gold); }
+            50%{ box-shadow:0 0 18px var(--gold),0 0 28px var(--gold); }
         }
 
         /* SVG internal animations */
-        @keyframes planeOrbit {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(200%); }
         }
-        @keyframes textGlow {
-            0%,100% { opacity:0.7; }
-            50% { opacity:1; }
+        @keyframes textGlowPulse {
+            0%,100% { filter: drop-shadow(0 0 8px #d4af37) drop-shadow(0 0 2px #d4af37); }
+            50% { filter: drop-shadow(0 0 18px #fceabb) drop-shadow(0 0 6px #d4af37); }
         }
-        @keyframes sparkle {
-            0%,100% { opacity:0; transform:scale(0.8); }
-            50% { opacity:1; transform:scale(1.2); }
+        @keyframes underlineExtend {
+            0% { stroke-dashoffset: 60; opacity:0.7; }
+            100% { stroke-dashoffset: 0; opacity:1; }
         }
-        @keyframes dash {
-            to { stroke-dashoffset: -24; }
+        @keyframes diamondSpin {
+            0% { transform: rotate(0deg); opacity:0.8; }
+            50% { transform: rotate(180deg) scale(1.2); opacity:1; }
+            100% { transform: rotate(360deg); opacity:0.8; }
         }
-        .plane-group {
-            transform-origin: 160px 100px;
-            animation: planeOrbit 6s linear infinite;
+        @keyframes gentleFloat {
+            0%,100% { transform: translateY(0px); }
+            50% { transform: translateY(-4px); }
         }
-        .text-glow {
-            animation: textGlow 2s ease-in-out infinite;
+        .text-group {
+            animation: gentleFloat 4s ease-in-out infinite;
         }
-        .sparkle-1 { animation: sparkle 1.5s ease-in-out infinite; }
-        .sparkle-2 { animation: sparkle 1.8s ease-in-out 0.3s infinite; }
-        .sparkle-3 { animation: sparkle 2.2s ease-in-out 0.6s infinite; }
-        .sparkle-4 { animation: sparkle 1.6s ease-in-out 0.9s infinite; }
-        .dash-line {
-            stroke-dasharray: 4 8;
-            animation: dash 1s linear infinite;
+        .glow-layer {
+            animation: textGlowPulse 3s ease-in-out infinite;
+        }
+        .underline-path {
+            stroke-dasharray: 60;
+            animation: underlineExtend 2s ease-out forwards, underlineExtend 2s ease-out infinite alternate;
+        }
+        .diamond-sparkle {
+            transform-origin: 185px 115px;
+            animation: diamondSpin 3s linear infinite;
+        }
+        .shimmer-rect {
+            animation: shimmer 2.5s linear infinite;
         }
 
         .footer-text {
@@ -184,72 +190,75 @@
 <body>
     <div class="container">
 
-        <!-- LUXURY ANIMATED SVG (big, on‑page) -->
+        <!-- LUXURY ANIMATED SVG (P&T text only) -->
         <div class="svg-showcase">
-            <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
+            <svg viewBox="0 0 350 180" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                     <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                         <stop offset="0%" stop-color="#d4af37" />
-                        <stop offset="30%" stop-color="#f9e282" />
-                        <stop offset="60%" stop-color="#d4af37" />
+                        <stop offset="30%" stop-color="#fceabb" />
+                        <stop offset="50%" stop-color="#d4af37" />
+                        <stop offset="80%" stop-color="#f9e282" />
                         <stop offset="100%" stop-color="#aa7c1e" />
                     </linearGradient>
-                    <linearGradient id="globeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stop-color="#1a5276" />
-                        <stop offset="100%" stop-color="#041a2b" />
+                    <linearGradient id="shimmerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="rgba(255,255,255,0)" />
+                        <stop offset="40%" stop-color="rgba(255,255,255,0.6)" />
+                        <stop offset="60%" stop-color="rgba(255,255,255,0.6)" />
+                        <stop offset="100%" stop-color="rgba(255,255,255,0)" />
                     </linearGradient>
-                    <filter id="glow">
-                        <feGaussianBlur stdDeviation="3" result="blur" />
+                    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                        <feGaussianBlur stdDeviation="5" result="blur" />
                         <feMerge>
+                            <feMergeNode in="blur" />
                             <feMergeNode in="blur" />
                             <feMergeNode in="SourceGraphic" />
                         </feMerge>
                     </filter>
                 </defs>
 
-                <!-- Background subtle arcs -->
-                <circle cx="160" cy="100" r="85" stroke="rgba(212,175,55,0.12)" stroke-width="1.2" fill="none" />
-                <circle cx="160" cy="100" r="92" stroke="rgba(212,175,55,0.06)" stroke-width="0.8" fill="none" />
+                <!-- Elegent background lines -->
+                <line x1="60" y1="90" x2="290" y2="90" stroke="rgba(255,255,255,0.05)" stroke-width="0.8" />
+                <line x1="80" y1="94" x2="270" y2="94" stroke="rgba(212,175,55,0.12)" stroke-width="0.6" />
 
-                <!-- Dashed route path (animated) -->
-                <ellipse cx="160" cy="100" rx="78" ry="28" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" class="dash-line" />
-
-                <!-- Globe (static base) -->
-                <circle cx="160" cy="100" r="32" fill="url(#globeGrad)" stroke="rgba(255,255,255,0.15)" stroke-width="1" />
-                <!-- continents simplified -->
-                <path d="M144,88 Q150,78 155,88 M148,94 Q150,90 153,94 M140,100 Q138,105 142,108 M170,78 Q175,72 178,78 M168,110 Q170,115 174,112 M152,112 Q150,116 148,112" stroke="#d4af37" stroke-width="1.8" fill="none" stroke-linecap="round" />
-                <!-- globe highlight -->
-                <path d="M143,80 a20,20 0 0,1 8,-20" stroke="rgba(255,255,255,0.35)" stroke-width="2" fill="none" stroke-linecap="round" />
-
-                <!-- Particle sparkles around globe -->
-                <circle cx="135" cy="65" r="1.2" fill="#d4af37" class="sparkle-1" />
-                <circle cx="185" cy="60" r="1" fill="#f5e6a3" class="sparkle-2" />
-                <circle cx="140" cy="140" r="1.2" fill="#d4af37" class="sparkle-3" />
-                <circle cx="190" cy="135" r="1" fill="#f5e6a3" class="sparkle-4" />
-
-                <!-- P&T Text centered -->
-                <text x="160" y="105" text-anchor="middle" font-size="28" font-weight="900" font-family="'Inter', system-ui, sans-serif" letter-spacing="3" fill="url(#goldGrad)" filter="url(#glow)" class="text-glow">
-                    P&amp;T
-                </text>
-
-                <!-- Orbiting plane group -->
-                <g class="plane-group">
-                    <!-- Plane positioned at top of orbit (relative) -->
-                    <g transform="translate(160, 100) rotate(-90) translate(78, 0) rotate(90)">
-                        <!-- Jet shape (small) -->
-                        <path d="M-8,0 L-1,-3.5 L6,-3.5 L10,0 L6,3.5 L-1,3.5 Z" fill="#ffffff" stroke="#d4af37" stroke-width="1" />
-                        <path d="M-8,0 L-12,-2 L-11,0 L-12,2 Z" fill="#ffffff" stroke="#d4af37" stroke-width="0.8" />
-                        <!-- window -->
-                        <circle cx="2" cy="-1.2" r="1.2" fill="#00a8e8" />
-                        <circle cx="2" cy="1.2" r="1.2" fill="#00a8e8" />
-                    </g>
+                <!-- Main text group with floating animation -->
+                <g class="text-group glow-layer">
+                    <text x="175" y="80" text-anchor="middle" font-size="52" font-weight="900" font-family="'Inter', 'Segoe UI', system-ui, sans-serif" letter-spacing="6" fill="url(#goldGrad)" filter="url(#glow)">
+                        P&amp;T
+                    </text>
                 </g>
+
+                <!-- Shimmer overlay over text -->
+                <rect x="60" y="30" width="230" height="60" fill="url(#shimmerGrad)" class="shimmer-rect" />
+
+                <!-- Decorative underline (extending) -->
+                <path d="M90,110 Q175,130 260,110" fill="none" stroke="url(#goldGrad)" stroke-width="2.5" stroke-linecap="round" class="underline-path" />
+
+                <!-- Tiny diamond sparkle underneath -->
+                <g class="diamond-sparkle">
+                    <path d="M185,112 L188,118 L185,124 L182,118 Z" fill="#fceabb" opacity="0.9" />
+                    <circle cx="185" cy="118" r="2" fill="#ffffff" opacity="0.7" />
+                </g>
+
+                <!-- Second sparkle near letter P -->
+                <circle cx="110" cy="65" r="1.8" fill="#fceabb" opacity="0.7">
+                    <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite" />
+                </circle>
+                <!-- Sparkle near T -->
+                <circle cx="240" cy="60" r="1.5" fill="#fceabb" opacity="0.8">
+                    <animate attributeName="opacity" values="0.5;1;0.5" dur="2.5s" begin="0.5s" repeatCount="indefinite" />
+                </circle>
+
+                <!-- Small journey text subtitle -->
+                <text x="175" y="140" text-anchor="middle" font-size="12" font-weight="300" letter-spacing="3" fill="#b0c4de" opacity="0.8">
+                    LUXURY JOURNEY
+                </text>
             </svg>
-            <h2>P&amp;T — Luxury Journey</h2>
-            <p>Animated logo with globe &amp; private jet</p>
+            <h2>P&amp;T — Animated Luxury</h2>
+            <p>Pure text animation without globe or airplane</p>
         </div>
 
-        <!-- FAVICON CONTROL -->
+        <!-- FAVICON CONTROL (canvas frames) -->
         <div class="favicon-card">
             <div class="favicon-preview">
                 <canvas id="favicon-preview-canvas" width="32" height="32"></canvas>
@@ -257,16 +266,16 @@
             </div>
             <div class="speed-control">
                 <span style="font-size:0.8rem;">Slow</span>
-                <input type="range" id="speed-slider" min="60" max="200" value="110" step="10">
+                <input type="range" id="speed-slider" min="80" max="240" value="120" step="10">
                 <span style="font-size:0.8rem;">Fast</span>
-                <span class="speed-value" id="speed-display">110ms</span>
+                <span class="speed-value" id="speed-display">120ms</span>
             </div>
             <div class="status">
                 <span class="dot"></span>
-                <span id="status-text">P&amp;T favicon animating continuously 🛩️</span>
+                <span id="status-text">P&amp;T favicon animating continuously ✨</span>
             </div>
         </div>
-        <div class="footer-text">🌍 P&amp;T Luxury Travel — Favicon drawn with canvas frames for universal browser support</div>
+        <div class="footer-text">✨ P&amp;T Luxury Brand — Pure text animation, favicon rendered frame‑by‑frame for all browsers</div>
     </div>
 
     <script>
@@ -277,144 +286,74 @@
             let frames = [];
             let frameIdx = 0;
             let intervalId = null;
-            let speed = 110; // ms
+            let speed = 120; // ms
 
             // ────────────────────────────────
-            // CANVAS FRAME GENERATOR (P&T luxury favicon)
+            // CANVAS FRAME GENERATOR (Pure P&T text animation)
             // ────────────────────────────────
-            function generatePTFrames(count = 40) {
+            function generatePTTextFrames(count = 36) {
                 const out = [];
                 for (let i = 0; i < count; i++) {
                     const t = i / count;
-                    const planeAngle = t * Math.PI * 2; // plane orbits text
+                    // shimmer sweep position
+                    const shineX = (t * 60) - 20; // moves across text
 
                     out.push(renderFrame((ctx, s) => {
-                        const cx = s / 2;
-                        const cy = s / 2;
-                        const bgGrad = ctx.createRadialGradient(cx, cy, 0, cx, cy, s * 0.7);
+                        // Deep luxury background
+                        const bgGrad = ctx.createRadialGradient(s/2, s/2, 0, s/2, s/2, s*0.7);
                         bgGrad.addColorStop(0, '#0b2d4f');
-                        bgGrad.addColorStop(1, '#020812');
+                        bgGrad.addColorStop(1, '#010510');
                         ctx.fillStyle = bgGrad;
                         ctx.fillRect(0, 0, s, s);
 
-                        // Tiny golden ring
-                        ctx.strokeStyle = 'rgba(212,175,55,0.25)';
-                        ctx.lineWidth = 1;
-                        ctx.beginPath();
-                        ctx.arc(cx, cy, s * 0.41, 0, Math.PI * 2);
+                        // Subtle golden border
+                        ctx.strokeStyle = 'rgba(212,175,55,0.3)';
+                        ctx.lineWidth = 0.6;
+                        ctx.roundRect(1, 1, s-2, s-2, 3);
                         ctx.stroke();
 
-                        // Dashed orbit path
-                        ctx.strokeStyle = 'rgba(255,255,255,0.25)';
-                        ctx.lineWidth = 0.8;
-                        ctx.setLineDash([2, 3]);
-                        ctx.beginPath();
-                        ctx.ellipse(cx, cy, s * 0.4, s * 0.15, 0, 0, Math.PI * 2);
-                        ctx.stroke();
-                        ctx.setLineDash([]);
-
-                        // P&T text (bold, gold gradient)
-                        const textGrad = ctx.createLinearGradient(cx - 10, cy, cx + 10, cy);
+                        // Text gradient (gold)
+                        const textGrad = ctx.createLinearGradient(s*0.2, s*0.3, s*0.8, s*0.7);
                         textGrad.addColorStop(0, '#d4af37');
                         textGrad.addColorStop(0.5, '#fceabb');
                         textGrad.addColorStop(1, '#d4af37');
                         ctx.fillStyle = textGrad;
-                        ctx.font = 'bold 16px "Inter", "Segoe UI", system-ui, sans-serif';
+                        ctx.font = 'bold 18px "Inter", "Segoe UI", system-ui, sans-serif';
                         ctx.textAlign = 'center';
                         ctx.textBaseline = 'middle';
+                        // Draw text with drop shadow for luxury feel
                         ctx.shadowColor = '#d4af37';
-                        ctx.shadowBlur = 6;
-                        ctx.fillText('P&T', cx, cy);
+                        ctx.shadowBlur = 5;
+                        ctx.fillText('P&T', s/2, s/2);
+                        // Reset shadow
                         ctx.shadowColor = 'transparent';
                         ctx.shadowBlur = 0;
 
-                        // Globe hint (tiny circle behind text)
-                        ctx.strokeStyle = 'rgba(0,168,232,0.2)';
-                        ctx.lineWidth = 1.2;
-                        ctx.beginPath();
-                        ctx.arc(cx, cy, s * 0.18, 0, Math.PI * 2);
-                        ctx.stroke();
-
-                        // Orbiting plane
-                        const orbitRX = s * 0.4;
-                        const orbitRY = s * 0.15;
-                        const planeX = cx + Math.cos(planeAngle) * orbitRX;
-                        const planeY = cy + Math.sin(planeAngle) * orbitRY;
-                        const tangent = Math.atan2(Math.cos(planeAngle) * orbitRY, -Math.sin(planeAngle) * orbitRX) + Math.PI / 2;
-
+                        // Shining highlight (white sweep)
                         ctx.save();
-                        ctx.translate(planeX, planeY);
-                        ctx.rotate(tangent);
-
-                        // Plane body
-                        ctx.fillStyle = '#FFFFFF';
                         ctx.beginPath();
-                        ctx.ellipse(0, 0, 5.5, 2, 0, 0, Math.PI * 2);
-                        ctx.fill();
-                        ctx.strokeStyle = '#d4af37';
-                        ctx.lineWidth = 0.7;
-                        ctx.stroke();
-
-                        // Wings
-                        ctx.fillStyle = '#E8E9F0';
-                        ctx.beginPath();
-                        ctx.moveTo(0.5, -1);
-                        ctx.lineTo(4, -4.5);
-                        ctx.lineTo(6.5, -4);
-                        ctx.lineTo(4, -1);
-                        ctx.closePath();
-                        ctx.fill();
-                        ctx.strokeStyle = '#d4af37';
-                        ctx.stroke();
-                        ctx.beginPath();
-                        ctx.moveTo(0.5, 1);
-                        ctx.lineTo(4, 4.5);
-                        ctx.lineTo(6.5, 4);
-                        ctx.lineTo(4, 1);
-                        ctx.closePath();
-                        ctx.fill();
-                        ctx.stroke();
-
-                        // Tail fin
-                        ctx.fillStyle = '#FFFFFF';
-                        ctx.beginPath();
-                        ctx.moveTo(-5, 0);
-                        ctx.lineTo(-8, -3);
-                        ctx.lineTo(-7, 0);
-                        ctx.closePath();
-                        ctx.fill();
-                        ctx.stroke();
-
-                        // Engines
-                        ctx.fillStyle = '#4A4A5C';
-                        ctx.beginPath();
-                        ctx.ellipse(3, -3.5, 1.5, 0.9, 0.1, 0, Math.PI * 2);
-                        ctx.fill();
-                        ctx.strokeStyle = '#d4af37';
-                        ctx.lineWidth = 0.5;
-                        ctx.stroke();
-                        ctx.beginPath();
-                        ctx.ellipse(3, 3.5, 1.5, 0.9, -0.1, 0, Math.PI * 2);
-                        ctx.fill();
-                        ctx.stroke();
-
-                        // Windows
-                        ctx.fillStyle = '#00a8e8';
-                        ctx.beginPath();
-                        ctx.arc(1.5, -0.8, 0.9, 0, Math.PI * 2);
-                        ctx.fill();
-                        ctx.beginPath();
-                        ctx.arc(1.5, 0.8, 0.9, 0, Math.PI * 2);
-                        ctx.fill();
-
+                        ctx.rect(shineX - 5, 4, 8, s-8);
+                        ctx.clip();
+                        ctx.fillStyle = 'rgba(255,255,255,0.45)';
+                        ctx.fillText('P&T', s/2, s/2);
                         ctx.restore();
 
-                        // Small sparkle near text
-                        ctx.fillStyle = '#d4af37';
-                        const sparkleX = cx + Math.cos(t * Math.PI * 4) * 10;
-                        const sparkleY = cy - 8 + Math.sin(t * Math.PI * 6) * 2;
+                        // Tiny diamond sparkle near the text (static position but fades)
+                        const sparkAlpha = 0.3 + 0.5 * Math.abs(Math.sin(t * Math.PI * 4));
+                        ctx.fillStyle = `rgba(252,234,187,${sparkAlpha})`;
                         ctx.beginPath();
-                        ctx.arc(sparkleX, sparkleY, 0.6, 0, Math.PI * 2);
+                        ctx.moveTo(s/2, s/2 - 10);
+                        ctx.lineTo(s/2 + 1.5, s/2 - 12);
+                        ctx.lineTo(s/2, s/2 - 14);
+                        ctx.lineTo(s/2 - 1.5, s/2 - 12);
+                        ctx.closePath();
+                        ctx.fill();
+
+                        // Additional tiny sparkle near bottom
+                        const spark2Alpha = 0.2 + 0.4 * Math.abs(Math.cos(t * Math.PI * 6));
+                        ctx.fillStyle = `rgba(255,255,255,${spark2Alpha})`;
+                        ctx.beginPath();
+                        ctx.arc(s/2 + 8, s/2 + 5, 0.8, 0, Math.PI*2);
                         ctx.fill();
                     }, FAV));
                 }
@@ -456,7 +395,7 @@
                 updatePreview();
                 frameIdx = (frameIdx + 1) % frames.length;
                 if (frameIdx % 5 === 0) {
-                    statusText.textContent = `P&amp;T favicon animating — frame ${frameIdx+1}/${frames.length} 🛩️`;
+                    statusText.textContent = `P&amp;T favicon running — frame ${frameIdx+1}/${frames.length} ✨`;
                 }
             }
 
@@ -466,7 +405,7 @@
                 frameIdx = 0;
                 updateFavicon();
                 intervalId = setInterval(updateFavicon, speed);
-                statusText.textContent = `P&amp;T luxury favicon active ✨`;
+                statusText.textContent = `P&amp;T luxury text favicon active ✨`;
             }
 
             speedSlider.addEventListener('input', () => {
@@ -475,21 +414,36 @@
                 restartLoop();
             });
 
-            // No visibility pause — keeps spinning
-            document.addEventListener('visibilitychange', () => {
-                // intentionally empty
-            });
+            // No visibility pause — favicon loops continuously
+            document.addEventListener('visibilitychange', () => {});
 
-            // Init
+            // roundRect polyfill
+            if (!CanvasRenderingContext2D.prototype.roundRect) {
+                CanvasRenderingContext2D.prototype.roundRect = function(x, y, w, h, r) {
+                    if (typeof r === 'number') r = {tl: r, tr: r, br: r, bl: r};
+                    this.beginPath();
+                    this.moveTo(x + r.tl, y);
+                    this.lineTo(x + w - r.tr, y);
+                    this.quadraticCurveTo(x + w, y, x + w, y + r.tr);
+                    this.lineTo(x + w, y + h - r.br);
+                    this.quadraticCurveTo(x + w, y + h, x + w - r.br, y + h);
+                    this.lineTo(x + r.bl, y + h);
+                    this.quadraticCurveTo(x, y + h, x, y + h - r.bl);
+                    this.lineTo(x, y + r.tl);
+                    this.quadraticCurveTo(x, y, x + r.tl, y);
+                    this.closePath();
+                };
+            }
+
             function init() {
                 speedSlider.value = speed;
                 speedDisplay.textContent = speed + 'ms';
-                frames = generatePTFrames(40);
+                frames = generatePTTextFrames(36);
                 restartLoop();
             }
 
             init();
-            console.log('🏷️ P&T Luxury Animated Favicon running');
+            console.log('✨ P&T Luxury Text Favicon active — no globe, no airplane, pure brand.');
         })();
     </script>
 </body>
