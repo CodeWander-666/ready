@@ -3,16 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>P&T — Ultra Luxury Animated Favicon</title>
+    <title>P&T — Rotating Shine Luxury Favicon</title>
     <link id="dynamic-favicon" rel="icon" type="image/png" href="">
     <style>
         :root {
             --bg: #020510;
             --card-bg: #0b0f1c;
-            --text: #e7e9f0;
+            --text: #e9ecf2;
             --gold: #d4af37;
-            --gold2: #f5e6a3;
-            --gold3: #c9a84c;
+            --gold-light: #fef0c8;
             --border: #2a3050;
         }
         * { margin:0; padding:0; box-sizing:border-box; }
@@ -26,97 +25,102 @@
             align-items: center;
             padding: 2rem;
             background-image:
-                radial-gradient(ellipse at 50% 20%, rgba(212,175,55,0.07) 0%, transparent 65%),
-                radial-gradient(ellipse at 30% 80%, rgba(201,168,76,0.04) 0%, transparent 65%);
+                radial-gradient(ellipse at 50% 30%, rgba(212,175,55,0.08) 0%, transparent 65%),
+                radial-gradient(ellipse at 20% 80%, rgba(212,175,55,0.04) 0%, transparent 65%);
         }
         .container {
-            max-width: 600px;
+            max-width: 550px;
             width: 100%;
             display: flex;
             flex-direction: column;
-            gap: 28px;
+            gap: 26px;
             align-items: center;
         }
         .card {
             background: var(--card-bg);
             border: 1px solid var(--border);
-            border-radius: 24px;
-            padding: 30px 20px;
+            border-radius: 22px;
+            padding: 32px 20px;
             width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
-            box-shadow: 0 25px 45px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,215,0,0.08) inset;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,215,0,0.08) inset;
         }
-        .favicon-large {
+        .preview-box {
             width: 96px;
             height: 96px;
-            border-radius: 18px;
-            box-shadow: 0 0 35px rgba(212,175,55,0.45), 0 0 0 1px rgba(212,175,55,0.3);
-            margin-bottom: 18px;
-            image-rendering: auto;
+            border-radius: 16px;
             background: #020408;
+            box-shadow: 0 0 30px rgba(212,175,55,0.5), 0 0 0 1px rgba(212,175,55,0.3);
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        canvas#favicon-preview {
+            width: 64px;
+            height: 64px;
+            image-rendering: auto;
         }
         h1 {
             font-size: 1.8rem;
             font-weight: 700;
             letter-spacing: 2px;
-            background: linear-gradient(135deg, #d4af37, #f9e282, #d4af37);
+            background: linear-gradient(135deg, #d4af37, #fef0c8, #d4af37);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 6px;
         }
         .subtitle {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: #a1977a;
             letter-spacing: 1px;
         }
-        .control-group {
-            width: 100%;
+        .control-row {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 14px;
-            margin-top: 10px;
+            gap: 12px;
+            margin-top: 16px;
             flex-wrap: wrap;
+            justify-content: center;
         }
-        .speed-slider {
+        input[type="range"] {
             -webkit-appearance: none;
-            width: 200px;
+            width: 180px;
             height: 6px;
-            background: linear-gradient(to right, #d4af37, #f5e6a3);
-            border-radius: 5px;
+            background: linear-gradient(to right, #d4af37, #fef0c8);
+            border-radius: 4px;
             outline: none;
             cursor: pointer;
         }
-        .speed-slider::-webkit-slider-thumb {
+        input[type="range"]::-webkit-slider-thumb {
             -webkit-appearance: none;
-            width: 20px;
-            height: 20px;
+            width: 18px;
+            height: 18px;
             background: #fff;
             border-radius: 50%;
-            box-shadow: 0 0 12px #d4af37;
+            box-shadow: 0 0 10px #d4af37;
             border: 2px solid #d4af37;
         }
-        .speed-value {
+        .speed-val {
             font-family: 'Inter', sans-serif;
             font-weight: 700;
             color: #d4af37;
             width: 55px;
             text-align: center;
-            font-size: 0.9rem;
         }
         .status-bar {
             display: flex;
             align-items: center;
             gap: 8px;
-            padding: 8px 18px;
+            margin-top: 14px;
+            padding: 8px 16px;
             background: #060a18;
             border-radius: 30px;
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             color: #a1977a;
-            margin-top: 14px;
         }
         .status-dot {
             width: 8px;
@@ -124,11 +128,11 @@
             border-radius: 50%;
             background: radial-gradient(circle, #fff, #d4af37);
             box-shadow: 0 0 10px #d4af37;
-            animation: pulseGold 1.4s infinite;
+            animation: pulseDot 1.4s infinite;
         }
-        @keyframes pulseGold {
-            0%,100%{ box-shadow:0 0 5px #d4af37; }
-            50%{ box-shadow:0 0 16px #d4af37, 0 0 26px #d4af37; }
+        @keyframes pulseDot {
+            0%,100%{ box-shadow:0 0 4px #d4af37; }
+            50%{ box-shadow:0 0 14px #d4af37, 0 0 24px #d4af37; }
         }
         .footer-note {
             font-family: 'Inter', sans-serif;
@@ -142,25 +146,24 @@
 <body>
     <div class="container">
         <div class="card">
-            <!-- Live favicon preview (scaled up) -->
-            <canvas id="favicon-preview" class="favicon-large" width="32" height="32"></canvas>
-            <h1>P&amp;T</h1>
-            <div class="subtitle">LUXURY ANIMATED FAVICON</div>
-
-            <div class="control-group">
-                <span style="font-size:0.8rem; color:#a1977a;">Slower</span>
-                <input type="range" id="speed-slider" class="speed-slider" min="80" max="220" value="130" step="10">
-                <span style="font-size:0.8rem; color:#a1977a;">Faster</span>
-                <span class="speed-value" id="speed-display">130ms</span>
+            <div class="preview-box">
+                <canvas id="favicon-preview" width="64" height="64"></canvas>
             </div>
-
+            <h1>P&amp;T</h1>
+            <div class="subtitle">ROTATING SHINE · LUXURY FAVICON</div>
+            <div class="control-row">
+                <span style="font-size:0.8rem; color:#a1977a;">Slower</span>
+                <input type="range" id="speed-slider" min="60" max="200" value="120" step="10">
+                <span style="font-size:0.8rem; color:#a1977a;">Faster</span>
+                <span class="speed-val" id="speed-display">120ms</span>
+            </div>
             <div class="status-bar">
                 <span class="status-dot"></span>
-                <span id="status-text">P&amp;T favicon continuously animating ✦</span>
+                <span id="status-text">P&amp;T rotating &amp; shining ✦</span>
             </div>
         </div>
         <div class="footer-note">
-            ✦ Pure text, pure luxury — no globe, no airplane, just the prestige of P&amp;T
+            ✦ Pure text — rotation with shimmering sweep — high‑end brand presence
         </div>
     </div>
 
@@ -171,141 +174,136 @@
             let frames = [];
             let frameIdx = 0;
             let intervalId = null;
-            let speed = 130; // ms
+            let speed = 120; // ms per frame
 
             // ──────────────────────────────────────
-            // ULTRA LUXURY P&T TEXT FAVICON FRAMES
+            // ULTRA LUXURY ROTATING P&T WITH SHINE
             // ──────────────────────────────────────
-            function generateUltraPTFrames(count = 48) {
+            function generateRotatingShineFrames(count = 48) {
                 const framesArr = [];
                 for (let i = 0; i < count; i++) {
                     const t = i / count;
-                    // Shine sweep across text (from left to right)
-                    const shineX = (t * 45) - 8;
-                    // Glow pulse intensity
-                    const glowIntensity = 0.6 + 0.4 * Math.sin(t * Math.PI * 3);
-                    // Sparkle rotation angles
-                    const sparkAngle1 = t * Math.PI * 2;
-                    const sparkAngle2 = t * Math.PI * 2 + 1.2;
+                    // Rotation angle – full 360° over one cycle
+                    const rotationAngle = t * Math.PI * 2;
+                    // Shine sweep position (moves across the text horizontally in local space)
+                    const shineOffset = (t * 40) - 8; // will be used after rotation
 
                     framesArr.push(renderFrame((ctx, s) => {
-                        // Background: deep royal dark blue-black with subtle radial glow
+                        // Deep dark background
                         const bgGrad = ctx.createRadialGradient(s/2, s/2, 0, s/2, s/2, s*0.7);
-                        bgGrad.addColorStop(0, '#0d1b33');
+                        bgGrad.addColorStop(0, '#0d1f33');
                         bgGrad.addColorStop(1, '#020408');
                         ctx.fillStyle = bgGrad;
                         ctx.fillRect(0, 0, s, s);
 
-                        // Ornate golden border (double ring)
-                        ctx.strokeStyle = 'rgba(212,175,55,0.35)';
-                        ctx.lineWidth = 1.2;
+                        // Golden ornate border (double ring)
+                        ctx.strokeStyle = 'rgba(212,175,55,0.4)';
+                        ctx.lineWidth = 1.4;
                         ctx.beginPath();
                         ctx.arc(s/2, s/2, s*0.48, 0, Math.PI*2);
                         ctx.stroke();
-                        ctx.strokeStyle = 'rgba(255,235,180,0.25)';
-                        ctx.lineWidth = 0.7;
+                        ctx.strokeStyle = 'rgba(255,240,190,0.2)';
+                        ctx.lineWidth = 0.6;
                         ctx.beginPath();
                         ctx.arc(s/2, s/2, s*0.43, 0, Math.PI*2);
                         ctx.stroke();
 
-                        // Pulsing soft glow behind text
-                        const glowGrad = ctx.createRadialGradient(s/2, s/2, s*0.05, s/2, s/2, s*0.35);
-                        glowGrad.addColorStop(0, `rgba(212,175,55,${glowIntensity*0.8})`);
+                        // Pulsing golden glow behind text
+                        const glowPulse = 0.6 + 0.4 * Math.sin(t * Math.PI * 3);
+                        const glowGrad = ctx.createRadialGradient(s/2, s/2, s*0.05, s/2, s/2, s*0.32);
+                        glowGrad.addColorStop(0, `rgba(212,175,55,${glowPulse*0.9})`);
                         glowGrad.addColorStop(1, 'rgba(212,175,55,0)');
                         ctx.fillStyle = glowGrad;
                         ctx.beginPath();
-                        ctx.arc(s/2, s/2, s*0.35, 0, Math.PI*2);
+                        ctx.arc(s/2, s/2, s*0.32, 0, Math.PI*2);
                         ctx.fill();
 
-                        // Main text: P&T in serif luxury font, gold gradient with shadow
-                        const textGrad = ctx.createLinearGradient(s*0.25, s*0.3, s*0.75, s*0.7);
+                        // Save context, translate to center, rotate
+                        ctx.save();
+                        ctx.translate(s/2, s/2);
+                        ctx.rotate(rotationAngle);
+
+                        // Base gold gradient for text
+                        const textGrad = ctx.createLinearGradient(-10, -8, 12, 8);
                         textGrad.addColorStop(0, '#d4af37');
-                        textGrad.addColorStop(0.3, '#fef0c8');
+                        textGrad.addColorStop(0.4, '#fef0c8');
                         textGrad.addColorStop(0.7, '#d4af37');
                         textGrad.addColorStop(1, '#aa7c1e');
-                        
-                        ctx.font = 'bold 16px "Times New Roman", "Georgia", serif';
+
+                        ctx.font = 'bold 15px "Times New Roman", "Georgia", serif';
                         ctx.textAlign = 'center';
                         ctx.textBaseline = 'middle';
-                        // Drop shadow for depth
-                        ctx.shadowColor = '#000000';
+                        // Deep shadow for luxury feel
+                        ctx.shadowColor = '#000';
                         ctx.shadowBlur = 4;
                         ctx.shadowOffsetX = 1;
                         ctx.shadowOffsetY = 1;
                         ctx.fillStyle = textGrad;
-                        ctx.fillText('P&T', s/2, s/2);
-                        // Reset shadow
+                        ctx.fillText('P&T', 0, 0);
+                        // Reset shadow for crispness
                         ctx.shadowColor = 'transparent';
                         ctx.shadowBlur = 0;
                         ctx.shadowOffsetX = 0;
                         ctx.shadowOffsetY = 0;
 
-                        // Second lighter pass for golden glow outline
-                        ctx.fillStyle = 'rgba(255,245,200,0.4)';
-                        ctx.fillText('P&T', s/2 - 0.3, s/2 - 0.3);
-                        // then gold again for crispness
+                        // Additional light glow pass
+                        ctx.fillStyle = 'rgba(255,245,200,0.35)';
+                        ctx.fillText('P&T', -0.2, -0.2);
+                        // Then re‑draw main gold for clarity
                         ctx.fillStyle = textGrad;
-                        ctx.fillText('P&T', s/2, s/2);
+                        ctx.fillText('P&T', 0, 0);
 
-                        // Shimmer highlight (moving white/gold sweep)
+                        // Shining sweep (moving highlight) – applied on top
+                        // We'll create a clipping region from the sweep rectangle
                         ctx.save();
                         ctx.beginPath();
-                        ctx.rect(shineX - 4, 6, 10, s-12);
+                        // Rectangle in local coordinates that moves horizontally
+                        ctx.rect(shineOffset - 5, -12, 12, 24);
                         ctx.clip();
-                        const shimmerGrad = ctx.createLinearGradient(shineX-4, 0, shineX+10, 0);
-                        shimmerGrad.addColorStop(0, 'rgba(255,255,255,0)');
-                        shimmerGrad.addColorStop(0.4, 'rgba(255,255,255,0.7)');
-                        shimmerGrad.addColorStop(0.6, 'rgba(255,255,255,0.7)');
-                        shimmerGrad.addColorStop(1, 'rgba(255,255,255,0)');
-                        ctx.fillStyle = shimmerGrad;
-                        ctx.fillText('P&T', s/2, s/2);
+                        // Shimmer gradient (white to transparent)
+                        const shineGrad = ctx.createLinearGradient(shineOffset-5, 0, shineOffset+12, 0);
+                        shineGrad.addColorStop(0, 'rgba(255,255,255,0)');
+                        shineGrad.addColorStop(0.4, 'rgba(255,255,255,0.8)');
+                        shineGrad.addColorStop(0.6, 'rgba(255,255,255,0.8)');
+                        shineGrad.addColorStop(1, 'rgba(255,255,255,0)');
+                        ctx.fillStyle = shineGrad;
+                        // Draw text again inside clip
+                        ctx.font = 'bold 15px "Times New Roman", "Georgia", serif';
+                        ctx.textAlign = 'center';
+                        ctx.textBaseline = 'middle';
+                        ctx.fillText('P&T', 0, 0);
                         ctx.restore();
 
-                        // Sparkle 1 (diamond shape near top left of text)
-                        const sp1x = s/2 - 10 + Math.cos(sparkAngle1)*5;
-                        const sp1y = s/2 - 8 + Math.sin(sparkAngle1)*3;
-                        const sp1Alpha = 0.5 + 0.5 * Math.abs(Math.sin(sparkAngle1*2));
-                        ctx.fillStyle = `rgba(255,245,200,${sp1Alpha})`;
+                        // Tiny diamond sparkle near the top of the text (in rotated space)
+                        // We place it at a fixed local position (top center) so it rotates with text
+                        const sparkAlpha = 0.5 + 0.5 * Math.abs(Math.sin(t * Math.PI * 5));
+                        ctx.fillStyle = `rgba(255,255,255,${sparkAlpha})`;
                         ctx.beginPath();
-                        ctx.moveTo(sp1x, sp1y-3);
-                        ctx.lineTo(sp1x+1.5, sp1y);
-                        ctx.lineTo(sp1x, sp1y+3);
-                        ctx.lineTo(sp1x-1.5, sp1y);
+                        // Diamond shape at y=-10 (top of text)
+                        ctx.moveTo(0, -11);
+                        ctx.lineTo(2, -13);
+                        ctx.lineTo(0, -15);
+                        ctx.lineTo(-2, -13);
                         ctx.closePath();
                         ctx.fill();
-                        // tiny center
-                        ctx.fillStyle = `rgba(255,255,255,${sp1Alpha*1.2})`;
+                        // tiny center spark
+                        ctx.fillStyle = `rgba(255,240,200,${sparkAlpha*1.2})`;
                         ctx.beginPath();
-                        ctx.arc(sp1x, sp1y, 0.8, 0, Math.PI*2);
+                        ctx.arc(0, -13, 1, 0, Math.PI*2);
                         ctx.fill();
 
-                        // Sparkle 2 (near bottom right)
-                        const sp2x = s/2 + 11 + Math.cos(sparkAngle2)*4;
-                        const sp2y = s/2 + 7 + Math.sin(sparkAngle2)*2.5;
-                        const sp2Alpha = 0.4 + 0.6 * Math.abs(Math.cos(sparkAngle2*2));
-                        ctx.fillStyle = `rgba(255,245,200,${sp2Alpha})`;
-                        ctx.beginPath();
-                        ctx.moveTo(sp2x, sp2y-2.5);
-                        ctx.lineTo(sp2x+1.2, sp2y);
-                        ctx.lineTo(sp2x, sp2y+2.5);
-                        ctx.lineTo(sp2x-1.2, sp2y);
-                        ctx.closePath();
-                        ctx.fill();
-                        ctx.fillStyle = `rgba(255,255,255,${sp2Alpha})`;
-                        ctx.beginPath();
-                        ctx.arc(sp2x, sp2y, 0.7, 0, Math.PI*2);
-                        ctx.fill();
+                        ctx.restore(); // back to un-rotated canvas
 
-                        // Small floating gold particles around
+                        // Floating gold particles around the border (global space)
                         for (let p = 0; p < 3; p++) {
                             const angle = (t * Math.PI*2) + (p * 2.1);
-                            const rad = s*0.32 + p*2;
-                            const dx = s/2 + Math.cos(angle)*rad;
-                            const dy = s/2 + Math.sin(angle)*rad;
-                            const alpha = 0.3 + 0.4 * Math.abs(Math.sin(angle*3));
+                            const rad = s*0.33 + p*1.5;
+                            const px = s/2 + Math.cos(angle)*rad;
+                            const py = s/2 + Math.sin(angle)*rad;
+                            const alpha = 0.3 + 0.3 * Math.abs(Math.sin(angle*3));
                             ctx.fillStyle = `rgba(255,215,0,${alpha})`;
                             ctx.beginPath();
-                            ctx.arc(dx, dy, 0.5, 0, Math.PI*2);
+                            ctx.arc(px, py, 0.5, 0, Math.PI*2);
                             ctx.fill();
                         }
 
@@ -325,7 +323,7 @@
             }
 
             // ──────────────────────────────────────
-            // UI CONTROL & ANIMATION LOOP
+            // UI & FAVICON CONTROL
             // ──────────────────────────────────────
             const previewCanvas = document.getElementById('favicon-preview');
             const previewCtx = previewCanvas.getContext('2d');
@@ -338,8 +336,8 @@
                 const img = new Image();
                 img.src = frames[frameIdx];
                 img.onload = () => {
-                    previewCtx.clearRect(0, 0, 32, 32);
-                    previewCtx.drawImage(img, 0, 0);
+                    previewCtx.clearRect(0, 0, 64, 64);
+                    previewCtx.drawImage(img, 0, 0, 64, 64);
                 };
             }
 
@@ -349,7 +347,7 @@
                 updatePreview();
                 frameIdx = (frameIdx + 1) % frames.length;
                 if (frameIdx % 6 === 0) {
-                    statusText.textContent = `P&amp;T favicon running — frame ${frameIdx+1}/${frames.length} ✦`;
+                    statusText.textContent = `P&amp;T rotating & shining — frame ${frameIdx+1}/${frames.length} ✦`;
                 }
             }
 
@@ -359,7 +357,7 @@
                 frameIdx = 0;
                 updateFavicon();
                 intervalId = setInterval(updateFavicon, speed);
-                statusText.textContent = `P&amp;T luxury text favicon active ✦`;
+                statusText.textContent = `P&amp;T luxury rotation active ✦`;
             }
 
             speedSlider.addEventListener('input', () => {
@@ -368,10 +366,10 @@
                 restartLoop();
             });
 
-            // Keep animation running even when tab is hidden
-            document.addEventListener('visibilitychange', () => { /* no pause */ });
+            // No pause when tab hidden – keeps rotating
+            document.addEventListener('visibilitychange', () => {});
 
-            // Polyfill roundRect (optional, not used but kept for safety)
+            // Polyfill (unused but safe)
             if (!CanvasRenderingContext2D.prototype.roundRect) {
                 CanvasRenderingContext2D.prototype.roundRect = function(x, y, w, h, r) {
                     if (typeof r === 'number') r = {tl: r, tr: r, br: r, bl: r};
@@ -392,11 +390,11 @@
             function init() {
                 speedSlider.value = speed;
                 speedDisplay.textContent = speed + 'ms';
-                frames = generateUltraPTFrames(48);
+                frames = generateRotatingShineFrames(48);
                 restartLoop();
             }
             init();
-            console.log('✦ P&T Ultra Luxury Favicon active — pure text, continuous animation.');
+            console.log('✦ P&T Rotating Shine Favicon – luxury text animation alive.');
         })();
     </script>
 </body>
