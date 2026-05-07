@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Favicon - Works in Chrome!</title>
+    <link id="dynamic-favicon" rel="icon" type="image/png" href="">
+    <style>
+        :root {
+            --bg: #0f0f1a;
+            --card-bg: #1a1a2e;
+            --text: #e0e0e0;
+            --accent: #ff6b6b;
+            --accent2: #4ecdc4;
+            --accent3: #ffe66d;
+            --border: #2a2a3e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background-image:
+                radial-gradient(ellipse at 20% 50%, rgba(255, 107, 107, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 50%, rgba(78, 205, 196, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 0%, rgba(255, 230, 109, 0.05) 0%, transparent 50%);
+        }
+
+        .main-container {
+            max-width: 700px;
+            width: 100%;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .header .icon-preview {
+            display: inline-block;
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            margin-bottom: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent), var(--accent2), var(--accent3));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .header .subtitle {
+            color: #8888aa;
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        .badge-row {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 12px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+        .badge.chrome {
+            background: #1a3a2a;
+            color: #4caf84;
+            border: 1px solid #2a5a3a;
+        }
+        .badge.firefox {
+            background: #1a2a3a;
+            color: #6cb4ee;
+            border: 1px solid #2a3a5a;
+        }
+        .badge.edge {
+            background: #1a2a3a;
+            color: #6cb4ee;
+            border: 1px solid #2a3a5a;
+        }
+        .badge.safari {
+            background: #2a2a3a;
+            color: #b0b0d0;
+            border: 1px solid #3a3a4e;
+        }
+        .badge .dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        .badge .dot.green {
+            background: #4caf84;
+            box-shadow: 0 0 6px #4caf84;
+        }
+        .badge .dot.blue {
+            background: #6cb4ee;
+            box-shadow: 0 0 6px #6cb4ee;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px 24px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            border-color: #3a3a58;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .card h2 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #ccccdd;
+            letter-spacing: 0.2px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .card h2 .emoji {
+            font-size: 1.3rem;
+        }
+
+        .animation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 12px;
+        }
+
+        .anim-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 10px;
+            border-radius: 12px;
+            border: 2px solid transparent;
+            cursor: pointer;
+            background: #1e1e34;
+            color: #ccc;
+            font-family: inherit;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.25s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .anim-btn:hover {
+            border-color: #444;
+            background: #252540;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+        .anim-btn.active {
+            border-color: var(--accent2) !important;
+            background: #1a2a2a !important;
+            box-shadow: 0 0 20px rgba(78, 205, 196, 0.2);
+        }
+        .anim-btn .preview-canvas {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            image-rendering: pixelated;
+            background: #111122;
+        }
+        .anim-btn .name {
+            font-weight: 600;
+            font-size: 0.8rem;
+            letter-spacing: 0.3px;
+        }
+
+        .speed-control {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .speed-control label {
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: #aaa;
+            white-space: nowrap;
+        }
+        .speed-control input[type="range"] {
+            flex: 1;
+            min-width: 120px;
+            accent-color: var(--accent2);
+            height: 6px;
+        }
+        .speed-value {
+            display: inline-block;
+            width: 50px;
+            text-align: center;
+            font-weight: 700;
+            color: var(--accent2);
+            font-size: 0.9rem;
+        }
+
+        .info-text {
+            font-size: 0.82rem;
+            color: #7777aa;
+            line-height: 1.6;
+            margin-top: 8px;
+        }
+        .info-text strong {
+            color: #aaaacc;
+        }
+        .info-text code {
+            background: #1a1a30;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.78rem;
+            color: var(--accent3);
+        }
+
+        .live-indicator {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 16px;
+            background: #111128;
+            border-radius: 10px;
+            font-size: 0.82rem;
+            color: #aaa;
+        }
+        .live-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #4caf84;
+            animation: pulse-dot 1.2s ease-in-out infinite;
+        }
+        @keyframes pulse-dot {
+            0%,
+            100% {
+                box-shadow: 0 0 4px #4caf84;
+            }
+            50% {
+                box-shadow: 0 0 16px #4caf84, 0 0 28px #4caf84;
+            }
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.75rem;
+            color: #555577;
+            margin-top: 16px;
+        }
+
+        @media (max-width: 500px) {
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            .card {
+                padding: 18px 14px;
+            }
+            .animation-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 8px;
+            }
+            .anim-btn {
+                padding: 10px 6px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+        <!-- Header -->
+        <div class="header">
+            <canvas class="icon-preview" id="header-preview" width="64" height="64"></canvas>
+            <h1>Animated Favicon</h1>
+            <p class="subtitle">Works in <strong>Chrome, Edge, Safari, Firefox</strong> &amp; all modern browsers</p>
+            <div class="badge-row">
+                <span class="badge chrome"><span class="dot green"></span> Chrome</span>
+                <span class="badge firefox"><span class="dot blue"></span> Firefox</span>
+                <span class="badge edge"><span class="dot blue"></span> Edge</span>
+                <span class="badge safari"><span class="dot blue"></span> Safari</span>
+            </div>
+        </div>
+
+        <!-- Animation Selection -->
+        <div class="card">
+            <h2><span class="emoji">🎨</span> Choose Favicon Animation</h2>
+            <div class="animation-grid" id="animation-grid">
+                <!-- Buttons generated by JS -->
+            </div>
+        </div>
+
+        <!-- Speed Control -->
+        <div class="card">
+            <h2><span class="emoji">⏱️</span> Animation Speed</h2>
+            <div class="speed-control">
+                <label for="speed-slider">Slow</label>
+                <input type="range" id="speed-slider" min="60" max="400" value="150" step="10">
+                <label for="speed-slider">Fast</label>
+                <span class="speed-value" id="speed-display">150ms</span>
+            </div>
+            <div class="live-indicator" style="margin-top:12px;">
+                <span class="live-dot"></span>
+                <span id="frame-counter">Animating favicon — look at your browser tab! 👆</span>
+            </div>
+        </div>
+
+        <!-- How it Works -->
+        <div class="card">
+            <h2><span class="emoji">💡</span> How This Works</h2>
+            <p class="info-text">
+                <strong>Chrome doesn't support animated GIF favicons</strong> (unlike Firefox which does).
+                Our <strong>indirect workaround</strong>: We use JavaScript to dynamically swap the
+                <code>&lt;link rel="icon"&gt;</code> tag's <code>href</code> multiple times per second.
+                Each frame is a <strong>canvas-generated PNG</strong> (via <code>canvas.toDataURL()</code>),
+                creating smooth animation that Chrome happily displays.
+            </p>
+            <p class="info-text" style="margin-top:8px;">
+                ✅ <strong>No external files needed</strong> — all frames are generated in-browser.<br>
+                ✅ <strong>No server requests</strong> — uses inline data URIs.<br>
+                ✅ <strong>Performance-friendly</strong> — frames are pre-rendered, only the DOM attribute changes.
+            </p>
+        </div>
+
+        <footer>
+            🔄 Favicon is animating in your tab right now — try switching tabs and coming back!
+        </footer>
+    </div>
+
+    <script>
+        (function() {
+            // ──────────────────────────────────────
+            // FAVICON ANIMATION ENGINE
+            // ──────────────────────────────────────
+            const faviconLink = document.getElementById('dynamic-favicon');
+            const FAVICON_SIZE = 32; // Standard favicon size
+
+            // We'll store pre-rendered frames as data URLs
+            let animationFrames = [];
+            let currentFrameIndex = 0;
+            let animationIntervalId = null;
+            let currentSpeed = 150; // ms between frames
+            let currentAnimationName = 'bounce';
+
+            // ──────────────────────────────────────
+            // FRAME GENERATORS — Each returns an array of data URLs
+            // ──────────────────────────────────────
+
+            function renderFrame(drawFn, size = FAVICON_SIZE) {
+                const canvas = document.createElement('canvas');
+                canvas.width = size;
+                canvas.height = size;
+                const ctx = canvas.getContext('2d');
+                // Clear with transparency-supporting clear
+                ctx.clearRect(0, 0, size, size);
+                drawFn(ctx, size);
+                return canvas.toDataURL('image/png');
+            }
+
+            function generateBounceFrames(count = 16) {
+                const frames = [];
+                for (let i = 0; i < count; i++) {
+                    const progress = i / count;
+                    // Bounce physics: use abs(sin) with easing
+                    const bounce = Math.abs(Math.sin(progress * Math.PI * 2));
+                    // Make it more "bouncy" with a squeeze effect
+                    const squeezeFactor = 0.7 + 0.3 * Math.cos(progress * Math.PI * 2);
+                    frames.push(renderFrame((ctx, size) => {
+                        const cx = size / 2;
+                        const baseY = size * 0.25 + bounce * size * 0.45;
+                        const ballRadius = size * 0.2;
+                        // Shadow on ground
+                        const shadowAlpha = 0.15 + bounce * 0.25;
+                        ctx.fillStyle = `rgba(0,0,0,${shadowAlpha})`;
+                        ctx.beginPath();
+                        ctx.ellipse(cx, size * 0.78, ballRadius * 1.3, ballRadius * 0.35, 0, 0, Math.PI *
+                            2);
+                        ctx.fill();
+                        // Ball with squeeze
+                        ctx.fillStyle = '#ff6b6b';
+                        ctx.beginPath();
+                        ctx.ellipse(cx, baseY, ballRadius * squeezeFactor, ballRadius / Math.max(
+                            squeezeFactor, 0.5), 0, 0, Math.PI * 2);
+                        ctx.fill();
+                        // Highlight
+                        ctx.fillStyle = 'rgba(255,255,255,0.35)';
+                        ctx.beginPath();
+                        ctx.arc(cx - ballRadius * 0.3, baseY - ballRadius * 0.35, ballRadius * 0.35,
+                            0, Math.PI * 2);
+                        ctx.fill();
+                    }, FAVICON_SIZE));
+                }
+                return frames;
+            }
+
+            function generateSpinnerFrames(count = 24) {
+                const frames = [];
+                for (let i = 0; i < count; i++) {
+                    const angle = (i / count) * Math.PI * 2;
+                    frames.push(renderFrame((ctx, size) => {
+                        const cx = size / 2;
+                        const cy = size / 2;
+                        const radius = size * 0.35;
+                        const dotRadius = size * 0.1;
+                        // Draw track (faded circles)
+                        for (let j = 0; j < 8; j++) {
+                            const a = (j / 8) * Math.PI * 2;
+                            const dx = cx + Math.cos(a) * radius;
+                            const dy = cy + Math.sin(a) * radius;
+                            ctx.fillStyle = 'rgba(255,255,255,0.15)';
+                            ctx.beginPath();
+                            ctx.arc(dx, dy, dotRadius * 0.5, 0, Math.PI * 2);
+                            ctx.fill();
+                        }
+                        // Main dot
+                        const mx = cx + Math.cos(angle) * radius;
+                        const my = cy + Math.sin(angle) * radius;
+                        const gradient = ctx.createRadialGradient(mx, my, dotRadius * 0.2, mx, my,
+                            dotRadius);
+                        gradient.addColorStop(0, '#ffffff');
+                        gradient.addColorStop(0.5, '#4ecdc4');
+                        gradient.addColorStop(1, 'rgba(78,205,196,0)');
+                        ctx.fillStyle = gradient;
+                        ctx.beginPath();
+                        ctx.arc(mx, my, dotRadius, 0, Math.PI * 2);
+                        ctx.fill();
+                        // Bright core
+                        ctx.fillStyle = '#fff';
+                        ctx.beginPath();
+                        ctx.arc(mx, my, dotRadius * 0.35, 0, Math.PI * 2);
+                        ctx.fill();
+                    }, FAVICON_SIZE));
+                }
+                return frames;
+            }
+
+            function generatePulseFrames(count = 20) {
+                const frames = [];
+                for (let i = 0; i < count; i++) {
+                    const progress = i / count;
+                    const pulse = 0.5 + 0.5 * Math.sin(progress * Math.PI * 2);
+                    const size_pulse = 0.55 + pulse * 0.45;
+                    frames.push(renderFrame((ctx, size) => {
+                        const cx = size / 2;
+                        const cy = size / 2;
+                        const r = size * 0.32 * size_pulse;
+                        // Outer glow
+                        const glowGrad = ctx.createRadialGradient(cx, cy, r * 0.5, cx, cy, r * 1.6);
+                        glowGrad.addColorStop(0, 'rgba(255,230,109,0.9)');
+                        glowGrad.addColorStop(0.5, 'rgba(255,180,60,0.4)');
+                        glowGrad.addColorStop(1, 'rgba(255,100,30,0)');
+                        ctx.fillStyle = glowGrad;
+                        ctx.beginPath();
+                        ctx.arc(cx, cy, r * 1.6, 0, Math.PI * 2);
+                        ctx.fill();
+                        // Core
+                        const coreGrad = ctx.createRadialGradient(cx, cy, 0, cx, cy, r);
+                        coreGrad.addColorStop(0, '#ffffff');
+                        coreGrad.addColorStop(0.3, '#ffe66d');
+                        coreGrad.addColorStop(1, '#ff8c00');
+                        ctx.fillStyle = coreGrad;
+                        ctx.beginPath();
+                        ctx.arc(cx, cy, r, 0, Math.PI * 2);
+                        ctx.fill();
+                    }, FAVICON_SIZE));
+                }
+                return frames;
+            }
+
+            function generateWaveFrames(count = 20) {
+                const frames = [];
+                for (let i = 0; i < count; i++) {
+                    const progress = i / count;
+                    frames.push(renderFrame((ctx, size) => {
+                        const cx = size / 2;
+                        const cy = size / 2;
+                        const barWidth = size * 0.12;
+                        const gap = size * 0.06;
+                        const totalWidth = 4 * barWidth + 3 * gap;
+                        const startX = cx - totalWidth / 2;
+                        const maxHeight = size * 0.5;
+                        const colors = ['#ff6b6b', '#ffe66d', '#4ecdc4', '#a29bfe'];
+                        for (let b = 0; b < 4; b++) {
+                            const barProgress = (progress + b * 0.25) % 1;
+                            const height = maxHeight * (0.25 + 0.75 * Math.abs(Math.sin(
+                                barProgress * Math.PI)));
+                            const x = startX + b * (barWidth + gap);
+                            const y = cy - height / 2;
+                            const grad = ctx.createLinearGradient(x, y, x, y + height);
+                            const col = colors[b];
+                            grad.addColorStop(0, col);
+                            grad.addColorStop(1, col + '88');
+                            ctx.fillStyle = grad;
+                            ctx.beginPath();
+                            ctx.roundRect(x, y, barWidth, height, barWidth * 0.4);
+                            ctx.fill();
+                        }
+                    }, FAVICON_SIZE));
+                }
+                return frames;
+            }
+
+            function generatePacmanFrames(count = 18) {
+                const frames = [];
+                const pellets = 4;
+                for (let i = 0; i < count; i++) {
+                    const progress = i / count;
+                    frames.push(renderFrame((ctx, size) => {
+                        const cx = size / 2;
+                        const cy = size / 2;
+                        const pacRadius = size * 0.22;
+                        // Mouth angle oscillates
+                        const mouthAngle = Math.abs(Math.sin(progress * Math.PI * 2)) * 0.7 +
+                            0.1;
+                        // Pac-Man body
+                        ctx.fillStyle = '#ffe66d';
+                        ctx.beginPath();
+                        ctx.arc(cx, cy, pacRadius, mouthAngle, Math.PI * 2 - mouthAngle);
+                        ctx.lineTo(cx, cy);
+                        ctx.closePath();
+                        ctx.fill();
+                        // Eye
+                        ctx.fillStyle = '#111';
+                        ctx.beginPath();
+                        ctx.arc(cx + pacRadius * 0.2, cy - pacRadius * 0.4, pacRadius * 0.2,
+                            0, Math.PI * 2);
+                        ctx.fill();
+                        // Pellets
+                        for (let p = 0; p < pellets; p++) {
+                            const pelletX = cx + pacRadius + size * 0.12 + p * size * 0.14;
+                            const pelletY = cy;
+                            const visible = (progress * pellets * 1.4) % pellets > p;
+                            if (visible && pelletX < size - 2) {
+                                ctx.fillStyle = '#ffccaa';
+                                ctx.beginPath();
+                                ctx.arc(pelletX, pelletY, size * 0.04, 0, Math.PI * 2);
+                                ctx.fill();
+                            }
+                        }
+                    }, FAVICON_SIZE));
+                }
+                return frames;
+            }
+
+            function generateGlitchFrames(count = 16) {
+                const frames = [];
+                for (let i = 0; i < count; i++) {
+                    const progress = i / count;
+                    const glitchOffset = (Math.sin(progress * Math.PI * 6) * FAVICON_SIZE * 0.25);
+                    frames.push(renderFrame((ctx, size) => {
+                        const cx = size / 2;
+                        const cy = size / 2;
+                        const r = size * 0.3;
+                        // Glitch layers
+                        ctx.fillStyle = 'rgba(255,80,80,0.7)';
+                        ctx.beginPath();
+                        ctx.arc(cx + glitchOffset, cy, r, 0, Math.PI * 2);
+                        ctx.fill();
+                        ctx.fillStyle = 'rgba(80,200,255,0.7)';
+                        ctx.beginPath();
+                        ctx.arc(cx - glitchOffset, cy, r, 0, Math.PI * 2);
+                        ctx.fill();
+                        // White core
+                        ctx.fillStyle = '#fff';
+                        ctx.beginPath();
+                        ctx.arc(cx, cy, r * 0.5, 0, Math.PI * 2);
+                        ctx.fill();
+                    }, FAVICON_SIZE));
+                }
+                return frames;
+            }
+
+            // ──────────────────────────────────────
+            // ANIMATION REGISTRY
+            // ──────────────────────────────────────
+            const animations = {
+                bounce: {
+                    name: 'Bounce',
+                    generator: generateBounceFrames,
+                    frameCount: 16,
+                    emoji: '🏀',
+                },
+                spinner: {
+                    name: 'Spinner',
+                    generator: generateSpinnerFrames,
+                    frameCount: 24,
+                    emoji: '🔄',
+                },
+                pulse: {
+                    name: 'Pulse',
+                    generator: generatePulseFrames,
+                    frameCount: 20,
+                    emoji: '💫',
+                },
+                wave: {
+                    name: 'Wave',
+                    generator: generateWaveFrames,
+                    frameCount: 20,
+                    emoji: '🌊',
+                },
+                pacman: {
+                    name: 'Pac-Man',
+                    generator: generatePacmanFrames,
+                    frameCount: 18,
+                    emoji: '🟡',
+                },
+                glitch: {
+                    name: 'Glitch',
+                    generator: generateGlitchFrames,
+                    frameCount: 16,
+                    emoji: '⚡',
+                },
+            };
+
+            // ──────────────────────────────────────
+            // BUILD UI
+            // ──────────────────────────────────────
+            const grid = document.getElementById('animation-grid');
+            const speedSlider = document.getElementById('speed-slider');
+            const speedDisplay = document.getElementById('speed-display');
+            const frameCounter = document.getElementById('frame-counter');
+            const headerPreview = document.getElementById('header-preview');
+            const headerCtx = headerPreview.getContext('2d');
+
+            // Create buttons
+            Object.entries(animations).forEach(([key, anim]) => {
+                const btn = document.createElement('button');
+                btn.className = 'anim-btn';
+                btn.dataset.animKey = key;
+                btn.innerHTML = `
+                    <canvas class="preview-canvas" width="32" height="32"></canvas>
+                    <span class="name">${anim.emoji} ${anim.name}</span>
+                `;
+                btn.addEventListener('click', () => switchAnimation(key));
+                grid.appendChild(btn);
+            });
+
+            // Draw preview thumbnails
+            function drawAllThumbnails() {
+                document.querySelectorAll('.anim-btn .preview-canvas').forEach(canvas => {
+                    const key = canvas.parentElement.dataset.animKey;
+                    if (key && animations[key]) {
+                        const frames = animations[key].generator(1);
+                        if (frames.length > 0) {
+                            const img = new Image();
+                            img.src = frames[0];
+                            img.onload = () => {
+                                const tctx = canvas.getContext('2d');
+                                tctx.clearRect(0, 0, 32, 32);
+                                tctx.drawImage(img, 0, 0, 32, 32);
+                            };
+                        }
+                    }
+                });
+            }
+
+            // ──────────────────────────────────────
+            // ANIMATION CONTROL
+            // ──────────────────────────────────────
+            function switchAnimation(key) {
+                if (!animations[key]) return;
+                currentAnimationName = key;
+                // Update active button
+                document.querySelectorAll('.anim-btn').forEach(b => b.classList.remove('active'));
+                const activeBtn = document.querySelector(`.anim-btn[data-anim-key="${key}"]`);
+                if (activeBtn) activeBtn.classList.add('active');
+                // Generate frames
+                const anim = animations[key];
+                animationFrames = anim.generator(anim.frameCount);
+                currentFrameIndex = 0;
+                // Update header preview
+                updateHeaderPreview();
+                // Restart interval
+                restartInterval();
+            }
+
+            function updateHeaderPreview() {
+                if (animationFrames.length === 0) return;
+                const img = new Image();
+                img.src = animationFrames[currentFrameIndex];
+                img.onload = () => {
+                    headerCtx.clearRect(0, 0, 64, 64);
+                    headerCtx.drawImage(img, 0, 0, 64, 64);
+                };
+            }
+
+            function updateFavicon() {
+                if (animationFrames.length === 0) return;
+                faviconLink.href = animationFrames[currentFrameIndex];
+                updateHeaderPreview();
+                currentFrameIndex = (currentFrameIndex + 1) % animationFrames.length;
+                // Update counter occasionally
+                if (currentFrameIndex % 5 === 0) {
+                    frameCounter.textContent =
+                        `Animating "${animations[currentAnimationName]?.name || '...'}" — frame ${currentFrameIndex + 1}/${animationFrames.length} | Look at your tab! 👆`;
+                }
+            }
+
+            function restartInterval() {
+                if (animationIntervalId) clearInterval(animationIntervalId);
+                if (animationFrames.length === 0) return;
+                // Immediately show first frame
+                currentFrameIndex = 0;
+                updateFavicon();
+                animationIntervalId = setInterval(updateFavicon, currentSpeed);
+                frameCounter.textContent =
+                    `Animating "${animations[currentAnimationName]?.name || '...'}" — look at your browser tab! 👆`;
+            }
+
+            speedSlider.addEventListener('input', () => {
+                currentSpeed = parseInt(speedSlider.value);
+                speedDisplay.textContent = currentSpeed + 'ms';
+                restartInterval();
+            });
+
+            // ──────────────────────────────────────
+            // VISIBILITY API — Pause when tab hidden (optional, saves resources)
+            // ──────────────────────────────────────
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden) {
+                    if (animationIntervalId) clearInterval(animationIntervalId);
+                    animationIntervalId = null;
+                } else {
+                    restartInterval();
+                }
+            });
+
+            // ──────────────────────────────────────
+            // INIT
+            // ──────────────────────────────────────
+            function init() {
+                speedSlider.value = currentSpeed;
+                speedDisplay.textContent = currentSpeed + 'ms';
+                drawAllThumbnails();
+                // Default: bounce animation
+                switchAnimation('bounce');
+                // Mark active
+                const defaultBtn = document.querySelector('.anim-btn[data-anim-key="bounce"]');
+                if (defaultBtn) defaultBtn.classList.add('active');
+            }
+
+            // Polyfill roundRect if needed (for older browsers)
+            if (!CanvasRenderingContext2D.prototype.roundRect) {
+                CanvasRenderingContext2D.prototype.roundRect = function(x, y, w, h, r) {
+                    if (typeof r === 'number') r = { tl: r, tr: r, br: r, bl: r };
+                    this.beginPath();
+                    this.moveTo(x + r.tl, y);
+                    this.lineTo(x + w - r.tr, y);
+                    this.quadraticCurveTo(x + w, y, x + w, y + r.tr);
+                    this.lineTo(x + w, y + h - r.br);
+                    this.quadraticCurveTo(x + w, y + h, x + w - r.br, y + h);
+                    this.lineTo(x + r.bl, y + h);
+                    this.quadraticCurveTo(x, y + h, x, y + h - r.bl);
+                    this.lineTo(x, y + r.tl);
+                    this.quadraticCurveTo(x, y, x + r.tl, y);
+                    this.closePath();
+                };
+            }
+
+            init();
+            console.log('✅ Animated Favicon Engine Ready!');
+            console.log('💡 Look at your browser tab — the favicon is animating!');
+            console.log('🛠️  Technique: Dynamic <link> href swapping via canvas-generated PNG data URIs');
+            console.log('🌐 Works in: Chrome, Edge, Safari, Firefox, Opera, and more');
+        })();
+    </script>
+</body>
+</html>
