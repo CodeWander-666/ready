@@ -3,31 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel Agency — Animated Favicon</title>
+    <title>Travel Agency — Animated Favicon (Globe & Train)</title>
     <link id="dynamic-favicon" rel="icon" type="image/png" href="">
     <style>
         :root {
-            --bg: #0a1628;
-            --card-bg: #111d32;
-            --text: #d4dce8;
+            --bg: #0b1a2e;
+            --card-bg: #112240;
+            --text: #ccd6f6;
             --accent: #00b4d8;
             --accent2: #ff9f1c;
-            --accent3: #e63946;
             --gold: #f0c060;
-            --ocean: #0077b6;
-            --sky: #48cae4;
-            --border: #1e3350;
-            --muted: #6b7d95;
+            --border: #1e3a5f;
+            --muted: #8892b0;
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin:0; padding:0; box-sizing:border-box; }
         body {
-            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            font-family: 'Inter', system-ui, sans-serif;
             background: var(--bg);
             color: var(--text);
             min-height: 100vh;
@@ -35,773 +26,362 @@
             justify-content: center;
             align-items: center;
             padding: 20px;
-            background-image:
-                radial-gradient(ellipse at 25% 30%, rgba(0, 180, 216, 0.06) 0%, transparent 55%),
-                radial-gradient(ellipse at 75% 70%, rgba(255, 159, 28, 0.05) 0%, transparent 55%),
-                radial-gradient(ellipse at 50% 50%, rgba(72, 202, 228, 0.04) 0%, transparent 60%);
+            background-image: radial-gradient(ellipse at 20% 30%, rgba(0,180,216,0.07) 0%, transparent 55%),
+                            radial-gradient(ellipse at 80% 70%, rgba(255,159,28,0.06) 0%, transparent 55%);
         }
-
-        .main-container {
-            max-width: 720px;
-            width: 100%;
-        }
-
-        /* Header */
-        .header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        .header .icon-wrap {
-            display: inline-block;
-            position: relative;
-            margin-bottom: 14px;
-        }
+        .main-container { max-width: 720px; width: 100%; }
+        .header { text-align: center; margin-bottom: 30px; }
         .header canvas {
-            width: 72px;
-            height: 72px;
+            width: 76px; height: 76px;
             border-radius: 18px;
-            box-shadow: 0 10px 40px rgba(0, 160, 220, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.08);
+            box-shadow: 0 10px 40px rgba(0,160,220,0.3);
             animation: floatSoft 4s ease-in-out infinite;
-            image-rendering: auto;
         }
-        @keyframes floatSoft {
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-7px);
-            }
-        }
+        @keyframes floatSoft { 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-8px); } }
         .header h1 {
-            font-size: 2rem;
-            font-weight: 700;
-            letter-spacing: -0.4px;
-            background: linear-gradient(135deg, #48cae4 0%, #f0c060 50%, #ff9f1c 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
+            font-size: 2rem; font-weight: 700;
+            background: linear-gradient(135deg, #48cae4, #f0c060);
+            -webkit-background-clip: text; background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 6px;
+            margin: 12px 0 4px;
         }
-        .header .tagline {
-            font-size: 0.9rem;
-            color: var(--muted);
-            letter-spacing: 0.3px;
-        }
-        .badge-row {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 12px;
-        }
+        .tagline { font-size: 0.9rem; color: var(--muted); }
+        .badge-row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 10px; }
         .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            padding: 5px 13px;
-            border-radius: 20px;
-            font-size: 0.72rem;
-            font-weight: 600;
-            letter-spacing: 0.3px;
-            border: 1px solid;
+            padding: 4px 12px; border-radius: 20px; font-size: 0.7rem; font-weight: 600;
+            background: #0f1a2a; color: #6cb4ee; border: 1px solid #1e3a5f;
         }
-        .badge.chrome {
-            background: #0f2a1a;
-            color: #4caf84;
-            border-color: #1e4a2e;
-        }
-        .badge.all {
-            background: #0f1a2a;
-            color: #6cb4ee;
-            border-color: #1e2e4a;
-        }
-        .badge .bdot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            display: inline-block;
-        }
-        .bdot.grn {
-            background: #4caf84;
-            box-shadow: 0 0 6px #4caf84;
-        }
-        .bdot.blu {
-            background: #6cb4ee;
-            box-shadow: 0 0 6px #6cb4ee;
-        }
-
-        /* Cards */
         .card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 24px 22px;
-            margin-bottom: 18px;
-            transition: border-color 0.3s;
+            background: var(--card-bg); border: 1px solid var(--border);
+            border-radius: 16px; padding: 22px; margin-bottom: 18px;
         }
-        .card:hover {
-            border-color: #294568;
-        }
-        .card h2 {
-            font-size: 1.05rem;
-            font-weight: 600;
-            margin-bottom: 14px;
-            color: #c8d4e2;
-            display: flex;
-            align-items: center;
-            gap: 7px;
-            letter-spacing: 0.1px;
-        }
-        .card h2 .emoji {
-            font-size: 1.2rem;
-        }
-
-        /* Animation grid */
-        .anim-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(105px, 1fr));
-            gap: 10px;
-        }
+        .card h2 { font-size: 1rem; font-weight: 600; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+        .anim-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 10px; }
         .anim-btn {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 7px;
-            padding: 14px 8px;
-            border-radius: 12px;
-            border: 2px solid transparent;
-            cursor: pointer;
-            background: #152238;
-            color: #bcc8d8;
-            font-family: inherit;
-            font-size: 0.75rem;
-            font-weight: 500;
+            display: flex; flex-direction: column; align-items: center; gap: 6px;
+            padding: 14px 8px; border-radius: 12px; border: 2px solid transparent;
+            cursor: pointer; background: #0d1b33; color: #bcc8d8;
+            font-family: inherit; font-size: 0.72rem; font-weight: 500;
             transition: all 0.25s;
-            position: relative;
         }
-        .anim-btn:hover {
-            border-color: #334a66;
-            background: #1a2d48;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
-        }
-        .anim-btn.active {
-            border-color: var(--accent) !important;
-            background: #0d2538 !important;
-            box-shadow: 0 0 22px rgba(0, 180, 216, 0.2);
-        }
-        .anim-btn .thumb-canvas {
-            width: 38px;
-            height: 38px;
-            border-radius: 8px;
-            background: #0b1625;
-            image-rendering: auto;
-        }
-        .anim-btn .lbl {
-            font-weight: 600;
-            font-size: 0.73rem;
-            letter-spacing: 0.2px;
-        }
-
-        /* Speed */
-        .speed-row {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-        .speed-row label {
-            font-weight: 600;
-            font-size: 0.8rem;
-            color: #8899b4;
-            white-space: nowrap;
-        }
-        .speed-row input[type="range"] {
-            flex: 1;
-            min-width: 100px;
-            accent-color: var(--accent);
-            height: 5px;
-        }
-        .speed-val {
-            display: inline-block;
-            width: 48px;
-            text-align: center;
-            font-weight: 700;
-            color: var(--accent);
-            font-size: 0.85rem;
-        }
-        .live-bar {
-            display: flex;
-            align-items: center;
-            gap: 9px;
-            padding: 8px 14px;
-            background: #0d1826;
-            border-radius: 10px;
-            font-size: 0.78rem;
-            color: #8899b4;
-            margin-top: 10px;
-        }
-        .live-dot {
-            width: 9px;
-            height: 9px;
-            border-radius: 50%;
-            background: #48cae4;
-            animation: pulseDot 1.3s ease-in-out infinite;
-        }
-        @keyframes pulseDot {
-            0%,
-            100% {
-                box-shadow: 0 0 4px #48cae4;
-            }
-            50% {
-                box-shadow: 0 0 15px #48cae4, 0 0 26px #48cae4;
-            }
-        }
-
-        /* Info */
-        .info p {
-            font-size: 0.78rem;
-            color: #6b7d95;
-            line-height: 1.7;
-            margin: 0;
-        }
-        .info p strong {
-            color: #a0b4cc;
-        }
-        .info code {
-            background: #0f1a2c;
-            padding: 2px 7px;
-            border-radius: 4px;
-            font-size: 0.73rem;
-            color: var(--accent2);
-        }
-
-        footer {
-            text-align: center;
-            font-size: 0.7rem;
-            color: #4a5d75;
-            margin-top: 12px;
-            letter-spacing: 0.2px;
-        }
-
+        .anim-btn:hover { border-color: #2d4b77; background: #152a48; transform: translateY(-2px); }
+        .anim-btn.active { border-color: var(--accent); background: #0a2540; box-shadow: 0 0 20px rgba(0,180,216,0.25); }
+        .anim-btn canvas { width: 38px; height: 38px; border-radius: 8px; background: #0a1628; }
+        .speed-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+        .speed-row input[type="range"] { flex:1; min-width: 100px; accent-color: var(--accent); }
+        .speed-val { font-weight: 700; color: var(--accent); width: 50px; text-align: center; }
+        .live-bar { display: flex; align-items: center; gap: 8px; margin-top: 12px; font-size: 0.78rem; color: var(--muted); }
+        .live-dot { width: 9px; height: 9px; border-radius: 50%; background: #48cae4; animation: pulse 1.3s infinite; }
+        @keyframes pulse { 0%,100%{ box-shadow:0 0 4px #48cae4; } 50%{ box-shadow:0 0 15px #48cae4; } }
+        .info p { font-size: 0.78rem; color: var(--muted); line-height: 1.7; }
+        .info code { background: #0a1628; padding: 2px 7px; border-radius: 4px; color: var(--accent2); font-size: 0.73rem; }
+        footer { text-align: center; font-size: 0.7rem; color: #4a5d75; margin-top: 12px; }
         @media (max-width: 500px) {
-            .header h1 {
-                font-size: 1.4rem;
-            }
-            .card {
-                padding: 16px 12px;
-            }
-            .anim-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 7px;
-            }
-            .anim-btn {
-                padding: 10px 4px;
-            }
+            .header h1 { font-size: 1.4rem; }
+            .card { padding: 16px 12px; }
+            .anim-grid { grid-template-columns: repeat(3, 1fr); }
         }
     </style>
 </head>
 <body>
-
     <div class="main-container">
-        <!-- Header -->
         <div class="header">
-            <div class="icon-wrap">
-                <canvas id="header-preview" width="64" height="64"></canvas>
-            </div>
+            <canvas id="header-preview" width="64" height="64"></canvas>
             <h1>✈️ Travel Agency Favicon</h1>
-            <p class="tagline">Smooth animated tab icon — works everywhere, even Chrome</p>
+            <p class="tagline">Globe with visible running train — pure visibility at 32px</p>
             <div class="badge-row">
-                <span class="badge chrome"><span class="bdot grn"></span> Chrome</span>
-                <span class="badge all"><span class="bdot blu"></span> Firefox</span>
-                <span class="badge all"><span class="bdot blu"></span> Edge</span>
-                <span class="badge all"><span class="bdot blu"></span> Safari</span>
-                <span class="badge all"><span class="bdot blu"></span> Opera</span>
+                <span class="badge">✅ Chrome</span>
+                <span class="badge">✅ Firefox</span>
+                <span class="badge">✅ Safari</span>
+                <span class="badge">✅ Edge</span>
             </div>
         </div>
 
-        <!-- Animation Picker -->
         <div class="card">
-            <h2><span class="emoji">🧭</span> Choose Travel Animation</h2>
+            <h2>🧭 Choose Animation Style</h2>
             <div class="anim-grid" id="anim-grid"></div>
         </div>
 
-        <!-- Speed -->
         <div class="card">
-            <h2><span class="emoji">⏱️</span> Animation Speed</h2>
+            <h2>⏱️ Speed Control</h2>
             <div class="speed-row">
                 <label>Slow</label>
-                <input type="range" id="speed-slider" min="80" max="400" value="160" step="10">
+                <input type="range" id="speed-slider" min="80" max="350" value="130" step="10">
                 <label>Fast</label>
-                <span class="speed-val" id="speed-display">160ms</span>
+                <span class="speed-val" id="speed-display">130ms</span>
             </div>
             <div class="live-bar">
                 <span class="live-dot"></span>
-                <span id="status-text">Favicon animating — check your tab! ✈️</span>
+                <span id="status-text">Train running around the globe — check your tab! 🚂🌍</span>
             </div>
         </div>
 
-        <!-- How it works -->
         <div class="card info">
-            <h2><span class="emoji">💡</span> How It Works</h2>
+            <h2>💡 Why it's 100% visible now</h2>
             <p>
-                <strong>Chrome blocks animated GIF favicons.</strong> Our solution: JavaScript dynamically swaps the <code>&lt;link rel="icon"&gt;</code> tag's <code>href</code> with <strong>canvas-rendered PNG data URIs</strong> multiple times per second. Each frame is drawn mathematically — no external files, no server requests. The result is a <strong>silky-smooth animated favicon</strong> that works in every modern browser.
+                <strong>No thin SVG strokes!</strong> Every shape uses <strong>thick fills</strong> and <strong>high contrast</strong>: 
+                bright red train engine, black wheels, white smoke puffs, deep blue globe with bold green continents. 
+                The train is deliberately oversized for the 32×32 canvas — it's a <strong>tiny icon billboard</strong>, not a scale model.
+                All frames are generated as <code>canvas.toDataURL()</code> PNGs, swapped in the favicon link.
             </p>
         </div>
 
-        <footer>
-            🌍 Designed for travel agencies — globe, plane, compass &amp; more • 100% client-side
-        </footer>
+        <footer>🌍 Detailed globe · visible running train · creative travel favicon ideas below</footer>
     </div>
 
     <script>
         (function() {
             const faviconLink = document.getElementById('dynamic-favicon');
-            const FAV = 32; // favicon render size
+            const FAV = 32; // favicon size
 
             let frames = [];
             let frameIdx = 0;
             let intervalId = null;
-            let speed = 160;
-            let currentKey = 'globePlane';
+            let speed = 130; // ms
+            let currentKey = 'globeTrain';
 
-            // ──────────────────────────────────────
-            // Canvas helper
-            // ──────────────────────────────────────
+            // Helper: draw a frame onto an offscreen canvas, return data URL
             function renderFrame(drawFn, size = FAV) {
                 const c = document.createElement('canvas');
-                c.width = size;
-                c.height = size;
+                c.width = size; c.height = size;
                 const ctx = c.getContext('2d');
                 ctx.clearRect(0, 0, size, size);
                 drawFn(ctx, size);
                 return c.toDataURL('image/png');
             }
 
-            // ──────────────────────────────────────
-            // TRAVEL ANIMATION GENERATORS
-            // ──────────────────────────────────────
-
-            // 1. Globe with orbiting plane
-            function genGlobePlane(count = 30) {
+            // ────────────────────── ANIMATION: GLOBE + VISIBLE TRAIN ──────────────────────
+            function genGlobeTrain(count = 30) {
                 const out = [];
                 for (let i = 0; i < count; i++) {
                     const t = i / count;
-                    const angle = t * Math.PI * 2;
+                    const angle = t * Math.PI * 2; // train position along equator
                     out.push(renderFrame((ctx, s) => {
-                        const cx = s / 2,
-                            cy = s / 2,
-                            r = s * 0.3;
-                        // Ocean globe
-                        const globeGrad = ctx.createRadialGradient(cx - r * 0.25, cy - r * 0.3, r *
-                            0.1, cx, cy, r);
-                        globeGrad.addColorStop(0, '#5dbcd2');
-                        globeGrad.addColorStop(0.7, '#0077b6');
-                        globeGrad.addColorStop(1, '#023e8a');
+                        const cx = s/2, cy = s/2, r = s * 0.42; // globe radius
+
+                        // 1. Ocean globe
+                        const globeGrad = ctx.createRadialGradient(cx-1, cy-1, r*0.2, cx, cy, r);
+                        globeGrad.addColorStop(0, '#2980b9');
+                        globeGrad.addColorStop(1, '#0b3d5e');
                         ctx.fillStyle = globeGrad;
                         ctx.beginPath();
-                        ctx.arc(cx, cy, r, 0, Math.PI * 2);
+                        ctx.arc(cx, cy, r, 0, Math.PI*2);
                         ctx.fill();
-                        // Continents hint
-                        ctx.fillStyle = 'rgba(144,200,144,0.5)';
-                        ctx.beginPath();
-                        ctx.ellipse(cx - r * 0.25, cy - r * 0.15, r * 0.35, r * 0.28, -0.3, 0, Math
-                            .PI * 2);
-                        ctx.fill();
-                        ctx.beginPath();
-                        ctx.ellipse(cx + r * 0.3, cy + r * 0.2, r * 0.22, r * 0.3, 0.4, 0, Math.PI *
-                            2);
-                        ctx.fill();
-                        // Grid lines
-                        ctx.strokeStyle = 'rgba(255,255,255,0.12)';
-                        ctx.lineWidth = 0.5;
-                        ctx.beginPath();
-                        ctx.ellipse(cx, cy, r, r * 0.35, 0, 0, Math.PI * 2);
-                        ctx.stroke();
-                        ctx.beginPath();
-                        ctx.ellipse(cx, cy, r * 0.5, r, 0, 0, Math.PI * 2);
-                        ctx.stroke();
-                        // Orbiting plane
-                        const px = cx + Math.cos(angle) * (r + s * 0.16);
-                        const py = cy + Math.sin(angle) * (r + s * 0.14);
-                        ctx.save();
-                        ctx.translate(px, py);
-                        ctx.rotate(angle + Math.PI / 2);
-                        ctx.fillStyle = '#ffffff';
-                        ctx.beginPath();
-                        ctx.moveTo(0, -s * 0.12);
-                        ctx.lineTo(s * 0.06, s * 0.06);
-                        ctx.lineTo(0, s * 0.03);
-                        ctx.lineTo(-s * 0.06, s * 0.06);
-                        ctx.closePath();
-                        ctx.fill();
-                        ctx.fillStyle = '#ff9f1c';
-                        ctx.beginPath();
-                        ctx.arc(0, s * 0.01, s * 0.025, 0, Math.PI * 2);
-                        ctx.fill();
-                        ctx.restore();
-                        // Trail dots
-                        for (let j = 1; j <= 3; j++) {
-                            const ta = angle - j * 0.18;
-                            const tx = cx + Math.cos(ta) * (r + s * 0.16);
-                            const ty = cy + Math.sin(ta) * (r + s * 0.14);
-                            ctx.fillStyle = `rgba(255,255,255,${0.35 - j * 0.1})`;
-                            ctx.beginPath();
-                            ctx.arc(tx, ty, s * 0.017, 0, Math.PI * 2);
-                            ctx.fill();
-                        }
-                    }, FAV));
-                }
-                return out;
-            }
 
-            // 2. Compass with spinning needle
-            function genCompass(count = 28) {
-                const out = [];
-                for (let i = 0; i < count; i++) {
-                    const t = i / count;
-                    const angle = t * Math.PI * 2;
-                    const settle = Math.sin(t * Math.PI * 2) * 0.25;
-                    out.push(renderFrame((ctx, s) => {
-                        const cx = s / 2,
-                            cy = s / 2,
-                            r = s * 0.4;
-                        // Base disc
-                        const discGrad = ctx.createRadialGradient(cx, cy, r * 0.2, cx, cy, r);
-                        discGrad.addColorStop(0, '#fefefe');
-                        discGrad.addColorStop(0.6, '#e8dcc8');
-                        discGrad.addColorStop(1, '#c4a97d');
-                        ctx.fillStyle = discGrad;
+                        // 2. Bold continents (simplified, high contrast green)
+                        ctx.fillStyle = '#27ae60';
+                        // North America-ish
                         ctx.beginPath();
-                        ctx.arc(cx, cy, r, 0, Math.PI * 2);
+                        ctx.ellipse(cx - r*0.45, cy - r*0.3, r*0.35, r*0.28, -0.3, 0, Math.PI*2);
                         ctx.fill();
-                        ctx.strokeStyle = '#8b6914';
-                        ctx.lineWidth = 1.2;
+                        // South America-ish
+                        ctx.beginPath();
+                        ctx.ellipse(cx - r*0.25, cy + r*0.25, r*0.25, r*0.4, 0.2, 0, Math.PI*2);
+                        ctx.fill();
+                        // Europe/Africa
+                        ctx.beginPath();
+                        ctx.ellipse(cx + r*0.15, cy - r*0.2, r*0.28, r*0.32, 0.1, 0, Math.PI*2);
+                        ctx.fill();
+                        ctx.fillStyle = '#2ecc71';
+                        ctx.beginPath();
+                        ctx.ellipse(cx + r*0.35, cy + r*0.05, r*0.2, r*0.3, -0.2, 0, Math.PI*2);
+                        ctx.fill();
+                        // Asia/Australia blob
+                        ctx.fillStyle = '#27ae60';
+                        ctx.beginPath();
+                        ctx.ellipse(cx + r*0.4, cy - r*0.3, r*0.3, r*0.22, 0.4, 0, Math.PI*2);
+                        ctx.fill();
+
+                        // 3. Equator line (dashed track)
+                        ctx.strokeStyle = '#ffffff';
+                        ctx.lineWidth = 1.6;
+                        ctx.setLineDash([2.5, 3.5]);
+                        ctx.beginPath();
+                        ctx.ellipse(cx, cy, r, r*0.35, 0, 0, Math.PI*2);
                         ctx.stroke();
-                        // Cardinal marks
-                        const dirs = ['N', 'E', 'S', 'W'];
-                        const angBase = [ -Math.PI / 2, 0, Math.PI / 2, Math.PI ];
-                        ctx.fillStyle = '#3d2b0a';
-                        ctx.font = `bold ${s*0.14}px "Segoe UI", sans-serif`;
-                        ctx.textAlign = 'center';
-                        ctx.textBaseline = 'middle';
-                        dirs.forEach((d, k) => {
-                            const dx = cx + Math.cos(angBase[k]) * r * 0.72;
-                            const dy = cy + Math.sin(angBase[k]) * r * 0.72;
-                            ctx.fillText(d, dx, dy);
-                        });
-                        // Needle
-                        const needleAngle = angle + settle;
+                        ctx.setLineDash([]); // reset
+
+                        // 4. Train running along equator
+                        const trackRX = r;
+                        const trackRY = r * 0.35;
+                        // Position on ellipse (equator)
+                        const trainX = cx + Math.cos(angle) * trackRX;
+                        const trainY = cy + Math.sin(angle) * trackRY;
+
+                        // Train dimensions (big enough to see)
+                        const engineW = s * 0.28;  // length of engine
+                        const engineH = s * 0.15;  // height
+                        const angleTangent = Math.atan2(
+                            Math.cos(angle) * trackRY,
+                            -Math.sin(angle) * trackRX
+                        ) + Math.PI/2; // parallel to track
+
                         ctx.save();
-                        ctx.translate(cx, cy);
-                        ctx.rotate(needleAngle);
-                        // North half (red)
-                        ctx.fillStyle = '#e63946';
+                        ctx.translate(trainX, trainY);
+                        ctx.rotate(angleTangent);
+
+                        // ---- Train Engine Body (bright red, chunky) ----
+                        ctx.fillStyle = '#e74c3c';
                         ctx.beginPath();
-                        ctx.moveTo(0, -r * 0.75);
-                        ctx.lineTo(s * 0.06, 0);
-                        ctx.lineTo(0, s * 0.04);
-                        ctx.lineTo(-s * 0.06, 0);
-                        ctx.closePath();
+                        ctx.roundRect(-engineW/2, -engineH/2, engineW, engineH, 3);
                         ctx.fill();
-                        // South half (blue)
-                        ctx.fillStyle = '#1d3557';
+                        // Cab (darker red)
+                        ctx.fillStyle = '#c0392b';
+                        ctx.fillRect(-engineW/2 + engineW*0.7, -engineH/2, engineW*0.25, engineH);
+                        // Boiler front (silver)
+                        ctx.fillStyle = '#bdc3c7';
                         ctx.beginPath();
-                        ctx.moveTo(0, r * 0.55);
-                        ctx.lineTo(s * 0.05, 0);
-                        ctx.lineTo(0, -s * 0.03);
-                        ctx.lineTo(-s * 0.05, 0);
-                        ctx.closePath();
+                        ctx.ellipse(-engineW/2, 0, engineH*0.35, engineH*0.45, 0, 0, Math.PI*2);
                         ctx.fill();
-                        // Center pin
-                        ctx.fillStyle = '#f0c060';
+                        // Headlight (bright yellow)
+                        ctx.fillStyle = '#f1c40f';
                         ctx.beginPath();
-                        ctx.arc(0, 0, s * 0.05, 0, Math.PI * 2);
+                        ctx.arc(-engineW/2 - 2, -engineH*0.2, 2, 0, Math.PI*2);
                         ctx.fill();
                         ctx.fillStyle = '#fff';
                         ctx.beginPath();
-                        ctx.arc(0, 0, s * 0.02, 0, Math.PI * 2);
+                        ctx.arc(-engineW/2 - 2, -engineH*0.2, 0.8, 0, Math.PI*2);
                         ctx.fill();
-                        ctx.restore();
-                    }, FAV));
-                }
-                return out;
-            }
 
-            // 3. Location pin with pulse beacon
-            function genPinPulse(count = 24) {
-                const out = [];
-                for (let i = 0; i < count; i++) {
-                    const t = i / count;
-                    const pulse1 = (t % 0.5) / 0.5;
-                    const pulse2 = ((t + 0.25) % 0.5) / 0.5;
-                    out.push(renderFrame((ctx, s) => {
-                        const cx = s / 2,
-                            cy = s * 0.38;
-                        // Beacon rings
-                        [pulse1, pulse2].forEach(p => {
-                            const rr = s * 0.16 + p * s * 0.38;
-                            const alpha = 0.5 * (1 - p);
-                            ctx.strokeStyle = `rgba(0,180,216,${alpha})`;
-                            ctx.lineWidth = 1.5;
-                            ctx.beginPath();
-                            ctx.arc(cx, cy, rr, 0, Math.PI * 2);
-                            ctx.stroke();
-                        });
-                        // Pin body
-                        const pinGrad = ctx.createLinearGradient(cx, cy - s * 0.3, cx, cy + s * 0.3);
-                        pinGrad.addColorStop(0, '#ff4d4d');
-                        pinGrad.addColorStop(0.6, '#c0392b');
-                        pinGrad.addColorStop(1, '#7b1818');
-                        ctx.fillStyle = pinGrad;
-                        ctx.beginPath();
-                        ctx.moveTo(cx, cy + s * 0.32);
-                        ctx.bezierCurveTo(cx - s * 0.2, cy + s * 0.05, cx - s * 0.22, cy - s * 0.2, cx,
-                            cy - s * 0.28);
-                        ctx.bezierCurveTo(cx + s * 0.22, cy - s * 0.2, cx + s * 0.2, cy + s * 0.05, cx,
-                            cy + s * 0.32);
-                        ctx.closePath();
-                        ctx.fill();
-                        ctx.strokeStyle = 'rgba(255,255,255,0.3)';
-                        ctx.lineWidth = 1;
-                        ctx.stroke();
-                        // Inner highlight
-                        ctx.fillStyle = 'rgba(255,255,255,0.25)';
-                        ctx.beginPath();
-                        ctx.arc(cx - s * 0.04, cy - s * 0.1, s * 0.07, 0, Math.PI * 2);
-                        ctx.fill();
-                    }, FAV));
-                }
-                return out;
-            }
+                        // Chimney
+                        ctx.fillStyle = '#2c3e50';
+                        ctx.fillRect(-engineW/2 + 4, -engineH/2 - 5, 4, 6);
+                        ctx.fillStyle = '#e67e22';
+                        ctx.fillRect(-engineW/2 + 3, -engineH/2 - 5, 6, 2);
 
-            // 4. Airplane takeoff
-            function genPlaneTakeoff(count = 26) {
-                const out = [];
-                for (let i = 0; i < count; i++) {
-                    const t = i / count;
-                    const rise = t * 0.7;
-                    const xOff = (t - 0.5) * 0.5;
-                    out.push(renderFrame((ctx, s) => {
-                        const cx = s / 2,
-                            cy = s / 2;
-                        // Sky bg
-                        const skyGrad = ctx.createLinearGradient(0, 0, 0, s);
-                        skyGrad.addColorStop(0, '#48cae4');
-                        skyGrad.addColorStop(0.6, '#90e0ef');
-                        skyGrad.addColorStop(1, '#caf0f8');
-                        ctx.fillStyle = skyGrad;
-                        ctx.fillRect(0, 0, s, s);
-                        // Runway hint
-                        ctx.fillStyle = '#555';
-                        ctx.fillRect(s * 0.2, s * 0.68, s * 0.6, s * 0.08);
-                        ctx.fillStyle = '#888';
-                        ctx.fillRect(s * 0.3, s * 0.67, s * 0.4, s * 0.015);
-                        // Plane
-                        const px = cx + xOff * s * 0.3;
-                        const py = cy + s * 0.06 - rise * s * 0.55;
-                        const planeScale = 0.65 + rise * 0.35;
-                        ctx.save();
-                        ctx.translate(px, py);
-                        ctx.rotate(-0.25 + rise * 0.6);
-                        ctx.scale(planeScale, planeScale);
-                        // Body
+                        // Smoke puffs (white, trailing)
                         ctx.fillStyle = '#ffffff';
-                        ctx.beginPath();
-                        ctx.ellipse(0, 0, s * 0.22, s * 0.06, 0, 0, Math.PI * 2);
-                        ctx.fill();
-                        // Wings
-                        ctx.fillStyle = '#e8e8e8';
-                        ctx.beginPath();
-                        ctx.moveTo(-s * 0.04, -s * 0.01);
-                        ctx.lineTo(s * 0.02, -s * 0.18);
-                        ctx.lineTo(s * 0.12, -s * 0.16);
-                        ctx.lineTo(s * 0.08, -s * 0.01);
-                        ctx.closePath();
-                        ctx.fill();
-                        ctx.beginPath();
-                        ctx.moveTo(-s * 0.04, s * 0.01);
-                        ctx.lineTo(s * 0.02, s * 0.18);
-                        ctx.lineTo(s * 0.12, s * 0.16);
-                        ctx.lineTo(s * 0.08, s * 0.01);
-                        ctx.closePath();
-                        ctx.fill();
-                        // Tail
-                        ctx.fillStyle = '#ff9f1c';
-                        ctx.beginPath();
-                        ctx.moveTo(-s * 0.18, 0);
-                        ctx.lineTo(-s * 0.24, -s * 0.12);
-                        ctx.lineTo(-s * 0.14, -s * 0.04);
-                        ctx.closePath();
-                        ctx.fill();
-                        // Windows
-                        ctx.fillStyle = '#48cae4';
-                        for (let w = -1; w <= 1; w++) {
+                        for (let p = 0; p < 3; p++) {
+                            const sx = -engineW/2 - 6 - p * 4;
+                            const sy = -engineH/2 - 3 - p * 1.2;
+                            const rad = 2.5 - p*0.4;
+                            ctx.globalAlpha = 0.9 - p*0.2;
                             ctx.beginPath();
-                            ctx.arc(s * 0.04 + w * s * 0.06, -s * 0.01, s * 0.022, 0, Math.PI * 2);
+                            ctx.arc(sx, sy, rad, 0, Math.PI*2);
                             ctx.fill();
                         }
+                        ctx.globalAlpha = 1;
+
+                        // Wheels (black circles, clearly visible)
+                        ctx.fillStyle = '#111';
+                        const wheelR = engineH*0.35;
+                        const wheelY = engineH/2 - 1;
+                        // Front wheel
+                        ctx.beginPath();
+                        ctx.arc(-engineW/2 + 6, wheelY, wheelR, 0, Math.PI*2);
+                        ctx.fill();
+                        // Middle wheel
+                        ctx.beginPath();
+                        ctx.arc(0, wheelY, wheelR, 0, Math.PI*2);
+                        ctx.fill();
+                        // Rear wheel
+                        ctx.beginPath();
+                        ctx.arc(engineW/2 - 6, wheelY, wheelR, 0, Math.PI*2);
+                        ctx.fill();
+                        // Wheel centers (white dot)
+                        ctx.fillStyle = '#ffffff';
+                        [-engineW/2+6, 0, engineW/2-6].forEach(wx => {
+                            ctx.beginPath();
+                            ctx.arc(wx, wheelY, 1.2, 0, Math.PI*2);
+                            ctx.fill();
+                        });
+
                         ctx.restore();
-                        // Speed lines
-                        ctx.strokeStyle = 'rgba(255,255,255,0.4)';
-                        ctx.lineWidth = 0.8;
-                        for (let l = 0; l < 3; l++) {
-                            const lx = px - s * 0.35 - l * s * 0.08;
-                            const ly = py + l * s * 0.05;
-                            ctx.beginPath();
-                            ctx.moveTo(lx, ly);
-                            ctx.lineTo(lx - s * 0.18, ly - s * 0.02);
-                            ctx.stroke();
-                        }
+
+                        // Highlight on globe glass
+                        ctx.fillStyle = 'rgba(255,255,255,0.15)';
+                        ctx.beginPath();
+                        ctx.arc(cx - r*0.2, cy - r*0.25, r*0.25, 0, Math.PI*2);
+                        ctx.fill();
                     }, FAV));
                 }
                 return out;
             }
 
-            // 5. Suitcase bounce
-            function genSuitcase(count = 20) {
+            // ────────────────────── OTHER CREATIVE TRAVEL ANIMATIONS ──────────────────────
+            function genPlaneOrbit(count = 28) {
                 const out = [];
                 for (let i = 0; i < count; i++) {
-                    const t = i / count;
-                    const bounce = Math.abs(Math.sin(t * Math.PI * 2));
-                    const squish = 0.8 + 0.2 * Math.cos(t * Math.PI * 2);
+                    const t = i / count; const angle = t * Math.PI * 2;
                     out.push(renderFrame((ctx, s) => {
-                        const cx = s / 2,
-                            cy = s * 0.42;
-                        const by = cy + bounce * s * 0.15;
-                        // Shadow
-                        ctx.fillStyle = `rgba(0,0,0,${0.12 + bounce * 0.2})`;
-                        ctx.beginPath();
-                        ctx.ellipse(cx, s * 0.76, s * 0.25, s * 0.06, 0, 0, Math.PI * 2);
-                        ctx.fill();
-                        // Suitcase body
-                        const caseGrad = ctx.createLinearGradient(cx, by - s * 0.2, cx, by + s * 0.15);
-                        caseGrad.addColorStop(0, '#f7c873');
-                        caseGrad.addColorStop(0.5, '#e8a840');
-                        caseGrad.addColorStop(1, '#b87820');
-                        ctx.fillStyle = caseGrad;
-                        ctx.beginPath();
-                        ctx.roundRect(cx - s * 0.28, by - s * 0.2, s * 0.56, s * 0.35 * squish, s * 0.06);
-                        ctx.fill();
-                        ctx.strokeStyle = '#8b5e14';
-                        ctx.lineWidth = 1.2;
-                        ctx.stroke();
-                        // Handle
-                        ctx.strokeStyle = '#5c3d0e';
-                        ctx.lineWidth = 2;
-                        ctx.beginPath();
-                        ctx.arc(cx, by - s * 0.2, s * 0.1, Math.PI, 0);
-                        ctx.stroke();
-                        // Straps
-                        ctx.fillStyle = '#8b5e14';
-                        ctx.fillRect(cx - s * 0.28, by - s * 0.04, s * 0.56, s * 0.04);
-                        ctx.fillRect(cx - s * 0.28, by + s * 0.06, s * 0.56, s * 0.03);
-                        // Buckle
-                        ctx.fillStyle = '#f0c060';
-                        ctx.beginPath();
-                        ctx.roundRect(cx - s * 0.07, by - s * 0.07, s * 0.14, s * 0.1, s * 0.025);
-                        ctx.fill();
-                        ctx.fillStyle = '#3d2b0a';
-                        ctx.fillRect(cx - s * 0.02, by - s * 0.05, s * 0.04, s * 0.06);
-                        // Tag
+                        const cx = s/2, cy = s/2, r = s*0.35;
+                        const grad = ctx.createRadialGradient(cx, cy, r*0.1, cx, cy, r);
+                        grad.addColorStop(0, '#48cae4'); grad.addColorStop(1, '#023e8a');
+                        ctx.fillStyle = grad; ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI*2); ctx.fill();
+                        const px = cx + Math.cos(angle)*(r+s*0.13), py = cy + Math.sin(angle)*(r+s*0.11);
+                        ctx.save(); ctx.translate(px, py); ctx.rotate(angle+Math.PI/2);
                         ctx.fillStyle = '#fff';
-                        ctx.fillRect(cx + s * 0.14, by - s * 0.12, s * 0.1, s * 0.07);
-                        ctx.fillStyle = '#e63946';
-                        ctx.font = `bold ${s*0.06}px sans-serif`;
-                        ctx.textAlign = 'center';
-                        ctx.fillText('✈', cx + s * 0.19, by - s * 0.045);
+                        ctx.beginPath(); ctx.moveTo(0,-s*0.1); ctx.lineTo(s*0.05,s*0.05); ctx.lineTo(0,s*0.03); ctx.lineTo(-s*0.05,s*0.05); ctx.closePath(); ctx.fill();
+                        ctx.fillStyle = '#ff9f1c'; ctx.beginPath(); ctx.arc(0,s*0.01,s*0.02,0,Math.PI*2); ctx.fill();
+                        ctx.restore();
                     }, FAV));
                 }
                 return out;
             }
 
-            // 6. Palm tree sway
-            function genPalmTree(count = 22) {
+            function genCompass(count = 24) {
                 const out = [];
                 for (let i = 0; i < count; i++) {
-                    const t = i / count;
-                    const sway = Math.sin(t * Math.PI * 2) * 0.15;
+                    const t = i / count; const angle = t * Math.PI * 2;
                     out.push(renderFrame((ctx, s) => {
-                        const cx = s / 2,
-                            cy = s / 2;
-                        // Sand bg
-                        const sandGrad = ctx.createLinearGradient(0, s * 0.6, 0, s);
-                        sandGrad.addColorStop(0, '#f4e4c1');
-                        sandGrad.addColorStop(1, '#d4b896');
-                        ctx.fillStyle = sandGrad;
-                        ctx.fillRect(0, s * 0.6, s, s * 0.4);
-                        // Sky
-                        const skyGrad = ctx.createLinearGradient(0, 0, 0, s * 0.6);
-                        skyGrad.addColorStop(0, '#48cae4');
-                        skyGrad.addColorStop(1, '#fdf8e8');
-                        ctx.fillStyle = skyGrad;
-                        ctx.fillRect(0, 0, s, s * 0.6);
-                        // Trunk
-                        ctx.strokeStyle = '#a0724a';
-                        ctx.lineWidth = s * 0.06;
-                        ctx.lineCap = 'round';
-                        ctx.beginPath();
-                        ctx.moveTo(cx, s * 0.78);
-                        ctx.quadraticCurveTo(cx + sway * s * 0.3, s * 0.45, cx + sway * s * 0.15, s *
-                            0.27);
-                        ctx.stroke();
-                        ctx.strokeStyle = '#c4915c';
-                        ctx.lineWidth = s * 0.03;
-                        ctx.stroke();
-                        // Leaves
-                        const topX = cx + sway * s * 0.15;
-                        const topY = s * 0.27;
-                        const leafColors = ['#2d8a4e', '#3ba55c', '#4caf50', '#2e7d32', '#388e3c',
-                            '#43a047'
-                        ];
-                        for (let l = 0; l < 6; l++) {
-                            const la = (l / 6) * Math.PI * 2 + sway * 0.6;
-                            const lx = topX + Math.cos(la) * s * 0.25;
-                            const ly = topY + Math.sin(la) * s * 0.2 - s * 0.08;
-                            ctx.fillStyle = leafColors[l];
-                            ctx.beginPath();
-                            ctx.ellipse(lx, ly, s * 0.16, s * 0.06, la - 0.3, 0, Math.PI * 2);
-                            ctx.fill();
-                        }
-                        // Coconuts
-                        ctx.fillStyle = '#6b3a2a';
-                        ctx.beginPath();
-                        ctx.arc(topX, topY + s * 0.04, s * 0.05, 0, Math.PI * 2);
-                        ctx.fill();
-                        ctx.fillStyle = '#8b4513';
-                        ctx.beginPath();
-                        ctx.arc(topX - s * 0.03, topY + s * 0.07, s * 0.04, 0, Math.PI * 2);
-                        ctx.fill();
-                        // Sun
-                        ctx.fillStyle = '#ffe66d';
-                        ctx.beginPath();
-                        ctx.arc(s * 0.78, s * 0.18, s * 0.12, 0, Math.PI * 2);
-                        ctx.fill();
-                        ctx.fillStyle = 'rgba(255,255,255,0.3)';
-                        ctx.beginPath();
-                        ctx.arc(s * 0.76, s * 0.15, s * 0.04, 0, Math.PI * 2);
-                        ctx.fill();
+                        const cx = s/2, cy = s/2, r = s*0.4;
+                        const discGrad = ctx.createRadialGradient(cx, cy, r*0.2, cx, cy, r);
+                        discGrad.addColorStop(0, '#fefefe'); discGrad.addColorStop(1, '#c4a97d');
+                        ctx.fillStyle = discGrad; ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI*2); ctx.fill();
+                        ctx.fillStyle = '#3d2b0a'; ctx.font = `bold ${s*0.12}px sans-serif`; ctx.textAlign='center'; ctx.textBaseline='middle';
+                        ctx.fillText('N', cx, cy - r*0.7); ctx.fillText('S', cx, cy + r*0.7);
+                        ctx.save(); ctx.translate(cx, cy); ctx.rotate(angle);
+                        ctx.fillStyle = '#e63946'; ctx.beginPath(); ctx.moveTo(0, -r*0.7); ctx.lineTo(s*0.05, 0); ctx.lineTo(0, s*0.03); ctx.lineTo(-s*0.05, 0); ctx.closePath(); ctx.fill();
+                        ctx.fillStyle = '#1d3557'; ctx.beginPath(); ctx.moveTo(0, r*0.5); ctx.lineTo(s*0.05, 0); ctx.lineTo(0, -s*0.03); ctx.lineTo(-s*0.05, 0); ctx.closePath(); ctx.fill();
+                        ctx.restore();
                     }, FAV));
                 }
                 return out;
             }
 
-            // ──────────────────────────────────────
-            // REGISTRY
-            // ──────────────────────────────────────
+            function genSuitcase(count = 22) {
+                const out = [];
+                for (let i = 0; i < count; i++) {
+                    const t = i / count; const bounce = Math.abs(Math.sin(t*Math.PI*2));
+                    out.push(renderFrame((ctx, s) => {
+                        const cx = s/2, cy = s*0.4; const by = cy + bounce*s*0.1;
+                        ctx.fillStyle = `rgba(0,0,0,${0.15+bounce*0.2})`; ctx.beginPath(); ctx.ellipse(cx, s*0.74, s*0.22, s*0.05, 0, 0, Math.PI*2); ctx.fill();
+                        const caseGrad = ctx.createLinearGradient(cx, by-s*0.2, cx, by+s*0.15);
+                        caseGrad.addColorStop(0, '#f7c873'); caseGrad.addColorStop(1, '#b87820');
+                        ctx.fillStyle = caseGrad; ctx.beginPath(); ctx.roundRect(cx-s*0.25, by-s*0.18, s*0.5, s*0.33, s*0.05); ctx.fill();
+                        ctx.strokeStyle = '#8b5e14'; ctx.lineWidth=1; ctx.stroke();
+                        ctx.strokeStyle = '#5c3d0e'; ctx.lineWidth=2; ctx.beginPath(); ctx.arc(cx, by-s*0.18, s*0.09, Math.PI,0); ctx.stroke();
+                        ctx.fillStyle = '#fff'; ctx.fillRect(cx+s*0.12, by-s*0.1, s*0.08, s*0.06);
+                    }, FAV));
+                }
+                return out;
+            }
+
+            function genPinPulse(count = 26) {
+                const out = [];
+                for (let i = 0; i < count; i++) {
+                    const t = i / count; const pulse = (t%0.5)/0.5;
+                    out.push(renderFrame((ctx, s) => {
+                        const cx = s/2, cy = s*0.38;
+                        ctx.strokeStyle = `rgba(0,180,216,${0.6*(1-pulse)})`; ctx.lineWidth=1.6; ctx.beginPath(); ctx.arc(cx, cy, s*0.14+pulse*s*0.35, 0, Math.PI*2); ctx.stroke();
+                        const pinGrad = ctx.createLinearGradient(cx, cy-s*0.25, cx, cy+s*0.25);
+                        pinGrad.addColorStop(0,'#ff4d4d'); pinGrad.addColorStop(1,'#7b1818');
+                        ctx.fillStyle = pinGrad; ctx.beginPath(); ctx.moveTo(cx, cy+s*0.3); ctx.bezierCurveTo(cx-s*0.18, cy+s*0.05, cx-s*0.2, cy-s*0.18, cx, cy-s*0.25); ctx.bezierCurveTo(cx+s*0.2, cy-s*0.18, cx+s*0.18, cy+s*0.05, cx, cy+s*0.3); ctx.closePath(); ctx.fill();
+                    }, FAV));
+                }
+                return out;
+            }
+
+            // Registry
             const animations = {
-                globePlane: { name: 'Globe & Plane', gen: genGlobePlane, fc: 30, emoji: '🌍✈️' },
-                compass: { name: 'Compass', gen: genCompass, fc: 28, emoji: '🧭' },
-                pinPulse: { name: 'Pin Pulse', gen: genPinPulse, fc: 24, emoji: '📍' },
-                planeTakeoff: { name: 'Takeoff', gen: genPlaneTakeoff, fc: 26, emoji: '🛫' },
-                suitcase: { name: 'Suitcase', gen: genSuitcase, fc: 20, emoji: '🧳' },
-                palmTree: { name: 'Palm Tree', gen: genPalmTree, fc: 22, emoji: '🌴' },
+                globeTrain: { name: 'Globe & Train', gen: genGlobeTrain, fc: 30, emoji: '🚂🌍' },
+                planeOrbit: { name: 'Plane Orbit', gen: genPlaneOrbit, fc: 28, emoji: '✈️🌐' },
+                compass: { name: 'Compass', gen: genCompass, fc: 24, emoji: '🧭' },
+                suitcase: { name: 'Suitcase', gen: genSuitcase, fc: 22, emoji: '🧳' },
+                pinPulse: { name: 'Pin Pulse', gen: genPinPulse, fc: 26, emoji: '📍' },
             };
 
-            // ──────────────────────────────────────
-            // UI SETUP
-            // ──────────────────────────────────────
+            // UI elements
             const grid = document.getElementById('anim-grid');
             const speedSlider = document.getElementById('speed-slider');
             const speedDisplay = document.getElementById('speed-display');
@@ -812,30 +392,20 @@
             // Build buttons
             Object.entries(animations).forEach(([key, a]) => {
                 const btn = document.createElement('button');
-                btn.className = 'anim-btn';
-                btn.dataset.key = key;
-                btn.innerHTML = `
-                    <canvas class="thumb-canvas" width="32" height="32"></canvas>
-                    <span class="lbl">${a.emoji} ${a.name}</span>
-                `;
-                btn.addEventListener('click', () => switchTo(key));
+                btn.className = 'anim-btn'; btn.dataset.key = key;
+                btn.innerHTML = `<canvas class="thumb-canvas" width="32" height="32"></canvas><span>${a.emoji} ${a.name}</span>`;
+                btn.addEventListener('click', ()=> switchTo(key));
                 grid.appendChild(btn);
             });
 
-            // Draw thumbnails
             function drawThumbs() {
                 document.querySelectorAll('.anim-btn .thumb-canvas').forEach(cv => {
                     const key = cv.parentElement.dataset.key;
                     if (key && animations[key]) {
                         const f = animations[key].gen(1);
                         if (f.length) {
-                            const img = new Image();
-                            img.src = f[0];
-                            img.onload = () => {
-                                const tctx = cv.getContext('2d');
-                                tctx.clearRect(0, 0, 32, 32);
-                                tctx.drawImage(img, 0, 0, 32, 32);
-                            };
+                            const img = new Image(); img.src = f[0];
+                            img.onload = ()=>{ const tctx = cv.getContext('2d'); tctx.clearRect(0,0,32,32); tctx.drawImage(img,0,0,32,32); };
                         }
                     }
                 });
@@ -843,12 +413,8 @@
 
             function updateHeader() {
                 if (!frames.length) return;
-                const img = new Image();
-                img.src = frames[frameIdx];
-                img.onload = () => {
-                    headerCtx.clearRect(0, 0, 64, 64);
-                    headerCtx.drawImage(img, 0, 0, 64, 64);
-                };
+                const img = new Image(); img.src = frames[frameIdx];
+                img.onload = ()=>{ headerCtx.clearRect(0,0,64,64); headerCtx.drawImage(img,0,0,64,64); };
             }
 
             function updateFavicon() {
@@ -856,80 +422,55 @@
                 faviconLink.href = frames[frameIdx];
                 updateHeader();
                 frameIdx = (frameIdx + 1) % frames.length;
-                if (frameIdx % 4 === 0) {
-                    statusText.textContent =
-                        `Animating "${animations[currentKey]?.name || '...'}" — frame ${frameIdx+1}/${frames.length} | Check your tab! ✈️`;
-                }
             }
 
             function restartLoop() {
                 if (intervalId) clearInterval(intervalId);
                 if (!frames.length) return;
-                frameIdx = 0;
-                updateFavicon();
+                frameIdx = 0; updateFavicon();
                 intervalId = setInterval(updateFavicon, speed);
-                statusText.textContent =
-                    `Animating "${animations[currentKey]?.name || '...'}" — look at your browser tab! ✈️`;
+                statusText.textContent = `Animating "${animations[currentKey]?.name}" — see your tab! 🚂`;
             }
 
             function switchTo(key) {
-                if (!animations[key]) return;
                 currentKey = key;
-                document.querySelectorAll('.anim-btn').forEach(b => b.classList.remove('active'));
-                const ab = document.querySelector(`.anim-btn[data-key="${key}"]`);
-                if (ab) ab.classList.add('active');
+                document.querySelectorAll('.anim-btn').forEach(b=>b.classList.remove('active'));
+                document.querySelector(`.anim-btn[data-key="${key}"]`)?.classList.add('active');
                 const a = animations[key];
                 frames = a.gen(a.fc);
                 restartLoop();
             }
 
-            speedSlider.addEventListener('input', () => {
+            speedSlider.addEventListener('input', ()=>{
                 speed = parseInt(speedSlider.value);
                 speedDisplay.textContent = speed + 'ms';
                 restartLoop();
             });
 
-            // Pause when tab hidden
-            document.addEventListener('visibilitychange', () => {
-                if (document.hidden) {
-                    if (intervalId) clearInterval(intervalId);
-                    intervalId = null;
-                } else {
-                    restartLoop();
-                }
+            document.addEventListener('visibilitychange', ()=>{
+                if (document.hidden) { if(intervalId) clearInterval(intervalId); intervalId=null; }
+                else restartLoop();
             });
 
-            // Polyfill roundRect
+            // roundRect polyfill
             if (!CanvasRenderingContext2D.prototype.roundRect) {
                 CanvasRenderingContext2D.prototype.roundRect = function(x, y, w, h, r) {
-                    if (typeof r === 'number') r = { tl: r, tr: r, br: r, bl: r };
+                    if (typeof r === 'number') r = {tl:r, tr:r, br:r, bl:r};
                     this.beginPath();
-                    this.moveTo(x + r.tl, y);
-                    this.lineTo(x + w - r.tr, y);
-                    this.quadraticCurveTo(x + w, y, x + w, y + r.tr);
-                    this.lineTo(x + w, y + h - r.br);
-                    this.quadraticCurveTo(x + w, y + h, x + w - r.br, y + h);
-                    this.lineTo(x + r.bl, y + h);
-                    this.quadraticCurveTo(x, y + h, x, y + h - r.bl);
-                    this.lineTo(x, y + r.tl);
-                    this.quadraticCurveTo(x, y, x + r.tl, y);
-                    this.closePath();
+                    this.moveTo(x+r.tl, y); this.lineTo(x+w-r.tr, y); this.quadraticCurveTo(x+w, y, x+w, y+r.tr);
+                    this.lineTo(x+w, y+h-r.br); this.quadraticCurveTo(x+w, y+h, x+w-r.br, y+h);
+                    this.lineTo(x+r.bl, y+h); this.quadraticCurveTo(x, y+h, x, y+h-r.bl);
+                    this.lineTo(x, y+r.tl); this.quadraticCurveTo(x, y, x+r.tl, y); this.closePath();
                 };
             }
 
-            // Init
             function init() {
-                speedSlider.value = speed;
-                speedDisplay.textContent = speed + 'ms';
+                speedSlider.value = speed; speedDisplay.textContent = speed+'ms';
                 drawThumbs();
-                switchTo('globePlane');
-                const defBtn = document.querySelector('.anim-btn[data-key="globePlane"]');
-                if (defBtn) defBtn.classList.add('active');
+                switchTo('globeTrain');
             }
             init();
-            console.log('✈️ Travel Agency Animated Favicon Ready!');
-            console.log('🌍 Look at your browser tab — the favicon is alive!');
-            console.log('🛠 Technique: Dynamic <link> href swap with canvas PNG data URIs');
+            console.log('🌍 Travel favicon ready — train clearly visible at 32px!');
         })();
     </script>
 </body>
