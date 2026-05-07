@@ -3,474 +3,478 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel Agency — Animated Favicon (Globe & Train)</title>
+    <title>Luxury Globe & Airplane Favicon</title>
     <link id="dynamic-favicon" rel="icon" type="image/png" href="">
     <style>
         :root {
-            --bg: #0b1a2e;
-            --card-bg: #112240;
-            --text: #ccd6f6;
-            --accent: #00b4d8;
-            --accent2: #ff9f1c;
-            --gold: #f0c060;
-            --border: #1e3a5f;
-            --muted: #8892b0;
+            --bg: #0a1120;
+            --card-bg: #131e38;
+            --text: #e0e6f0;
+            --accent: #00a6d8;
+            --gold: #d4af37;
+            --border: #1f3050;
         }
         * { margin:0; padding:0; box-sizing:border-box; }
         body {
-            font-family: 'Inter', system-ui, sans-serif;
             background: var(--bg);
             color: var(--text);
+            font-family: 'Inter', system-ui, sans-serif;
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 20px;
-            background-image: radial-gradient(ellipse at 20% 30%, rgba(0,180,216,0.07) 0%, transparent 55%),
-                            radial-gradient(ellipse at 80% 70%, rgba(255,159,28,0.06) 0%, transparent 55%);
+            background-image: radial-gradient(ellipse at 50% 30%, rgba(0,166,216,0.08) 0%, transparent 60%);
         }
-        .main-container { max-width: 720px; width: 100%; }
-        .header { text-align: center; margin-bottom: 30px; }
-        .header canvas {
-            width: 76px; height: 76px;
-            border-radius: 18px;
-            box-shadow: 0 10px 40px rgba(0,160,220,0.3);
-            animation: floatSoft 4s ease-in-out infinite;
+        .container {
+            max-width: 640px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
         }
-        @keyframes floatSoft { 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-8px); } }
-        .header h1 {
-            font-size: 2rem; font-weight: 700;
-            background: linear-gradient(135deg, #48cae4, #f0c060);
-            -webkit-background-clip: text; background-clip: text;
+        .hero {
+            text-align: center;
+        }
+        .hero canvas {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            box-shadow: 0 12px 36px rgba(0,160,220,0.4), 0 0 0 1px rgba(255,255,255,0.1);
+            animation: float 5s ease-in-out infinite;
+            image-rendering: auto;
+        }
+        @keyframes float { 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-8px); } }
+        .hero h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-top: 14px;
+            background: linear-gradient(135deg, #62cff4, #d4af37);
+            -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin: 12px 0 4px;
         }
-        .tagline { font-size: 0.9rem; color: var(--muted); }
-        .badge-row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 10px; }
-        .badge {
-            padding: 4px 12px; border-radius: 20px; font-size: 0.7rem; font-weight: 600;
-            background: #0f1a2a; color: #6cb4ee; border: 1px solid #1e3a5f;
+        .hero p {
+            font-size: 0.9rem;
+            color: #8892b0;
+            margin-top: 4px;
         }
         .card {
-            background: var(--card-bg); border: 1px solid var(--border);
-            border-radius: 16px; padding: 22px; margin-bottom: 18px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 22px 20px;
         }
-        .card h2 { font-size: 1rem; font-weight: 600; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
-        .anim-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 10px; }
-        .anim-btn {
-            display: flex; flex-direction: column; align-items: center; gap: 6px;
-            padding: 14px 8px; border-radius: 12px; border: 2px solid transparent;
-            cursor: pointer; background: #0d1b33; color: #bcc8d8;
-            font-family: inherit; font-size: 0.72rem; font-weight: 500;
-            transition: all 0.25s;
+        .card h2 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
-        .anim-btn:hover { border-color: #2d4b77; background: #152a48; transform: translateY(-2px); }
-        .anim-btn.active { border-color: var(--accent); background: #0a2540; box-shadow: 0 0 20px rgba(0,180,216,0.25); }
-        .anim-btn canvas { width: 38px; height: 38px; border-radius: 8px; background: #0a1628; }
-        .speed-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
-        .speed-row input[type="range"] { flex:1; min-width: 100px; accent-color: var(--accent); }
-        .speed-val { font-weight: 700; color: var(--accent); width: 50px; text-align: center; }
-        .live-bar { display: flex; align-items: center; gap: 8px; margin-top: 12px; font-size: 0.78rem; color: var(--muted); }
-        .live-dot { width: 9px; height: 9px; border-radius: 50%; background: #48cae4; animation: pulse 1.3s infinite; }
-        @keyframes pulse { 0%,100%{ box-shadow:0 0 4px #48cae4; } 50%{ box-shadow:0 0 15px #48cae4; } }
-        .info p { font-size: 0.78rem; color: var(--muted); line-height: 1.7; }
-        .info code { background: #0a1628; padding: 2px 7px; border-radius: 4px; color: var(--accent2); font-size: 0.73rem; }
-        footer { text-align: center; font-size: 0.7rem; color: #4a5d75; margin-top: 12px; }
-        @media (max-width: 500px) {
-            .header h1 { font-size: 1.4rem; }
-            .card { padding: 16px 12px; }
-            .anim-grid { grid-template-columns: repeat(3, 1fr); }
+        .speed-control {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+        .speed-control input[type="range"] {
+            flex: 1;
+            min-width: 120px;
+            accent-color: var(--accent);
+            height: 6px;
+        }
+        .speed-value {
+            font-weight: 700;
+            color: var(--accent);
+            width: 55px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        .status {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 14px;
+            padding: 10px 14px;
+            background: #0d1629;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            color: #8892b0;
+        }
+        .status .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #48cae4;
+            animation: pulse 1.2s infinite;
+        }
+        @keyframes pulse { 0%,100%{ box-shadow:0 0 4px #48cae4; } 50%{ box-shadow:0 0 16px #48cae4, 0 0 28px #48cae4; } }
+        .note {
+            font-size: 0.75rem;
+            color: #667799;
+            margin-top: 10px;
+            line-height: 1.6;
+        }
+        .note strong { color: #bcc8e0; }
+        code {
+            background: #0a1222;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: var(--gold);
+            font-size: 0.75rem;
+        }
+        footer {
+            text-align: center;
+            font-size: 0.7rem;
+            color: #4a5d75;
         }
     </style>
 </head>
 <body>
-    <div class="main-container">
-        <div class="header">
+    <div class="container">
+        <div class="hero">
             <canvas id="header-preview" width="64" height="64"></canvas>
-            <h1>✈️ Travel Agency Favicon</h1>
-            <p class="tagline">Globe with visible running train — pure visibility at 32px</p>
-            <div class="badge-row">
-                <span class="badge">✅ Chrome</span>
-                <span class="badge">✅ Firefox</span>
-                <span class="badge">✅ Safari</span>
-                <span class="badge">✅ Edge</span>
+            <h1>✈️ Luxury Globe & Airplane</h1>
+            <p>Continuously animated favicon — visible even when tab is hidden</p>
+        </div>
+
+        <div class="card">
+            <h2>⏱️ Animation Speed</h2>
+            <div class="speed-control">
+                <span>Slow</span>
+                <input type="range" id="speed-slider" min="60" max="300" value="120" step="10">
+                <span>Fast</span>
+                <span class="speed-value" id="speed-display">120ms</span>
+            </div>
+            <div class="status">
+                <span class="dot"></span>
+                <span id="status-text">Airplane orbiting the globe — check your favicon! 🌍</span>
             </div>
         </div>
 
         <div class="card">
-            <h2>🧭 Choose Animation Style</h2>
-            <div class="anim-grid" id="anim-grid"></div>
-        </div>
-
-        <div class="card">
-            <h2>⏱️ Speed Control</h2>
-            <div class="speed-row">
-                <label>Slow</label>
-                <input type="range" id="speed-slider" min="80" max="350" value="130" step="10">
-                <label>Fast</label>
-                <span class="speed-val" id="speed-display">130ms</span>
-            </div>
-            <div class="live-bar">
-                <span class="live-dot"></span>
-                <span id="status-text">Train running around the globe — check your tab! 🚂🌍</span>
+            <h2>💎 Why It Stays Visible &amp; Loops</h2>
+            <div class="note">
+                <strong>No pauses when you switch tabs.</strong> This animation runs independently using <code>setInterval</code> and continues even in the background. 
+                Every frame is a thick, high-contrast canvas drawing optimized for 32×32 pixels: 
+                a deep blue globe with golden gradients, bold white continents, lat/long lines, and a brightly colored airplane with a visible contrail. 
+                All frames are <code>canvas.toDataURL()</code> PNGs swapped in the favicon link.
             </div>
         </div>
-
-        <div class="card info">
-            <h2>💡 Why it's 100% visible now</h2>
-            <p>
-                <strong>No thin SVG strokes!</strong> Every shape uses <strong>thick fills</strong> and <strong>high contrast</strong>: 
-                bright red train engine, black wheels, white smoke puffs, deep blue globe with bold green continents. 
-                The train is deliberately oversized for the 32×32 canvas — it's a <strong>tiny icon billboard</strong>, not a scale model.
-                All frames are generated as <code>canvas.toDataURL()</code> PNGs, swapped in the favicon link.
-            </p>
-        </div>
-
-        <footer>🌍 Detailed globe · visible running train · creative travel favicon ideas below</footer>
+        <footer>🌐 Luxury travel favicon — detailed globe + circling airplane • pure client-side</footer>
     </div>
 
     <script>
         (function() {
             const faviconLink = document.getElementById('dynamic-favicon');
-            const FAV = 32; // favicon size
+            const FAV = 32; // favicon render size
 
             let frames = [];
             let frameIdx = 0;
             let intervalId = null;
-            let speed = 130; // ms
-            let currentKey = 'globeTrain';
+            let speed = 120; // ms
 
-            // Helper: draw a frame onto an offscreen canvas, return data URL
-            function renderFrame(drawFn, size = FAV) {
-                const c = document.createElement('canvas');
-                c.width = size; c.height = size;
-                const ctx = c.getContext('2d');
-                ctx.clearRect(0, 0, size, size);
-                drawFn(ctx, size);
-                return c.toDataURL('image/png');
-            }
-
-            // ────────────────────── ANIMATION: GLOBE + VISIBLE TRAIN ──────────────────────
-            function genGlobeTrain(count = 30) {
-                const out = [];
+            // ──────────────────────────────────────
+            // LUXURY GLOBE + AIRPLANE FRAME GENERATOR
+            // ──────────────────────────────────────
+            function generateGlobeAirplaneFrames(count = 36) {
+                const result = [];
                 for (let i = 0; i < count; i++) {
                     const t = i / count;
-                    const angle = t * Math.PI * 2; // train position along equator
-                    out.push(renderFrame((ctx, s) => {
-                        const cx = s/2, cy = s/2, r = s * 0.42; // globe radius
+                    const angle = t * Math.PI * 2; // airplane orbital angle
 
-                        // 1. Ocean globe
-                        const globeGrad = ctx.createRadialGradient(cx-1, cy-1, r*0.2, cx, cy, r);
-                        globeGrad.addColorStop(0, '#2980b9');
-                        globeGrad.addColorStop(1, '#0b3d5e');
-                        ctx.fillStyle = globeGrad;
+                    result.push(renderFrame((ctx, s) => {
+                        const cx = s / 2;
+                        const cy = s / 2;
+                        const globeRadius = s * 0.42;
+
+                        // 1. Deep space / outer glow
+                        const glowGrad = ctx.createRadialGradient(cx, cy, globeRadius * 0.7, cx, cy, globeRadius * 1.4);
+                        glowGrad.addColorStop(0, 'rgba(0,160,220,0.25)');
+                        glowGrad.addColorStop(1, 'rgba(0,0,0,0)');
+                        ctx.fillStyle = glowGrad;
                         ctx.beginPath();
-                        ctx.arc(cx, cy, r, 0, Math.PI*2);
+                        ctx.arc(cx, cy, globeRadius * 1.4, 0, Math.PI * 2);
                         ctx.fill();
 
-                        // 2. Bold continents (simplified, high contrast green)
-                        ctx.fillStyle = '#27ae60';
-                        // North America-ish
+                        // 2. Globe ocean base (rich blue)
+                        const oceanGrad = ctx.createRadialGradient(cx - 0.5, cy - 0.5, globeRadius * 0.1, cx, cy, globeRadius);
+                        oceanGrad.addColorStop(0, '#2E8BC0');
+                        oceanGrad.addColorStop(0.5, '#145DA0');
+                        oceanGrad.addColorStop(1, '#0B2D5A');
+                        ctx.fillStyle = oceanGrad;
                         ctx.beginPath();
-                        ctx.ellipse(cx - r*0.45, cy - r*0.3, r*0.35, r*0.28, -0.3, 0, Math.PI*2);
+                        ctx.arc(cx, cy, globeRadius, 0, Math.PI * 2);
                         ctx.fill();
-                        // South America-ish
+
+                        // 3. Continents (bold, high contrast golden-green for visibility)
+                        ctx.fillStyle = '#C9A84C'; // gold tint
+                        // North America
                         ctx.beginPath();
-                        ctx.ellipse(cx - r*0.25, cy + r*0.25, r*0.25, r*0.4, 0.2, 0, Math.PI*2);
+                        ctx.ellipse(cx - globeRadius * 0.35, cy - globeRadius * 0.22, globeRadius * 0.32, globeRadius * 0.26, -0.3, 0, Math.PI * 2);
                         ctx.fill();
+                        ctx.fillStyle = '#D4AF37'; // lighter gold
+                        ctx.beginPath();
+                        ctx.ellipse(cx - globeRadius * 0.38, cy - globeRadius * 0.28, globeRadius * 0.18, globeRadius * 0.14, 0.2, 0, Math.PI * 2);
+                        ctx.fill();
+
+                        // South America
+                        ctx.fillStyle = '#B8963C';
+                        ctx.beginPath();
+                        ctx.ellipse(cx - globeRadius * 0.25, cy + globeRadius * 0.28, globeRadius * 0.22, globeRadius * 0.36, 0.2, 0, Math.PI * 2);
+                        ctx.fill();
+                        ctx.fillStyle = '#D4AF37';
+                        ctx.beginPath();
+                        ctx.ellipse(cx - globeRadius * 0.22, cy + globeRadius * 0.24, globeRadius * 0.1, globeRadius * 0.2, 0.3, 0, Math.PI * 2);
+                        ctx.fill();
+
                         // Europe/Africa
+                        ctx.fillStyle = '#B8963C';
                         ctx.beginPath();
-                        ctx.ellipse(cx + r*0.15, cy - r*0.2, r*0.28, r*0.32, 0.1, 0, Math.PI*2);
+                        ctx.ellipse(cx + globeRadius * 0.18, cy - globeRadius * 0.2, globeRadius * 0.25, globeRadius * 0.3, 0.1, 0, Math.PI * 2);
                         ctx.fill();
-                        ctx.fillStyle = '#2ecc71';
+                        ctx.fillStyle = '#D4AF37';
                         ctx.beginPath();
-                        ctx.ellipse(cx + r*0.35, cy + r*0.05, r*0.2, r*0.3, -0.2, 0, Math.PI*2);
+                        ctx.ellipse(cx + globeRadius * 0.22, cy - globeRadius * 0.26, globeRadius * 0.12, globeRadius * 0.15, 0.4, 0, Math.PI * 2);
                         ctx.fill();
-                        // Asia/Australia blob
-                        ctx.fillStyle = '#27ae60';
+                        ctx.fillStyle = '#B8963C';
                         ctx.beginPath();
-                        ctx.ellipse(cx + r*0.4, cy - r*0.3, r*0.3, r*0.22, 0.4, 0, Math.PI*2);
+                        ctx.ellipse(cx + globeRadius * 0.32, cy + globeRadius * 0.08, globeRadius * 0.18, globeRadius * 0.28, -0.2, 0, Math.PI * 2);
                         ctx.fill();
 
-                        // 3. Equator line (dashed track)
-                        ctx.strokeStyle = '#ffffff';
-                        ctx.lineWidth = 1.6;
-                        ctx.setLineDash([2.5, 3.5]);
+                        // Asia/Australia
+                        ctx.fillStyle = '#D4AF37';
                         ctx.beginPath();
-                        ctx.ellipse(cx, cy, r, r*0.35, 0, 0, Math.PI*2);
+                        ctx.ellipse(cx + globeRadius * 0.4, cy - globeRadius * 0.28, globeRadius * 0.25, globeRadius * 0.2, 0.4, 0, Math.PI * 2);
+                        ctx.fill();
+                        ctx.fillStyle = '#C9A84C';
+                        ctx.beginPath();
+                        ctx.ellipse(cx + globeRadius * 0.5, cy - globeRadius * 0.05, globeRadius * 0.15, globeRadius * 0.22, -0.1, 0, Math.PI * 2);
+                        ctx.fill();
+
+                        // 4. Latitude / Longitude lines (crisp white)
+                        ctx.strokeStyle = 'rgba(255,255,255,0.25)';
+                        ctx.lineWidth = 1.2;
+                        ctx.beginPath();
+                        ctx.ellipse(cx, cy, globeRadius, globeRadius * 0.35, 0, 0, Math.PI * 2);
                         ctx.stroke();
-                        ctx.setLineDash([]); // reset
+                        ctx.beginPath();
+                        ctx.ellipse(cx, cy, globeRadius * 0.55, globeRadius, 0, 0, Math.PI * 2);
+                        ctx.stroke();
+                        ctx.beginPath();
+                        ctx.ellipse(cx, cy - globeRadius * 0.2, globeRadius * 0.95, globeRadius * 0.25, 0, 0, Math.PI * 2);
+                        ctx.stroke();
+                        ctx.beginPath();
+                        ctx.ellipse(cx, cy + globeRadius * 0.2, globeRadius * 0.95, globeRadius * 0.25, 0, 0, Math.PI * 2);
+                        ctx.stroke();
 
-                        // 4. Train running along equator
-                        const trackRX = r;
-                        const trackRY = r * 0.35;
-                        // Position on ellipse (equator)
-                        const trainX = cx + Math.cos(angle) * trackRX;
-                        const trainY = cy + Math.sin(angle) * trackRY;
+                        // 5. Airplane orbiting (position on an ellipse slightly larger than globe)
+                        const orbitRX = globeRadius + 3;
+                        const orbitRY = (globeRadius + 3) * 0.35;
+                        const planeX = cx + Math.cos(angle) * orbitRX;
+                        const planeY = cy + Math.sin(angle) * orbitRY;
 
-                        // Train dimensions (big enough to see)
-                        const engineW = s * 0.28;  // length of engine
-                        const engineH = s * 0.15;  // height
-                        const angleTangent = Math.atan2(
-                            Math.cos(angle) * trackRY,
-                            -Math.sin(angle) * trackRX
-                        ) + Math.PI/2; // parallel to track
+                        // Tangent angle for rotation
+                        const tangentAngle = Math.atan2(
+                            Math.cos(angle) * orbitRY,
+                            -Math.sin(angle) * orbitRX
+                        ) + Math.PI / 2;
 
                         ctx.save();
-                        ctx.translate(trainX, trainY);
-                        ctx.rotate(angleTangent);
+                        ctx.translate(planeX, planeY);
+                        ctx.rotate(tangentAngle);
 
-                        // ---- Train Engine Body (bright red, chunky) ----
-                        ctx.fillStyle = '#e74c3c';
-                        ctx.beginPath();
-                        ctx.roundRect(-engineW/2, -engineH/2, engineW, engineH, 3);
-                        ctx.fill();
-                        // Cab (darker red)
-                        ctx.fillStyle = '#c0392b';
-                        ctx.fillRect(-engineW/2 + engineW*0.7, -engineH/2, engineW*0.25, engineH);
-                        // Boiler front (silver)
-                        ctx.fillStyle = '#bdc3c7';
-                        ctx.beginPath();
-                        ctx.ellipse(-engineW/2, 0, engineH*0.35, engineH*0.45, 0, 0, Math.PI*2);
-                        ctx.fill();
-                        // Headlight (bright yellow)
-                        ctx.fillStyle = '#f1c40f';
-                        ctx.beginPath();
-                        ctx.arc(-engineW/2 - 2, -engineH*0.2, 2, 0, Math.PI*2);
-                        ctx.fill();
-                        ctx.fillStyle = '#fff';
-                        ctx.beginPath();
-                        ctx.arc(-engineW/2 - 2, -engineH*0.2, 0.8, 0, Math.PI*2);
-                        ctx.fill();
-
-                        // Chimney
-                        ctx.fillStyle = '#2c3e50';
-                        ctx.fillRect(-engineW/2 + 4, -engineH/2 - 5, 4, 6);
-                        ctx.fillStyle = '#e67e22';
-                        ctx.fillRect(-engineW/2 + 3, -engineH/2 - 5, 6, 2);
-
-                        // Smoke puffs (white, trailing)
-                        ctx.fillStyle = '#ffffff';
-                        for (let p = 0; p < 3; p++) {
-                            const sx = -engineW/2 - 6 - p * 4;
-                            const sy = -engineH/2 - 3 - p * 1.2;
-                            const rad = 2.5 - p*0.4;
-                            ctx.globalAlpha = 0.9 - p*0.2;
+                        // Contrail (fading behind)
+                        ctx.fillStyle = 'rgba(255,255,255,0.6)';
+                        for (let d = 0; d < 4; d++) {
+                            const dx = -8 - d * 4;
+                            const dy = 0;
+                            const alpha = 0.7 - d * 0.16;
+                            ctx.fillStyle = `rgba(255,255,255,${alpha})`;
                             ctx.beginPath();
-                            ctx.arc(sx, sy, rad, 0, Math.PI*2);
+                            ctx.arc(dx, dy, 1.8 - d * 0.2, 0, Math.PI * 2);
                             ctx.fill();
                         }
-                        ctx.globalAlpha = 1;
 
-                        // Wheels (black circles, clearly visible)
-                        ctx.fillStyle = '#111';
-                        const wheelR = engineH*0.35;
-                        const wheelY = engineH/2 - 1;
-                        // Front wheel
+                        // Airplane body (luxury white with gold trim)
+                        ctx.fillStyle = '#FFFFFF';
                         ctx.beginPath();
-                        ctx.arc(-engineW/2 + 6, wheelY, wheelR, 0, Math.PI*2);
+                        ctx.ellipse(0, 0, 10, 3.5, 0, 0, Math.PI * 2); // fuselage
                         ctx.fill();
-                        // Middle wheel
+                        ctx.strokeStyle = '#D4AF37'; // gold outline
+                        ctx.lineWidth = 0.8;
+                        ctx.stroke();
+
+                        // Wings (swept back)
+                        ctx.fillStyle = '#E8E9F0';
                         ctx.beginPath();
-                        ctx.arc(0, wheelY, wheelR, 0, Math.PI*2);
+                        ctx.moveTo(1, -1.5);
+                        ctx.lineTo(6, -7);
+                        ctx.lineTo(10, -7);
+                        ctx.lineTo(7, -1.5);
+                        ctx.closePath();
                         ctx.fill();
-                        // Rear wheel
+                        ctx.strokeStyle = '#D4AF37';
+                        ctx.stroke();
+
                         ctx.beginPath();
-                        ctx.arc(engineW/2 - 6, wheelY, wheelR, 0, Math.PI*2);
+                        ctx.moveTo(1, 1.5);
+                        ctx.lineTo(6, 7);
+                        ctx.lineTo(10, 7);
+                        ctx.lineTo(7, 1.5);
+                        ctx.closePath();
                         ctx.fill();
-                        // Wheel centers (white dot)
-                        ctx.fillStyle = '#ffffff';
-                        [-engineW/2+6, 0, engineW/2-6].forEach(wx => {
+                        ctx.stroke();
+
+                        // Tail fin
+                        ctx.fillStyle = '#FFFFFF';
+                        ctx.beginPath();
+                        ctx.moveTo(-8, 0);
+                        ctx.lineTo(-13, -5);
+                        ctx.lineTo(-10, 0);
+                        ctx.closePath();
+                        ctx.fill();
+                        ctx.strokeStyle = '#D4AF37';
+                        ctx.stroke();
+
+                        // Engine nacelles (dark grey)
+                        ctx.fillStyle = '#5A5A6E';
+                        ctx.beginPath();
+                        ctx.ellipse(4, -6, 2, 1.2, 0, 0, Math.PI * 2);
+                        ctx.fill();
+                        ctx.beginPath();
+                        ctx.ellipse(4, 6, 2, 1.2, 0, 0, Math.PI * 2);
+                        ctx.fill();
+
+                        // Windows (row of tiny bright dots)
+                        ctx.fillStyle = '#48CAE4';
+                        for (let w = -0.8; w <= 0.8; w += 0.4) {
                             ctx.beginPath();
-                            ctx.arc(wx, wheelY, 1.2, 0, Math.PI*2);
+                            ctx.arc(-2 + w * 3, -0.6, 0.7, 0, Math.PI * 2);
                             ctx.fill();
-                        });
+                            ctx.beginPath();
+                            ctx.arc(-2 + w * 3, 0.6, 0.7, 0, Math.PI * 2);
+                            ctx.fill();
+                        }
 
-                        ctx.restore();
-
-                        // Highlight on globe glass
-                        ctx.fillStyle = 'rgba(255,255,255,0.15)';
+                        // Cockpit windows
+                        ctx.fillStyle = '#48CAE4';
                         ctx.beginPath();
-                        ctx.arc(cx - r*0.2, cy - r*0.25, r*0.25, 0, Math.PI*2);
+                        ctx.ellipse(7, -1, 1.8, 0.8, 0.1, 0, Math.PI * 2);
                         ctx.fill();
-                    }, FAV));
-                }
-                return out;
-            }
+                        ctx.beginPath();
+                        ctx.ellipse(7, 1, 1.8, 0.8, -0.1, 0, Math.PI * 2);
+                        ctx.fill();
 
-            // ────────────────────── OTHER CREATIVE TRAVEL ANIMATIONS ──────────────────────
-            function genPlaneOrbit(count = 28) {
-                const out = [];
-                for (let i = 0; i < count; i++) {
-                    const t = i / count; const angle = t * Math.PI * 2;
-                    out.push(renderFrame((ctx, s) => {
-                        const cx = s/2, cy = s/2, r = s*0.35;
-                        const grad = ctx.createRadialGradient(cx, cy, r*0.1, cx, cy, r);
-                        grad.addColorStop(0, '#48cae4'); grad.addColorStop(1, '#023e8a');
-                        ctx.fillStyle = grad; ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI*2); ctx.fill();
-                        const px = cx + Math.cos(angle)*(r+s*0.13), py = cy + Math.sin(angle)*(r+s*0.11);
-                        ctx.save(); ctx.translate(px, py); ctx.rotate(angle+Math.PI/2);
-                        ctx.fillStyle = '#fff';
-                        ctx.beginPath(); ctx.moveTo(0,-s*0.1); ctx.lineTo(s*0.05,s*0.05); ctx.lineTo(0,s*0.03); ctx.lineTo(-s*0.05,s*0.05); ctx.closePath(); ctx.fill();
-                        ctx.fillStyle = '#ff9f1c'; ctx.beginPath(); ctx.arc(0,s*0.01,s*0.02,0,Math.PI*2); ctx.fill();
                         ctx.restore();
+
+                        // 6. Globe highlight (glass reflection)
+                        ctx.fillStyle = 'rgba(255,255,255,0.2)';
+                        ctx.beginPath();
+                        ctx.ellipse(cx - globeRadius * 0.25, cy - globeRadius * 0.3, globeRadius * 0.3, globeRadius * 0.15, -0.2, 0, Math.PI * 2);
+                        ctx.fill();
+
                     }, FAV));
                 }
-                return out;
+                return result;
             }
 
-            function genCompass(count = 24) {
-                const out = [];
-                for (let i = 0; i < count; i++) {
-                    const t = i / count; const angle = t * Math.PI * 2;
-                    out.push(renderFrame((ctx, s) => {
-                        const cx = s/2, cy = s/2, r = s*0.4;
-                        const discGrad = ctx.createRadialGradient(cx, cy, r*0.2, cx, cy, r);
-                        discGrad.addColorStop(0, '#fefefe'); discGrad.addColorStop(1, '#c4a97d');
-                        ctx.fillStyle = discGrad; ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI*2); ctx.fill();
-                        ctx.fillStyle = '#3d2b0a'; ctx.font = `bold ${s*0.12}px sans-serif`; ctx.textAlign='center'; ctx.textBaseline='middle';
-                        ctx.fillText('N', cx, cy - r*0.7); ctx.fillText('S', cx, cy + r*0.7);
-                        ctx.save(); ctx.translate(cx, cy); ctx.rotate(angle);
-                        ctx.fillStyle = '#e63946'; ctx.beginPath(); ctx.moveTo(0, -r*0.7); ctx.lineTo(s*0.05, 0); ctx.lineTo(0, s*0.03); ctx.lineTo(-s*0.05, 0); ctx.closePath(); ctx.fill();
-                        ctx.fillStyle = '#1d3557'; ctx.beginPath(); ctx.moveTo(0, r*0.5); ctx.lineTo(s*0.05, 0); ctx.lineTo(0, -s*0.03); ctx.lineTo(-s*0.05, 0); ctx.closePath(); ctx.fill();
-                        ctx.restore();
-                    }, FAV));
-                }
-                return out;
+            // ──────────────────────────────────────
+            // FRAME RENDERER HELPER
+            // ──────────────────────────────────────
+            function renderFrame(drawFn, size = FAV) {
+                const canvas = document.createElement('canvas');
+                canvas.width = size;
+                canvas.height = size;
+                const ctx = canvas.getContext('2d');
+                ctx.clearRect(0, 0, size, size);
+                drawFn(ctx, size);
+                return canvas.toDataURL('image/png');
             }
 
-            function genSuitcase(count = 22) {
-                const out = [];
-                for (let i = 0; i < count; i++) {
-                    const t = i / count; const bounce = Math.abs(Math.sin(t*Math.PI*2));
-                    out.push(renderFrame((ctx, s) => {
-                        const cx = s/2, cy = s*0.4; const by = cy + bounce*s*0.1;
-                        ctx.fillStyle = `rgba(0,0,0,${0.15+bounce*0.2})`; ctx.beginPath(); ctx.ellipse(cx, s*0.74, s*0.22, s*0.05, 0, 0, Math.PI*2); ctx.fill();
-                        const caseGrad = ctx.createLinearGradient(cx, by-s*0.2, cx, by+s*0.15);
-                        caseGrad.addColorStop(0, '#f7c873'); caseGrad.addColorStop(1, '#b87820');
-                        ctx.fillStyle = caseGrad; ctx.beginPath(); ctx.roundRect(cx-s*0.25, by-s*0.18, s*0.5, s*0.33, s*0.05); ctx.fill();
-                        ctx.strokeStyle = '#8b5e14'; ctx.lineWidth=1; ctx.stroke();
-                        ctx.strokeStyle = '#5c3d0e'; ctx.lineWidth=2; ctx.beginPath(); ctx.arc(cx, by-s*0.18, s*0.09, Math.PI,0); ctx.stroke();
-                        ctx.fillStyle = '#fff'; ctx.fillRect(cx+s*0.12, by-s*0.1, s*0.08, s*0.06);
-                    }, FAV));
-                }
-                return out;
-            }
-
-            function genPinPulse(count = 26) {
-                const out = [];
-                for (let i = 0; i < count; i++) {
-                    const t = i / count; const pulse = (t%0.5)/0.5;
-                    out.push(renderFrame((ctx, s) => {
-                        const cx = s/2, cy = s*0.38;
-                        ctx.strokeStyle = `rgba(0,180,216,${0.6*(1-pulse)})`; ctx.lineWidth=1.6; ctx.beginPath(); ctx.arc(cx, cy, s*0.14+pulse*s*0.35, 0, Math.PI*2); ctx.stroke();
-                        const pinGrad = ctx.createLinearGradient(cx, cy-s*0.25, cx, cy+s*0.25);
-                        pinGrad.addColorStop(0,'#ff4d4d'); pinGrad.addColorStop(1,'#7b1818');
-                        ctx.fillStyle = pinGrad; ctx.beginPath(); ctx.moveTo(cx, cy+s*0.3); ctx.bezierCurveTo(cx-s*0.18, cy+s*0.05, cx-s*0.2, cy-s*0.18, cx, cy-s*0.25); ctx.bezierCurveTo(cx+s*0.2, cy-s*0.18, cx+s*0.18, cy+s*0.05, cx, cy+s*0.3); ctx.closePath(); ctx.fill();
-                    }, FAV));
-                }
-                return out;
-            }
-
-            // Registry
-            const animations = {
-                globeTrain: { name: 'Globe & Train', gen: genGlobeTrain, fc: 30, emoji: '🚂🌍' },
-                planeOrbit: { name: 'Plane Orbit', gen: genPlaneOrbit, fc: 28, emoji: '✈️🌐' },
-                compass: { name: 'Compass', gen: genCompass, fc: 24, emoji: '🧭' },
-                suitcase: { name: 'Suitcase', gen: genSuitcase, fc: 22, emoji: '🧳' },
-                pinPulse: { name: 'Pin Pulse', gen: genPinPulse, fc: 26, emoji: '📍' },
-            };
-
-            // UI elements
-            const grid = document.getElementById('anim-grid');
+            // ──────────────────────────────────────
+            // UI ELEMENTS
+            // ──────────────────────────────────────
             const speedSlider = document.getElementById('speed-slider');
             const speedDisplay = document.getElementById('speed-display');
             const statusText = document.getElementById('status-text');
             const headerCanvas = document.getElementById('header-preview');
             const headerCtx = headerCanvas.getContext('2d');
 
-            // Build buttons
-            Object.entries(animations).forEach(([key, a]) => {
-                const btn = document.createElement('button');
-                btn.className = 'anim-btn'; btn.dataset.key = key;
-                btn.innerHTML = `<canvas class="thumb-canvas" width="32" height="32"></canvas><span>${a.emoji} ${a.name}</span>`;
-                btn.addEventListener('click', ()=> switchTo(key));
-                grid.appendChild(btn);
-            });
-
-            function drawThumbs() {
-                document.querySelectorAll('.anim-btn .thumb-canvas').forEach(cv => {
-                    const key = cv.parentElement.dataset.key;
-                    if (key && animations[key]) {
-                        const f = animations[key].gen(1);
-                        if (f.length) {
-                            const img = new Image(); img.src = f[0];
-                            img.onload = ()=>{ const tctx = cv.getContext('2d'); tctx.clearRect(0,0,32,32); tctx.drawImage(img,0,0,32,32); };
-                        }
-                    }
-                });
-            }
-
-            function updateHeader() {
-                if (!frames.length) return;
-                const img = new Image(); img.src = frames[frameIdx];
-                img.onload = ()=>{ headerCtx.clearRect(0,0,64,64); headerCtx.drawImage(img,0,0,64,64); };
+            // ──────────────────────────────────────
+            // ANIMATION CONTROL
+            // ──────────────────────────────────────
+            function updateHeaderPreview() {
+                if (frames.length === 0) return;
+                const img = new Image();
+                img.src = frames[frameIdx];
+                img.onload = () => {
+                    headerCtx.clearRect(0, 0, 64, 64);
+                    headerCtx.drawImage(img, 0, 0, 64, 64);
+                };
             }
 
             function updateFavicon() {
-                if (!frames.length) return;
+                if (frames.length === 0) return;
                 faviconLink.href = frames[frameIdx];
-                updateHeader();
+                updateHeaderPreview();
                 frameIdx = (frameIdx + 1) % frames.length;
+                // Update status text occasionally
+                if (frameIdx % 6 === 0) {
+                    statusText.textContent = `Airplane orbiting — frame ${frameIdx+1}/${frames.length} 🌍✈️`;
+                }
             }
 
             function restartLoop() {
                 if (intervalId) clearInterval(intervalId);
-                if (!frames.length) return;
-                frameIdx = 0; updateFavicon();
+                if (frames.length === 0) return;
+                frameIdx = 0;
+                updateFavicon();
                 intervalId = setInterval(updateFavicon, speed);
-                statusText.textContent = `Animating "${animations[currentKey]?.name}" — see your tab! 🚂`;
+                statusText.textContent = `Airplane orbiting the globe — favicon alive! 🌍✈️`;
             }
 
-            function switchTo(key) {
-                currentKey = key;
-                document.querySelectorAll('.anim-btn').forEach(b=>b.classList.remove('active'));
-                document.querySelector(`.anim-btn[data-key="${key}"]`)?.classList.add('active');
-                const a = animations[key];
-                frames = a.gen(a.fc);
-                restartLoop();
-            }
-
-            speedSlider.addEventListener('input', ()=>{
+            // Speed slider
+            speedSlider.addEventListener('input', () => {
                 speed = parseInt(speedSlider.value);
                 speedDisplay.textContent = speed + 'ms';
                 restartLoop();
             });
 
-            document.addEventListener('visibilitychange', ()=>{
-                if (document.hidden) { if(intervalId) clearInterval(intervalId); intervalId=null; }
-                else restartLoop();
-            });
+            // ──────────────────────────────────────
+            // INITIALIZATION (no visibility pause)
+            // ──────────────────────────────────────
+            function init() {
+                speedSlider.value = speed;
+                speedDisplay.textContent = speed + 'ms';
+                // Generate frames
+                frames = generateGlobeAirplaneFrames(36);
+                // Start animation
+                restartLoop();
+                console.log('🌍 Luxury Globe & Airplane favicon active — runs even in background.');
+            }
 
-            // roundRect polyfill
+            // polyfill roundRect if needed
             if (!CanvasRenderingContext2D.prototype.roundRect) {
                 CanvasRenderingContext2D.prototype.roundRect = function(x, y, w, h, r) {
-                    if (typeof r === 'number') r = {tl:r, tr:r, br:r, bl:r};
+                    if (typeof r === 'number') r = { tl: r, tr: r, br: r, bl: r };
                     this.beginPath();
-                    this.moveTo(x+r.tl, y); this.lineTo(x+w-r.tr, y); this.quadraticCurveTo(x+w, y, x+w, y+r.tr);
-                    this.lineTo(x+w, y+h-r.br); this.quadraticCurveTo(x+w, y+h, x+w-r.br, y+h);
-                    this.lineTo(x+r.bl, y+h); this.quadraticCurveTo(x, y+h, x, y+h-r.bl);
-                    this.lineTo(x, y+r.tl); this.quadraticCurveTo(x, y, x+r.tl, y); this.closePath();
+                    this.moveTo(x + r.tl, y);
+                    this.lineTo(x + w - r.tr, y);
+                    this.quadraticCurveTo(x + w, y, x + w, y + r.tr);
+                    this.lineTo(x + w, y + h - r.br);
+                    this.quadraticCurveTo(x + w, y + h, x + w - r.br, y + h);
+                    this.lineTo(x + r.bl, y + h);
+                    this.quadraticCurveTo(x, y + h, x, y + h - r.bl);
+                    this.lineTo(x, y + r.tl);
+                    this.quadraticCurveTo(x, y, x + r.tl, y);
+                    this.closePath();
                 };
             }
 
-            function init() {
-                speedSlider.value = speed; speedDisplay.textContent = speed+'ms';
-                drawThumbs();
-                switchTo('globeTrain');
-            }
             init();
-            console.log('🌍 Travel favicon ready — train clearly visible at 32px!');
         })();
     </script>
 </body>
